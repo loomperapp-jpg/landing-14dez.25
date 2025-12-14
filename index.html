@@ -15,7 +15,7 @@
   <header class="lp-header">
     <div class="container header-inner">
       <div class="logo">
-        <img src="/assets/images/logo-horizontal.png" alt="Loomper" />
+        <img src="/assets/images/logo-horizontal.jpg" alt="Loomper" />
       </div>
       <nav class="main-nav" aria-label="Menu principal">
         <a href="#ecossistema">O Ecossistema</a>
@@ -30,9 +30,9 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-overlay"></div>
-    <img class="hero-bg" src="/assets/images/hero-truck.jpg" alt="Caminhão cegonha" />
+    <img class="hero-bg" src="/assets/images/hero-truck.png" alt="Caminhão cegonha" />
     <div class="container hero-content">
-      <img class="hero-logo" src="/assets/images/logo-horizontal.png" alt="LOOMPER" />
+      <img class="hero-logo" src="/assets/images/logo-horizontal.jpg" alt="LOOMPER" />
       <h1>LOOMPER — A evolução da conexão logística</h1>
       <p class="lead">Conectamos motoristas, chapas/ajudantes e transportadoras em um ecossistema único. Segurança para a carga. Dignidade para o profissional. Tecnologia para o setor.</p>
       <div class="hero-ctas">
@@ -58,24 +58,24 @@
       <h2>Simulador — veja o LOOMPER em ação</h2>
       <p class="muted">Escolha um perfil e acompanhe um fluxo prático e visual.</p>
 
-      <div class="sim-tabs" role="tablist">
-        <button class="tab active" data-target="sim-motorista" role="tab">Motorista</button>
-        <button class="tab" data-target="sim-chapa" role="tab">Chapa/Ajudante</button>
-        <button class="tab" data-target="sim-transportadora" role="tab">Transportadora</button>
+      <div class="sim-tabs" role="tablist" aria-label="Simulador de perfis">
+        <button id="tab-motorista" class="tab active" data-target="sim-motorista" role="tab" aria-selected="true" aria-controls="sim-motorista">Motorista</button>
+        <button id="tab-chapa" class="tab" data-target="sim-chapa" role="tab" aria-selected="false" aria-controls="sim-chapa">Chapa/Ajudante</button>
+        <button id="tab-transportadora" class="tab" data-target="sim-transportadora" role="tab" aria-selected="false" aria-controls="sim-transportadora">Transportadora</button>
       </div>
 
       <div class="sim-views">
-        <div id="sim-motorista" class="sim-view active">
+        <div id="sim-motorista" class="sim-view active" role="tabpanel" aria-labelledby="tab-motorista">
           <h3>Motorista — publique uma vaga em 5 passos</h3>
-          <form id="simMotoristaForm" class="sim-form">
-            <label>Data / Hora
-              <input name="date" type="datetime-local" required />
+          <form id="simMotoristaForm" class="sim-form" aria-label="Formulário de criação de vaga">
+            <label for="sim-date">Data / Hora
+              <input id="sim-date" name="date" type="datetime-local" required aria-required="true" />
             </label>
-            <label>Local (Origem - Cidade)
-              <input name="origin" placeholder="Ex: São Bernardo do Campo" required />
+            <label for="sim-origin">Local (Origem - Cidade)
+              <input id="sim-origin" name="origin" placeholder="Ex: São Bernardo do Campo" required aria-required="true" />
             </label>
-            <label>Tipo de serviço
-              <select name="service_type">
+            <label for="sim-service-type">Tipo de serviço
+              <select id="sim-service-type" name="service_type" aria-label="Selecione o tipo de serviço">
                 <option>Chapa guia</option>
                 <option>Ajudante carga</option>
                 <option>Ajudante descarga</option>
@@ -83,37 +83,37 @@
                 <option>Outro (especifique)</option>
               </select>
             </label>
-            <label>Nº de veículos
-              <input name="vehicles" type="number" min="1" value="1" />
+            <label for="sim-vehicles">Nº de veículos
+              <input id="sim-vehicles" name="vehicles" type="number" min="1" value="1" aria-label="Número de veículos" />
             </label>
-            <label>Duração estimada
-              <select name="duration">
+            <label for="sim-duration">Duração estimada
+              <select id="sim-duration" name="duration" aria-label="Selecione a duração estimada">
                 <option>01–02 horas</option>
                 <option>Meio turno (04h)</option>
                 <option>Turno inteiro (08h)</option>
               </select>
             </label>
-            <label>Valor (R$)
-              <input name="price" type="text" placeholder="150, 200, outro..." />
+            <label for="sim-price">Valor (R$)
+              <input id="sim-price" name="price" type="text" placeholder="150, 200, outro..." aria-label="Valor do serviço em reais" />
             </label>
-            <div class="sim-actions"><button type="submit" class="btn btn-primary">Publicar Vaga (Simulado)</button></div>
+            <div class="sim-actions"><button type="submit" class="btn btn-primary" aria-label="Publicar vaga simulada">Publicar Vaga (Simulado)</button></div>
           </form>
 
           <div id="motorista-result" class="sim-result" aria-live="polite"></div>
         </div>
 
-        <div id="sim-chapa" class="sim-view">
+        <div id="sim-chapa" class="sim-view" role="tabpanel" aria-labelledby="tab-chapa">
           <h3>Chapa — receba oportunidades na sua área</h3>
           <p>Exemplo simulado de vagas disponíveis. Candidatar-se, aceitar e bloquear agenda.</p>
-          <div id="chapa-list" class="sim-list"></div>
+          <div id="chapa-list" class="sim-list" role="list" aria-label="Lista de vagas disponíveis"></div>
         </div>
 
-        <div id="sim-transportadora" class="sim-view">
+        <div id="sim-transportadora" class="sim-view" role="tabpanel" aria-labelledby="tab-transportadora">
           <h3>Transportadora — dashboards rápidos</h3>
-          <div class="dash-grid">
-            <div class="dash-card"><h4>Serviços / Mês</h4><div class="kpi">1.248</div></div>
-            <div class="dash-card"><h4>Ociosidade Reduzida</h4><div class="kpi">-27%</div></div>
-            <div class="dash-card"><h4>Custo Médio / Serviço</h4><div class="kpi">R$ 342</div></div>
+          <div class="dash-grid" role="region" aria-label="Dashboard de métricas">
+            <div class="dash-card"><h4>Serviços / Mês</h4><div class="kpi" aria-label="1.248 serviços por mês">1.248</div></div>
+            <div class="dash-card"><h4>Ociosidade Reduzida</h4><div class="kpi" aria-label="27% de redução na ociosidade">-27%</div></div>
+            <div class="dash-card"><h4>Custo Médio / Serviço</h4><div class="kpi" aria-label="R$ 342 de custo médio por serviço">R$ 342</div></div>
             <div class="dash-card full"><h4>Visão rápida</h4><p class="muted">Gráficos ilustrativos e KPIs imediatamente compreensíveis — acompanha tendências e oportunidades.</p></div>
           </div>
         </div>
@@ -123,19 +123,19 @@
     <section id="apoie" class="section apoie">
       <h2>Apoie quem move o Brasil</h2>
       <p class="muted">LOOMPER é 100% gratuito para chapas. Ajude a manter o projeto e o impacto social.</p>
-      <div class="donation">
-        <div class="donation-buttons">
-          <button class="btn donate" data-amount="20">R$20</button>
-          <button class="btn donate" data-amount="50">R$50</button>
-          <button class="btn donate" data-amount="75">R$75</button>
-          <button id="donate-other" class="btn">Outro</button>
+      <div class="donation" role="region" aria-label="Seção de doações">
+        <div class="donation-buttons" role="group" aria-label="Valores de doação sugeridos">
+          <button class="btn donate" data-amount="20" aria-label="Doar R$ 20">R$20</button>
+          <button class="btn donate" data-amount="50" aria-label="Doar R$ 50">R$50</button>
+          <button class="btn donate" data-amount="75" aria-label="Doar R$ 75">R$75</button>
+          <button id="donate-other" class="btn" aria-label="Doar outro valor">Outro</button>
         </div>
-        <p class="muted">Chave PIX: <strong id="pix-key">loomper.app@gmail.com</strong></p>
+        <p class="muted">Chave PIX: <strong id="pix-key" aria-label="Chave PIX para doação">loomper.app@gmail.com</strong></p>
         <div class="pix-actions">
-          <button id="copy-pix" class="btn">COPIAR PIX</button>
-          <button id="show-qr" class="btn btn-outline">EXIBIR QR</button>
+          <button id="copy-pix" class="btn" aria-label="Copiar chave PIX">COPIAR PIX</button>
+          <button id="show-qr" class="btn btn-outline" aria-label="Exibir QR Code do PIX">EXIBIR QR</button>
         </div>
-        <div id="pix-qr" class="pix-qr" aria-hidden="true"></div>
+        <div id="pix-qr" class="pix-qr" aria-hidden="true" role="img" aria-label="QR Code do PIX"></div>
         <p class="micro">Ao copiar o PIX, cole no seu app bancário. Obrigado por apoiar os ajudantes e motoristas.</p>
       </div>
     </section>
@@ -144,24 +144,25 @@
       <h2>Seja um pioneiro</h2>
       <p class="muted">Garanta acesso antecipado e participe da construção da revolução no transporte de veículos no Brasil.</p>
 
-      <form id="waitlist-form" name="waitlist" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field">
+      <form id="waitlist-form" name="waitlist" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field" aria-label="Formulário de lista de espera">
         <input type="hidden" name="form-name" value="waitlist" />
         <p style="display:none"><label>Não preencha se for humano: <input name="bot-field" /></label></p>
 
-        <label>Nome completo
-          <input name="name" required />
+        <label for="waitlist-name">Nome completo
+          <input id="waitlist-name" name="name" required aria-required="true" />
         </label>
 
-        <label>Whatsapp (DDD+Número)
-          <input name="whatsapp" id="input-whatsapp" placeholder="11999998888" pattern="\d{10,11}" required />
+        <label for="input-whatsapp">Whatsapp (DDD+Número)
+          <input name="whatsapp" id="input-whatsapp" placeholder="11999998888" pattern="\d{10,11}" required aria-required="true" aria-describedby="whatsapp-help" />
+        </label>
+        <span id="whatsapp-help" class="visually-hidden">Digite apenas números com DDD, exemplo: 11999998888</span>
+
+        <label for="waitlist-email">E-mail
+          <input id="waitlist-email" type="email" name="email" required aria-required="true" />
         </label>
 
-        <label>E-mail
-          <input type="email" name="email" required />
-        </label>
-
-        <label>UF
-          <select name="uf" required>
+        <label for="waitlist-uf">UF
+          <select id="waitlist-uf" name="uf" required aria-required="true">
             <option value="">Selecione</option>
             <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option>
             <option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option>
@@ -171,12 +172,12 @@
           </select>
         </label>
 
-        <label>Cidade (digite sem acento)
-          <input name="city" required />
+        <label for="waitlist-city">Cidade (digite sem acento)
+          <input id="waitlist-city" name="city" required aria-required="true" />
         </label>
 
-        <label>Tipo de usuário
-          <select name="user_type" required>
+        <label for="waitlist-user-type">Tipo de usuário
+          <select id="waitlist-user-type" name="user_type" required aria-required="true">
             <option>Motorista</option>
             <option>Chapa / Ajudante</option>
             <option>Transportadora</option>
@@ -185,17 +186,20 @@
           </select>
         </label>
 
-        <label>Convidar amigo (opcional)
-          <input name="invite_email" placeholder="E-mail do amigo" />
+        <label for="waitlist-invite-email">Convidar amigo (opcional)
+          <input id="waitlist-invite-email" name="invite_email" placeholder="E-mail do amigo" type="email" />
         </label>
 
         <input type="hidden" id="referrer_id" name="referrer_id" />
         <input type="hidden" id="id_user" name="id_user" />
 
-        <label class="terms"><input type="checkbox" name="terms" required /> Aceito os Termos de Uso e a Política de Privacidade</label>
+        <div class="terms">
+          <input id="waitlist-terms" type="checkbox" name="terms" required aria-required="true" />
+          <label for="waitlist-terms">Aceito os Termos de Uso e a Política de Privacidade</label>
+        </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary">ENTRAR NA LISTA</button>
+          <button type="submit" class="btn btn-primary" aria-label="Entrar na lista de espera">ENTRAR NA LISTA</button>
         </div>
       </form>
     </section>
@@ -218,12 +222,12 @@
   <footer class="lp-footer">
     <div class="container footer-inner">
       <div class="left">
-        <div class="footer-logo"><img src="/assets/images/logo-horizontal.png" alt="LOOMPER" /></div>
+        <div class="footer-logo"><img src="/assets/images/logo-horizontal.jpg" alt="LOOMPER" /></div>
         <p>Ajud.ai Brasil Inova Simples (I.S.) — CNPJ 59.150.688/0001-39 — São Bernardo do Campo | SP | BRASIL</p>
         <p>© 2025 LOOMPER — todos os direitos reservados. FROM BRAZIL TO WORLD</p>
       </div>
       <div class="right">
-        <p><a href="/docs/terms.html" target="_blank" rel="noopener">Termos de Uso</a> | <a href="/docs/privacy.md">Política de Privacidade</a></p>
+        <p><a href="/docs/terms.md" target="_blank" rel="noopener">Termos de Uso</a> | <a href="/docs/privacy.md" target="_blank" rel="noopener">Política de Privacidade</a></p>
         <p><a href="mailto:loomper.app@gmail.com">Contato</a></p>
       </div>
     </div>
