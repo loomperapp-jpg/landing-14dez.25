@@ -1,4 +1,3 @@
-cat > netlify/functions/sendInvite.js <<'EOF'
 // skeleton Netlify Function - sendInvite
 exports.handler = async function(event, context) {
   try {
@@ -13,4 +12,3 @@ exports.handler = async function(event, context) {
     return { statusCode: 500, body: JSON.stringify({ ok:false, error: String(err) })};
   }
 };
-EOF

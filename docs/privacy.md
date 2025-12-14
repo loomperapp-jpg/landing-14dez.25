@@ -1,4 +1,3 @@
-cat > docs/privacy.md <<'EOF'
 # Política de Privacidade - LOOMPER (Rascunho)
 
 Rascunho para revisão jurídica. Este documento descreve de forma resumida como o LOOMPER trata dados:
@@ -11,4 +10,3 @@ Rascunho para revisão jurídica. Este documento descreve de forma resumida como
 - Contato DPO (provisório): dpo@loomper.app (substituir conforme definido pelo jurídico)
 
 Versão final será inserida após revisão jurídica.
-EOF

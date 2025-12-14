@@ -1,4 +1,3 @@
-cat > docs/terms.md <<'EOF'
 # Termos de Uso - LOOMPER (Rascunho)
 
 Este documento é um rascunho para fins de revisão jurídica. O texto final será produzido pelo departamento jurídico.
@@ -10,4 +9,3 @@ Resumo:
 - Política de utilização, reprimendas e procedimentos para denúncias serão inseridos na versão final.
 
 Contato jurídico: loomper.app@gmail.com
-EOF

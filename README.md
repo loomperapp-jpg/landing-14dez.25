@@ -1,4 +1,3 @@
-cat > README.md <<'EOF'
 # LOOMPER - Landing prototype
 
 Arquivos desta entrega:
@@ -15,4 +14,3 @@ Instruções rápidas:
 3. Teste o formulário (envie submissões e verifique no painel Netlify Forms).
 
 Obrigado.
-EOF
