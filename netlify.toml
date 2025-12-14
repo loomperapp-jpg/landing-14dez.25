@@ -1,7 +1,6 @@
-cat > netlify.toml <<'EOF'
 [build]
-  publish = "dist"
-  command = "npm run build"
+  publish = "."
+  command = ""
 
 [functions]
   directory = "netlify/functions"
@@ -10,4 +9,3 @@ cat > netlify.toml <<'EOF'
   from = "/*"
   to = "/index.html"
   status = 200
-EOF
