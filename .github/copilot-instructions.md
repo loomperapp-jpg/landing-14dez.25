@@ -25,7 +25,7 @@ O LOOMPER é uma plataforma de conexão logística que conecta motoristas, chapa
 - Use JavaScript moderno (ES6+) com funções assíncronas quando apropriado
 - Mantenha funções pequenas e focadas em uma única responsabilidade
 - Prefira `const` e `let` ao invés de `var`
-- Use nomes descritivos em português brasileiro para variáveis de negócio
+- **Nomenclatura**: Use português brasileiro para variáveis de lógica de negócio (ex: `nomeUsuario`, `valorTotal`) e inglês para conceitos técnicos (ex: `userId`, `timestamp`, `eventHandler`)
 - Implemente tratamento de erros robusto com try-catch
 - Sempre considere fallbacks para funcionalidades críticas
 
@@ -161,7 +161,7 @@ Ao desenvolver features, considere:
 - Versionamento semântico para releases
 - Testes para funcionalidades críticas
 
-## Analytics e Métricas
+## Analytics e Métricas (Metrics & Analytics)
 
 ### KPIs Principais
 1. **Conversão de Waitlist**: % de visitantes que se inscrevem
@@ -172,16 +172,44 @@ Ao desenvolver features, considere:
 
 ### Implementação de Tracking
 ```javascript
-// Exemplo de tracking de eventos
+/**
+ * Rastreia eventos de usuário para análise
+ * @param {string} eventName - Nome do evento (ex: 'waitlist_submit', 'simulator_used')
+ * @param {Object} properties - Propriedades adicionais do evento
+ * @returns {void}
+ * @example
+ * trackEvent('button_clicked', { button_id: 'cta-hero', section: 'hero' });
+ */
 function trackEvent(eventName, properties = {}) {
   // Implementar integração com analytics (Google Analytics, Mixpanel, etc.)
   const eventData = {
     event: eventName,
     timestamp: new Date().toISOString(),
-    userId: getOrCreateUserId(),
+    userId: getOrCreateUserId(), // Função definida em loomper-app.js
     ...properties
   };
   // Enviar para plataforma de analytics
+  // Exemplo: gtag('event', eventName, eventData);
+}
+
+/**
+ * Obtém ou cria ID único do usuário
+ * @returns {string} ID único do usuário (formato: LMP-XXXXXXXX)
+ * @example
+ * const userId = getOrCreateUserId(); // 'LMP-A1B2C3D4'
+ */
+function getOrCreateUserId() {
+  try {
+    let id = localStorage.getItem('loomper_user_id');
+    if (!id) {
+      id = 'LMP-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+      localStorage.setItem('loomper_user_id', id);
+    }
+    return id;
+  } catch (e) {
+    // Fallback se localStorage não disponível
+    return 'LMP-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+  }
 }
 ```
 
