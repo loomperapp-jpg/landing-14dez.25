@@ -202,13 +202,24 @@ function getOrCreateUserId() {
   try {
     let id = localStorage.getItem('loomper_user_id');
     if (!id) {
-      id = 'LMP-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+      // Use crypto.randomUUID se disponível (mais seguro), senão fallback para Math.random
+      if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+        id = 'LMP-' + crypto.randomUUID().split('-')[0].toUpperCase();
+      } else {
+        // Fallback: combine timestamp + random para reduzir colisões
+        id = 'LMP-' + Date.now().toString(36).toUpperCase() + 
+             Math.random().toString(36).substring(2, 6).toUpperCase();
+      }
       localStorage.setItem('loomper_user_id', id);
     }
     return id;
   } catch (e) {
     // Fallback se localStorage não disponível
-    return 'LMP-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+      return 'LMP-' + crypto.randomUUID().split('-')[0].toUpperCase();
+    }
+    return 'LMP-' + Date.now().toString(36).toUpperCase() + 
+           Math.random().toString(36).substring(2, 6).toUpperCase();
   }
 }
 ```
