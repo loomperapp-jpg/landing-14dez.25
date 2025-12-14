@@ -59,9 +59,9 @@
       <p class="muted">Escolha um perfil e acompanhe um fluxo prático e visual.</p>
 
       <div class="sim-tabs" role="tablist" aria-label="Simulador de perfis">
-        <button class="tab active" data-target="sim-motorista" role="tab" aria-selected="true" aria-controls="sim-motorista">Motorista</button>
-        <button class="tab" data-target="sim-chapa" role="tab" aria-selected="false" aria-controls="sim-chapa">Chapa/Ajudante</button>
-        <button class="tab" data-target="sim-transportadora" role="tab" aria-selected="false" aria-controls="sim-transportadora">Transportadora</button>
+        <button id="tab-motorista" class="tab active" data-target="sim-motorista" role="tab" aria-selected="true" aria-controls="sim-motorista">Motorista</button>
+        <button id="tab-chapa" class="tab" data-target="sim-chapa" role="tab" aria-selected="false" aria-controls="sim-chapa">Chapa/Ajudante</button>
+        <button id="tab-transportadora" class="tab" data-target="sim-transportadora" role="tab" aria-selected="false" aria-controls="sim-transportadora">Transportadora</button>
       </div>
 
       <div class="sim-views">
@@ -193,7 +193,10 @@
         <input type="hidden" id="referrer_id" name="referrer_id" />
         <input type="hidden" id="id_user" name="id_user" />
 
-        <label class="terms" for="waitlist-terms"><input id="waitlist-terms" type="checkbox" name="terms" required aria-required="true" /> Aceito os Termos de Uso e a Política de Privacidade</label>
+        <div class="terms">
+          <input id="waitlist-terms" type="checkbox" name="terms" required aria-required="true" />
+          <label for="waitlist-terms">Aceito os Termos de Uso e a Política de Privacidade</label>
+        </div>
 
         <div class="form-actions">
           <button type="submit" class="btn btn-primary" aria-label="Entrar na lista de espera">ENTRAR NA LISTA</button>
