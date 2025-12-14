@@ -3,7 +3,7 @@
   --bg-soft:#0b1220;
   --orange:#ff7a2d;
   --gold:#cfa34a;
-  --muted:#94a3b8;
+  --muted:#b4c5d8;
   --text:#ffffff;
   --container:1200px;
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
@@ -26,13 +26,18 @@ body.lp-body{margin:0;background:linear-gradient(180deg,var(--bg) 0%, #04101a 10
 .hero h1{font-size:44px;margin:6px 0 10px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,0.6);font-weight:800}
 .lead{font-size:18px;color:#cbd5e1;margin-bottom:12px}
 .hero-ctas .btn{margin-right:10px}
-.btn{display:inline-block;padding:12px 18px;border-radius:8px;border:0;cursor:pointer;text-decoration:none;color:var(--text)}
+.btn{display:inline-block;padding:12px 18px;border-radius:8px;border:0;cursor:pointer;text-decoration:none;color:var(--text);background:rgba(255,255,255,0.08);font-weight:600}
 .btn-primary{background:var(--orange);color:#000;font-weight:700}
 .btn-outline{background:rgba(255,255,255,0.03);border:2px solid rgba(255,255,255,0.15);color:var(--text)}
 .micro{font-size:13px;color:var(--muted);margin-top:8px}
 .section{padding:36px 0;border-top:1px solid rgba(255,255,255,0.03)}
+p{color:#d1dce8;line-height:1.6}
+h2{color:#ffffff;font-size:32px;font-weight:700;margin-bottom:12px}
+h3{color:#ffffff;font-weight:600}
 .cards{display:flex;gap:16px;margin-top:16px}
 .card{background:rgba(255,255,255,0.04);padding:18px;border-radius:10px;flex:1;border:1px solid rgba(255,255,255,0.06)}
+.card h3{color:#ffffff;font-size:20px;margin-bottom:8px}
+.card p{color:#d1dce8;line-height:1.6}
 .simulador .sim-tabs{display:flex;gap:8px;margin-bottom:12px}
 .tab{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);cursor:pointer}
 .tab.active{background:rgba(255,122,45,0.15);border-color:var(--orange)}
@@ -46,13 +51,20 @@ body.lp-body{margin:0;background:linear-gradient(180deg,var(--bg) 0%, #04101a 10
 .dash-card{background:rgba(255,255,255,0.04);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06)}
 .dash-card.full{grid-column:1/-1}
 .apoie .donation{display:block}
-.donation-buttons .btn{margin-right:8px}
+.donation-buttons{margin-bottom:16px}
+.donation-buttons .btn{margin-right:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);font-size:16px;font-weight:700}
+.donation-buttons .btn:hover{background:rgba(255,255,255,0.15)}
 .pix-qr img{max-width:240px;border-radius:8px;margin-top:10px}
-.waitlist form label{display:block;margin-bottom:10px}
+.pix-actions{margin:12px 0;display:flex;gap:8px}
+.pix-actions .btn{background:var(--orange);color:#000;font-weight:700}
+.pix-actions .btn-outline{background:rgba(255,255,255,0.08);color:var(--text)}
+#pix-key{color:var(--orange);font-weight:700;font-size:15px}
+.waitlist form label{display:block;margin-bottom:10px;color:#e8f0f8;font-weight:600}
 .waitlist input, .waitlist select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--text)}
 .terms{margin-top:10px;display:flex;align-items:center;gap:10px}
 .terms input[type="checkbox"]{transform:scale(1.05)}
 .form-actions{margin-top:14px}
+.form-actions .btn-primary{background:var(--orange);color:#000;font-weight:700;font-size:16px;padding:14px 24px}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px}
 .modal[aria-hidden="false"]{display:flex}
 .modal-content{background:linear-gradient(180deg,#071226,#0b0b0b);padding:24px;border-radius:12px;max-width:520px;width:100%;color:var(--text);position:relative}
