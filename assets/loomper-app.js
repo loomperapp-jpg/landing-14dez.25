@@ -2,6 +2,70 @@
 const WA_NUMBER = "5511965858142";
 const DOMAIN = window.location.origin || 'https://loomper.app';
 const PIX_KEY = "loomper.app@gmail.com";
+const CONTACT_EMAIL = "loomper.app@gmail.com";
+
+const STAKEHOLDER_BENEFITS = {
+  motorista: {
+    title: "🚚 Benefícios para Motoristas",
+    benefits: [
+      "✅ Encontre chapas qualificados em segundos",
+      "✅ Reduza tempo de espera e ociosidade",
+      "✅ Sistema de avaliações para escolher os melhores profissionais",
+      "✅ Histórico completo de todos os serviços",
+      "✅ Pagamentos rastreados e documentados",
+      "✅ Suporte 24/7 para resolução de problemas",
+      "✅ Aumente sua produtividade em até 40%",
+      "✅ Códigos de validação para segurança máxima"
+    ],
+    emailSubject: "Interesse em LOOMPER - Motorista",
+    emailBody: "Olá equipe LOOMPER,\n\nSou motorista e tenho interesse em conhecer melhor a plataforma LOOMPER.\n\nGostaria de receber mais informações sobre:\n- Como funciona o sistema\n- Custos e planos\n- Prazo para lançamento\n- Programa beta\n\nAguardo retorno.\n\nAtenciosamente,"
+  },
+  chapa: {
+    title: "👷 Benefícios para Chapas/Ajudantes",
+    benefits: [
+      "✅ Acesso 100% GRATUITO à plataforma",
+      "✅ Receba notificações de vagas na sua região",
+      "✅ Escolha os melhores horários e locais",
+      "✅ Construa sua reputação com avaliações",
+      "✅ Pagamentos transparentes e garantidos",
+      "✅ Dignidade e valorização profissional",
+      "✅ Aumente sua renda mensal",
+      "✅ Calendário inteligente para organizar agenda"
+    ],
+    emailSubject: "Interesse em LOOMPER - Chapa/Ajudante",
+    emailBody: "Olá equipe LOOMPER,\n\nSou chapa/ajudante e tenho interesse em participar da plataforma LOOMPER.\n\nGostaria de saber:\n- Como me cadastrar\n- Quais áreas serão atendidas primeiro\n- Como funciona o sistema de avaliações\n- Prazo para lançamento\n\nAguardo retorno.\n\nAtenciosamente,"
+  },
+  transportadora: {
+    title: "🏢 Benefícios para Transportadoras",
+    benefits: [
+      "✅ Gestão centralizada de toda a frota",
+      "✅ Dashboards em tempo real com KPIs",
+      "✅ Reduza custos operacionais em até 30%",
+      "✅ Minimize ociosidade e maximize produtividade",
+      "✅ Relatórios detalhados para tomada de decisão",
+      "✅ Priorização automática de demandas",
+      "✅ Controle de créditos e pagamentos",
+      "✅ Integração com sistemas existentes (API)"
+    ],
+    emailSubject: "Interesse em LOOMPER - Transportadora",
+    emailBody: "Olá equipe LOOMPER,\n\nRepresento uma transportadora e tenho interesse em conhecer o LOOMPER.\n\nGostaria de agendar uma apresentação para entender:\n- Funcionalidades da plataforma\n- Modelos de contratação\n- Integração com nossos sistemas\n- Cases de sucesso\n- ROI esperado\n\nAguardo contato.\n\nAtenciosamente,"
+  },
+  investidor: {
+    title: "💼 Oportunidade para Investidores/Parceiros",
+    benefits: [
+      "✅ Mercado bilionário pouco explorado digitalmente",
+      "✅ Impacto social mensurável e escalável",
+      "✅ Modelo de negócio multi-receita validado",
+      "✅ Equipe experiente e comprometida",
+      "✅ Tecnologia própria e escalável",
+      "✅ Potencial de expansão nacional e LATAM",
+      "✅ Network effect e efeitos de rede",
+      "✅ Defensibilidade através de dados e comunidade"
+    ],
+    emailSubject: "Interesse em Investimento/Parceria - LOOMPER",
+    emailBody: "Olá equipe LOOMPER,\n\nTenho interesse em conhecer melhor a oportunidade de investimento/parceria no LOOMPER.\n\nGostaria de receber:\n- Pitch deck\n- Projeções financeiras\n- Informações sobre a rodada atual\n- Agendar reunião\n\nAguardo retorno.\n\nAtenciosamente,"
+  }
+};
 
 function uuidv4(){
   return 'LMP-' + Math.random().toString(36).substring(2,10).toUpperCase();
@@ -24,6 +88,14 @@ function toURLEncoded(obj){ return Object.keys(obj).map(k=>encodeURIComponent(k)
 async function handleWaitlistSubmit(e){
   e.preventDefault();
   const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  
+  // Disable submit button to prevent double submission
+  if(submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'ENVIANDO...';
+  }
+  
   const fd = new FormData(form);
   if(!fd.get('id_user')) fd.set('id_user', getOrCreateUserId());
   const payload = {};
@@ -33,10 +105,20 @@ async function handleWaitlistSubmit(e){
   // Try fetch POST first, fallback to native submit to ensure Netlify Forms capture
   try{
     const res = await fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: toURLEncoded(payload) });
-    if(res.ok || res.status === 200 || res.status === 204){ showSuccessModal(payload); return; }
-  }catch(err){ console.warn('Fetch submit failed, falling back to native submit', err); }
+    if(res.ok || res.status === 200 || res.status === 204){ 
+      showSuccessModal(payload); 
+      form.reset();
+      return; 
+    }
+  }catch(err){ 
+    console.warn('Fetch submit failed, falling back to native submit', err); 
+  }
 
-  // fallback
+  // fallback - re-enable button and do native submit
+  if(submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'ENTRAR NA LISTA';
+  }
   form.removeEventListener('submit', handleWaitlistSubmit);
   form.submit();
 }
@@ -54,15 +136,127 @@ function showSuccessModal(payload){
   closeBtn.onclick = ()=>{ modal.setAttribute('aria-hidden','true'); };
 }
 
-async function copyToClipboard(text){ try{ await navigator.clipboard.writeText(text); alert('PIX copiado!'); }catch(err){ const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); alert('PIX copiado (fallback)!'); }finally{ document.body.removeChild(ta); } } }
+async function copyToClipboard(text, amount = null){ 
+  try{ 
+    await navigator.clipboard.writeText(text); 
+    if(amount) {
+      alert(`PIX copiado!\n\nValor sugerido: R$ ${amount}\n\nCole no seu app bancário e insira o valor.`); 
+    } else {
+      alert('PIX copiado! Cole no seu app bancário.');
+    }
+  } catch(err){ 
+    const ta = document.createElement('textarea'); 
+    ta.value = text; 
+    document.body.appendChild(ta); 
+    ta.select(); 
+    try{ 
+      document.execCommand('copy'); 
+      if(amount) {
+        alert(`PIX copiado (fallback)!\n\nValor sugerido: R$ ${amount}\n\nCole no seu app bancário.`); 
+      } else {
+        alert('PIX copiado (fallback)!'); 
+      }
+    } finally { 
+      document.body.removeChild(ta); 
+    } 
+  } 
+}
 
-function initPix(){ const copyPix = document.getElementById('copy-pix'); const pixKeyEl = document.getElementById('pix-key'); if(pixKeyEl) pixKeyEl.textContent = PIX_KEY; if(copyPix) copyPix.addEventListener('click', ()=> copyToClipboard(PIX_KEY)); const showQr = document.getElementById('show-qr'); if(showQr) showQr.addEventListener('click', ()=>{ const qr = document.getElementById('pix-qr'); const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(PIX_KEY)}`; qr.innerHTML = `<a href="${qrUrl}" target="_blank" rel="noopener"><img src="${qrUrl}" alt="QR PIX"/></a>`; qr.setAttribute('aria-hidden','false'); }); document.querySelectorAll('.donate').forEach(btn=> btn.addEventListener('click', ()=>{ const amount = btn.getAttribute('data-amount'); copyToClipboard(PIX_KEY).then(()=> alert(`PIX copiado. Valor sugerido: R$ ${amount}.`)); })); }
+function initPix(){ 
+  const copyPix = document.getElementById('copy-pix'); 
+  const pixKeyEl = document.getElementById('pix-key'); 
+  if(pixKeyEl) pixKeyEl.textContent = PIX_KEY; 
+  if(copyPix) copyPix.addEventListener('click', ()=> copyToClipboard(PIX_KEY)); 
+  
+  const showQr = document.getElementById('show-qr'); 
+  if(showQr) showQr.addEventListener('click', ()=>{ 
+    const qr = document.getElementById('pix-qr'); 
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(PIX_KEY)}`; 
+    qr.innerHTML = `<a href="${qrUrl}" target="_blank" rel="noopener"><img src="${qrUrl}" alt="QR Code PIX - Escaneie para doar"/></a>`; 
+    qr.setAttribute('aria-hidden','false'); 
+  }); 
+  
+  // Handle donation buttons with amount suggestions
+  document.querySelectorAll('.donate').forEach(btn=> btn.addEventListener('click', ()=>{ 
+    const amount = btn.getAttribute('data-amount'); 
+    copyToClipboard(PIX_KEY, amount); 
+  }));
+  
+  // Handle "other amount" button
+  const otherBtn = document.getElementById('donate-other');
+  if(otherBtn) {
+    otherBtn.addEventListener('click', ()=>{
+      const amount = prompt('Digite o valor que deseja doar (apenas números):');
+      if(amount && !isNaN(amount) && parseFloat(amount) > 0) {
+        copyToClipboard(PIX_KEY, amount);
+      } else if(amount) {
+        alert('Por favor, digite um valor válido.');
+      }
+    });
+  }
+}
 
 function initSimulador(){ document.querySelectorAll('.tab').forEach(t=> t.addEventListener('click', ()=>{ document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false');}); document.querySelectorAll('.sim-view').forEach(v=>v.classList.remove('active')); t.classList.add('active'); t.setAttribute('aria-selected','true'); document.getElementById(t.dataset.target).classList.add('active'); }));
   const simForm = document.getElementById('simMotoristaForm'); const resultEl = document.getElementById('motorista-result'); simForm.addEventListener('submit', (e)=>{ e.preventDefault(); const mockChapas = [ { name: 'João (Chapa)', rating: 4.8, phone: '11987654321' }, { name: 'Carlos (Chapa)', rating: 4.6, phone: '11976543210' }, { name: 'Lucas (Chapa)', rating: 4.5, phone: '11965432109' } ]; let html = `<div class="sim-result-list">`; mockChapas.forEach((c, idx)=>{ html += `<div class="sim-candidate"><strong>${c.name}</strong> — avaliação ${c.rating} <button class="btn select-candidate" data-idx="${idx}">Selecionar</button></div>`; }); html += `</div>`; resultEl.innerHTML = html; resultEl.querySelectorAll('.select-candidate').forEach(btn=> btn.addEventListener('click', ()=>{ const idx = btn.getAttribute('data-idx'); const chapa = mockChapas[idx]; const code = String(Math.floor(1000 + Math.random()*9000)); resultEl.innerHTML = `<div class="sim-confirm">Candidato selecionado: <strong>${chapa.name}</strong><p>Código de validação gerado: <strong>${code}</strong></p><p>O código foi enviado ao app do chapa (simulado). Agenda bloqueada para este período.</p></div>`; })); });
   const chapaList = document.getElementById('chapa-list'); const vacs = [ { id: 'V-001', title: 'Carregar 2 veículos - Zona Leste SP', when: 'Hoje 14:00' }, { id: 'V-002', title: 'Descarregar 1 veículo - Diadema', when: 'Amanhã 09:00' } ]; chapaList.innerHTML = vacs.map(v=> `<div class="vac-item"><strong>${v.title}</strong><div>${v.when}</div><button class="btn apply" data-id="${v.id}">Candidatar</button></div>`).join(''); chapaList.querySelectorAll('.apply').forEach(b=> b.addEventListener('click', ()=> alert('Candidatura enviada (simulado). Aguarde aprovação do motorista.')));
 }
 
-function init(){ fillReferrerFromURL(); fillIdUserField(); initPix(); initSimulador(); const waitForm = document.getElementById('waitlist-form'); if(waitForm) waitForm.addEventListener('submit', handleWaitlistSubmit); const modal = document.getElementById('success-modal'); if(modal) modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.setAttribute('aria-hidden','true'); }); const closeBtn = document.getElementById('modal-close'); if(closeBtn) closeBtn.addEventListener('click', ()=> { const modal = document.getElementById('success-modal'); if(modal) modal.setAttribute('aria-hidden','true'); }); }
+function showStakeholderModal(stakeholderType) {
+  const modal = document.getElementById('stakeholder-modal');
+  const titleEl = document.getElementById('stakeholder-title');
+  const contentEl = document.getElementById('stakeholder-content');
+  const contactBtn = document.getElementById('contact-stakeholder');
+  
+  const data = STAKEHOLDER_BENEFITS[stakeholderType];
+  if (!data) return;
+  
+  titleEl.textContent = data.title;
+  
+  let html = '<ul style="text-align: left; line-height: 2; color: var(--muted); margin: 20px 0;">';
+  data.benefits.forEach(benefit => {
+    html += `<li style="margin-bottom: 8px;">${benefit}</li>`;
+  });
+  html += '</ul>';
+  
+  contentEl.innerHTML = html;
+  
+  contactBtn.onclick = () => {
+    const subject = encodeURIComponent(data.emailSubject);
+    const body = encodeURIComponent(data.emailBody);
+    const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+  };
+  
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+function initStakeholders() {
+  const stakeholderBtns = document.querySelectorAll('.stakeholder-btn');
+  stakeholderBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const stakeholderType = btn.getAttribute('data-stakeholder');
+      showStakeholderModal(stakeholderType);
+    });
+  });
+  
+  const closeBtn = document.getElementById('stakeholder-modal-close');
+  const modal = document.getElementById('stakeholder-modal');
+  
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden', 'true');
+    });
+  }
+  
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+}
+
+function init(){ fillReferrerFromURL(); fillIdUserField(); initPix(); initSimulador(); initStakeholders(); const waitForm = document.getElementById('waitlist-form'); if(waitForm) waitForm.addEventListener('submit', handleWaitlistSubmit); const modal = document.getElementById('success-modal'); if(modal) modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.setAttribute('aria-hidden','true'); }); const closeBtn = document.getElementById('modal-close'); if(closeBtn) closeBtn.addEventListener('click', ()=> { const modal = document.getElementById('success-modal'); if(modal) modal.setAttribute('aria-hidden','true'); }); }
 
 document.addEventListener('DOMContentLoaded', init);

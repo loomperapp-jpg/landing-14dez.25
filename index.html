@@ -140,6 +140,37 @@
       </div>
     </section>
 
+    <section id="stakeholders" class="section stakeholders">
+      <h2>Benefícios para cada stakeholder</h2>
+      <p class="muted">Descubra como o LOOMPER pode transformar seu negócio e rotina profissional.</p>
+      
+      <div class="stakeholder-cards">
+        <div class="stakeholder-card">
+          <h3>🚚 Motorista</h3>
+          <p>Encontre chapas qualificados rapidamente, reduza tempo de espera e aumente sua produtividade.</p>
+          <button class="btn btn-outline stakeholder-btn" data-stakeholder="motorista">Ver Benefícios</button>
+        </div>
+        
+        <div class="stakeholder-card">
+          <h3>👷 Chapa / Ajudante</h3>
+          <p>Acesso a mais oportunidades, pagamentos transparentes e valorização do seu trabalho.</p>
+          <button class="btn btn-outline stakeholder-btn" data-stakeholder="chapa">Ver Benefícios</button>
+        </div>
+        
+        <div class="stakeholder-card">
+          <h3>🏢 Transportadora</h3>
+          <p>Gestão eficiente da frota, redução de custos operacionais e dashboards em tempo real.</p>
+          <button class="btn btn-outline stakeholder-btn" data-stakeholder="transportadora">Ver Benefícios</button>
+        </div>
+        
+        <div class="stakeholder-card">
+          <h3>💼 Investidor / Parceiro</h3>
+          <p>Oportunidade única em mercado bilionário com impacto social mensurável.</p>
+          <button class="btn btn-outline stakeholder-btn" data-stakeholder="investidor">Ver Benefícios</button>
+        </div>
+      </div>
+    </section>
+
     <section id="waitlist" class="section waitlist">
       <h2>Seja um pioneiro</h2>
       <p class="muted">Garanta acesso antecipado e participe da construção da revolução no transporte de veículos no Brasil.</p>
@@ -195,7 +226,7 @@
 
         <div class="terms">
           <input id="waitlist-terms" type="checkbox" name="terms" required aria-required="true" />
-          <label for="waitlist-terms">Aceito os Termos de Uso e a Política de Privacidade</label>
+          <label for="waitlist-terms">Aceito os <a href="/terms.html" target="_blank" rel="noopener" style="color: var(--orange)">Termos de Uso</a> e a <a href="/privacy.html" target="_blank" rel="noopener" style="color: var(--orange)">Política de Privacidade</a></label>
         </div>
 
         <div class="form-actions">
@@ -219,6 +250,17 @@
     </div>
   </div>
 
+  <div id="stakeholder-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="stakeholder-modal-close">&times;</button>
+      <h3 id="stakeholder-title">Benefícios</h3>
+      <div id="stakeholder-content"></div>
+      <div class="modal-actions">
+        <button id="contact-stakeholder" class="btn btn-primary">Entrar em Contato</button>
+      </div>
+    </div>
+  </div>
+
   <footer class="lp-footer">
     <div class="container footer-inner">
       <div class="left">
@@ -227,7 +269,7 @@
         <p>© 2025 LOOMPER — todos os direitos reservados. FROM BRAZIL TO WORLD</p>
       </div>
       <div class="right">
-        <p><a href="/docs/terms.md" target="_blank" rel="noopener">Termos de Uso</a> | <a href="/docs/privacy.md" target="_blank" rel="noopener">Política de Privacidade</a></p>
+        <p><a href="/terms.html" target="_blank" rel="noopener">Termos de Uso</a> | <a href="/privacy.html" target="_blank" rel="noopener">Política de Privacidade</a></p>
         <p><a href="mailto:loomper.app@gmail.com">Contato</a></p>
       </div>
     </div>
