@@ -90,6 +90,9 @@ async function handleWaitlistSubmit(e){
   const form = e.target;
   const submitBtn = form.querySelector('button[type="submit"]');
   
+  // Store original button text to restore later if needed
+  const originalBtnText = submitBtn ? submitBtn.textContent : 'ENTRAR NA LISTA';
+  
   // Disable submit button to prevent double submission
   if(submitBtn) {
     submitBtn.disabled = true;
@@ -117,7 +120,7 @@ async function handleWaitlistSubmit(e){
   // fallback - re-enable button and do native submit
   if(submitBtn) {
     submitBtn.disabled = false;
-    submitBtn.textContent = 'ENTRAR NA LISTA';
+    submitBtn.textContent = originalBtnText;
   }
   form.removeEventListener('submit', handleWaitlistSubmit);
   form.submit();
@@ -182,15 +185,39 @@ function initPix(){
     copyToClipboard(PIX_KEY, amount); 
   }));
   
-  // Handle "other amount" button
+  // Handle "other amount" button - show inline input instead of prompt
   const otherBtn = document.getElementById('donate-other');
-  if(otherBtn) {
+  const customField = document.getElementById('custom-amount-field');
+  const customAmountInput = document.getElementById('custom-amount');
+  const confirmBtn = document.getElementById('confirm-custom-amount');
+  
+  if(otherBtn && customField) {
     otherBtn.addEventListener('click', ()=>{
-      const amount = prompt('Digite o valor que deseja doar (apenas números):');
+      customField.style.display = customField.style.display === 'none' ? 'block' : 'none';
+      if(customField.style.display === 'block') {
+        customAmountInput.focus();
+      }
+    });
+  }
+  
+  if(confirmBtn && customAmountInput) {
+    confirmBtn.addEventListener('click', ()=>{
+      const amount = customAmountInput.value;
       if(amount && !isNaN(amount) && parseFloat(amount) > 0) {
         copyToClipboard(PIX_KEY, amount);
-      } else if(amount) {
-        alert('Por favor, digite um valor válido.');
+        customField.style.display = 'none';
+        customAmountInput.value = '';
+      } else {
+        customAmountInput.setCustomValidity('Por favor, digite um valor válido maior que zero.');
+        customAmountInput.reportValidity();
+      }
+    });
+    
+    // Also allow Enter key to confirm
+    customAmountInput.addEventListener('keypress', (e)=>{
+      if(e.key === 'Enter') {
+        e.preventDefault();
+        confirmBtn.click();
       }
     });
   }
@@ -285,8 +312,23 @@ function initSimulador(){
     `).join('');
     
     chapaList.querySelectorAll('.apply').forEach(b => {
-      b.addEventListener('click', () => {
-        alert('✅ Candidatura enviada (simulado)!\n\nAguarde aprovação do motorista.\nVocê receberá uma notificação quando for selecionado.');
+      b.addEventListener('click', (e) => {
+        const btn = e.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Enviado!';
+        btn.disabled = true;
+        btn.style.background = 'var(--gold)';
+        
+        // Show confirmation message below the button
+        const vacItem = btn.closest('.vac-item');
+        let confirmMsg = vacItem.querySelector('.confirm-msg');
+        if (!confirmMsg) {
+          confirmMsg = document.createElement('div');
+          confirmMsg.className = 'confirm-msg';
+          confirmMsg.style.cssText = 'margin-top:8px;padding:8px;background:rgba(207,163,74,0.1);border-radius:6px;color:var(--gold);font-size:14px;';
+          vacItem.appendChild(confirmMsg);
+        }
+        confirmMsg.textContent = '✅ Candidatura enviada! Aguarde aprovação do motorista.';
       });
     });
   }

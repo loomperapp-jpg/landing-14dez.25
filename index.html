@@ -130,6 +130,13 @@
           <button class="btn donate" data-amount="75" aria-label="Doar R$ 75">R$75</button>
           <button id="donate-other" class="btn" aria-label="Doar outro valor">Outro</button>
         </div>
+        <div id="custom-amount-field" style="display:none;margin-top:12px;">
+          <label for="custom-amount" style="display:block;margin-bottom:6px;color:var(--muted);">Digite o valor desejado (R$):</label>
+          <div style="display:flex;gap:8px;">
+            <input type="number" id="custom-amount" min="1" step="0.01" placeholder="Ex: 100" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--text);" />
+            <button id="confirm-custom-amount" class="btn btn-primary">Confirmar</button>
+          </div>
+        </div>
         <p class="muted">Chave PIX: <strong id="pix-key" aria-label="Chave PIX para doação">loomper.app@gmail.com</strong></p>
         <div class="pix-actions">
           <button id="copy-pix" class="btn" aria-label="Copiar chave PIX">COPIAR PIX</button>
