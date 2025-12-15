@@ -1,303 +1,163 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LOOMPER — A evolução da conexão logística</title>
-  <meta name="description" content="LOOMPER conecta motoristas, chapas/ajudantes e transportadoras em um ecossistema seguro e eficiente para transporte de veículos no Brasil. Rastreabilidade, segurança, dignidade e tecnologia." />
-  <link rel="icon" href="/assets/images/icon-l.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/loomper-app.css" />
-</head>
-<body class="lp-body">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loomper • Lista de Pioneiros</title>  <style>
+    :root {
+      --bg-dark: #0e0e11;
+      --bg-card: #15151c;
+      --accent: #22c55e; /* verde PIX */
+      --text-main: #ffffff;
+      --text-muted: #b5b5c0;
+    }
 
-  <!-- HEADER -->
-  <header class="lp-header">
-    <div class="container header-inner">
-      <div class="logo">
-        <img src="/assets/images/logo-horizontal.jpg" alt="Loomper" />
-      </div>
-      <nav class="main-nav" aria-label="Menu principal">
-        <a href="#ecossistema">O Ecossistema</a>
-        <a href="#simulador">Simulador</a>
-        <a href="#apoie">Apoie</a>
-        <a href="#stakeholders">Stakeholders</a>
-        <a class="btn cta" href="#waitlist">QUERO SER PIONEIRO</a>
-      </nav>
-    </div>
-  </header>
+    * { box-sizing: border-box; }
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <img class="hero-bg" src="/assets/images/hero-truck.png" alt="Caminhão cegonha" />
-    <div class="container hero-content">
-      <img class="hero-logo" src="/assets/images/logo-horizontal.jpg" alt="LOOMPER" />
-      <h1>LOOMPER — A evolução da conexão logística</h1>
-      <p class="lead">Conectamos motoristas, chapas/ajudantes e transportadoras em um ecossistema único. Segurança para a carga. Dignidade para o profissional. Tecnologia para o setor.</p>
-      <div class="hero-ctas">
-        <a href="#waitlist" class="btn btn-primary">QUERO SER PIONEIRO</a>
-        <a href="#simulador" class="btn btn-outline">VER SIMULADOR</a>
-      </div>
-      <p class="micro">Acesso antecipado — vagas limitadas. Entrando hoje você garante prioridade no lançamento.</p>
-    </div>
-  </section>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(circle at top, #1a1a22, #0e0e11 70%);
+      color: var(--text-main);
+    }
 
-  <main class="container">
-    <section id="ecossistema" class="section">
-      <h2>Como o LOOMPER funciona — simples, seguro e escalável</h2>
-      <p class="muted">Publicação de vaga → Candidatura → Validação por código → Finalização com pagamento. Tudo rastreado e documentado.</p>
-      <div class="cards">
-        <div class="card"><h3>Motorista</h3><p>Crie a vaga com data, horário, local e tipo de serviço. Publique. Visualize chapas na região e selecione o melhor candidato.</p></div>
-        <div class="card"><h3>Chapa / Ajudante</h3><p>Cadastre habilidades e áreas. Receba vagas compatíveis, candidate-se e confirme o serviço com código gerado.</p></div>
-        <div class="card"><h3>Transportadora</h3><p>Gerencie frota e créditos, crie prioridades e acompanhe KPIs em dashboards intuitivos.</p></div>
-      </div>
-    </section>
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(20, 20, 25, 0.65);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 12px 20px;
+      text-align: center;
+    }
 
-    <section id="simulador" class="section simulador">
-      <h2>Simulador — veja o LOOMPER em ação</h2>
-      <p class="muted">Escolha um perfil e acompanhe um fluxo prático e visual.</p>
+    header img {
+      height: 36px;
+    }
 
-      <div class="sim-tabs" role="tablist" aria-label="Simulador de perfis">
-        <button id="tab-motorista" class="tab active" data-target="sim-motorista" role="tab" aria-selected="true" aria-controls="sim-motorista">Motorista</button>
-        <button id="tab-chapa" class="tab" data-target="sim-chapa" role="tab" aria-selected="false" aria-controls="sim-chapa">Chapa/Ajudante</button>
-        <button id="tab-transportadora" class="tab" data-target="sim-transportadora" role="tab" aria-selected="false" aria-controls="sim-transportadora">Transportadora</button>
-      </div>
+    /* HERO */
+    .hero {
+      padding: 48px 20px 32px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-      <div class="sim-views">
-        <div id="sim-motorista" class="sim-view active" role="tabpanel" aria-labelledby="tab-motorista">
-          <h3>Motorista — publique uma vaga em 5 passos</h3>
-          <form id="simMotoristaForm" class="sim-form" aria-label="Formulário de criação de vaga">
-            <label for="sim-date">Data / Hora
-              <input id="sim-date" name="date" type="datetime-local" required aria-required="true" />
-            </label>
-            <label for="sim-origin">Local (Origem - Cidade)
-              <input id="sim-origin" name="origin" placeholder="Ex: São Bernardo do Campo" required aria-required="true" />
-            </label>
-            <label for="sim-service-type">Tipo de serviço
-              <select id="sim-service-type" name="service_type" aria-label="Selecione o tipo de serviço">
-                <option>Chapa guia</option>
-                <option>Ajudante carga</option>
-                <option>Ajudante descarga</option>
-                <option>Manobrista / Subidor</option>
-                <option>Outro (especifique)</option>
-              </select>
-            </label>
-            <label for="sim-vehicles">Nº de veículos
-              <input id="sim-vehicles" name="vehicles" type="number" min="1" value="1" aria-label="Número de veículos" />
-            </label>
-            <label for="sim-duration">Duração estimada
-              <select id="sim-duration" name="duration" aria-label="Selecione a duração estimada">
-                <option>01–02 horas</option>
-                <option>Meio turno (04h)</option>
-                <option>Turno inteiro (08h)</option>
-              </select>
-            </label>
-            <label for="sim-price">Valor (R$)
-              <input id="sim-price" name="price" type="text" placeholder="150, 200, outro..." aria-label="Valor do serviço em reais" />
-            </label>
-            <div class="sim-actions"><button type="submit" class="btn btn-primary" aria-label="Publicar vaga simulada">Publicar Vaga (Simulado)</button></div>
-          <<form
-  name="waitlist"
-  method="POST"
-  data-netlify="true"
-  action="/sucesso.html"
->
-  <input type="hidden" name="form-name" value="waitlist" />
+    .hero h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
 
-  <input type="text" name="nome" required />
-  <input type="email" name="email" required />
+    .hero p {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
 
-  <button type="submit">Quero ser pioneiro</button>
-</form>*>
+    /* CARD */
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 24px;
+    }
 
-          <div id="motorista-result" class="sim-result" aria-live="polite"></div>
-        </div>
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
 
-        <div id="sim-chapa" class="sim-view" role="tabpanel" aria-labelledby="tab-chapa">
-          <h3>Chapa — receba oportunidades na sua área</h3>
-          <p>Exemplo simulado de vagas disponíveis. Candidatar-se, aceitar e bloquear agenda.</p>
-          <div id="chapa-list" class="sim-list" role="list" aria-label="Lista de vagas disponíveis"></div>
-        </div>
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
 
-        <div id="sim-transportadora" class="sim-view" role="tabpanel" aria-labelledby="tab-transportadora">
-          <h3>Transportadora — dashboards rápidos</h3>
-          <div class="dash-grid" role="region" aria-label="Dashboard de métricas">
-            <div class="dash-card"><h4>Serviços / Mês</h4><div class="kpi" aria-label="1.248 serviços por mês">1.248</div></div>
-            <div class="dash-card"><h4>Ociosidade Reduzida</h4><div class="kpi" aria-label="27% de redução na ociosidade">-27%</div></div>
-            <div class="dash-card"><h4>Custo Médio / Serviço</h4><div class="kpi" aria-label="R$ 342 de custo médio por serviço">R$ 342</div></div>
-            <div class="dash-card full"><h4>Visão rápida</h4><p class="muted">Gráficos ilustrativos e KPIs imediatamente compreensíveis — acompanha tendências e oportunidades.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    /* FORM */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
-    <section id="apoie" class="section apoie">
-      <h2>Apoie quem move o Brasil</h2>
-      <p class="muted">LOOMPER é 100% gratuito para chapas. Ajude a manter o projeto e o impacto social.</p>
-      <div class="donation" role="region" aria-label="Seção de doações">
-        <div class="donation-buttons" role="group" aria-label="Valores de doação sugeridos">
-          <button class="btn donate" data-amount="20" aria-label="Doar R$ 20">R$20</button>
-          <button class="btn donate" data-amount="50" aria-label="Doar R$ 50">R$50</button>
-          <button class="btn donate" data-amount="75" aria-label="Doar R$ 75">R$75</button>
-          <button id="donate-other" class="btn" aria-label="Doar outro valor">Outro</button>
-        </div>
-        <div id="custom-amount-field" style="display:none;margin-top:12px;">
-          <label for="custom-amount" style="display:block;margin-bottom:6px;color:var(--muted);">Digite o valor desejado (R$):</label>
-          <div style="display:flex;gap:8px;">
-            <input type="number" id="custom-amount" min="1" step="0.01" placeholder="Ex: 100" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--text);" />
-            <button id="confirm-custom-amount" class="btn btn-primary">Confirmar</button>
-          </div>
-        </div>
-        <p class="muted">Chave PIX: <strong id="pix-key" aria-label="Chave PIX para doação">loomper.app@gmail.com</strong></p>
-        <div class="pix-actions">
-          <button id="copy-pix" class="btn" aria-label="Copiar chave PIX">COPIAR PIX</button>
-          <button id="show-qr" class="btn btn-outline" aria-label="Exibir QR Code do PIX">EXIBIR QR</button>
-        </div>
-        <div id="pix-qr" class="pix-qr" aria-hidden="true" role="img" aria-label="QR Code do PIX"></div>
-        <p class="micro">Ao copiar o PIX, cole no seu app bancário. Obrigado por apoiar os ajudantes e motoristas.</p>
-      </div>
-    </section>
+    input {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+    }
 
-    <section id="stakeholders" class="section stakeholders">
-      <h2>Benefícios para cada stakeholder</h2>
-      <p class="muted">Descubra como o LOOMPER pode transformar seu negócio e rotina profissional.</p>
-      
-      <div class="stakeholder-cards">
-        <div class="stakeholder-card">
-          <h3>🚚 Motorista</h3>
-          <p>Encontre chapas qualificados rapidamente, reduza tempo de espera e aumente sua produtividade.</p>
-          <button class="btn btn-outline stakeholder-btn" data-stakeholder="motorista">Ver Benefícios</button>
-        </div>
-        
-        <div class="stakeholder-card">
-          <h3>👷 Chapa / Ajudante</h3>
-          <p>Acesso a mais oportunidades, pagamentos transparentes e valorização do seu trabalho.</p>
-          <button class="btn btn-outline stakeholder-btn" data-stakeholder="chapa">Ver Benefícios</button>
-        </div>
-        
-        <div class="stakeholder-card">
-          <h3>🏢 Transportadora</h3>
-          <p>Gestão eficiente da frota, redução de custos operacionais e dashboards em tempo real.</p>
-          <button class="btn btn-outline stakeholder-btn" data-stakeholder="transportadora">Ver Benefícios</button>
-        </div>
-        
-        <div class="stakeholder-card">
-          <h3>💼 Investidor / Parceiro</h3>
-          <p>Oportunidade única em mercado bilionário com impacto social mensurável.</p>
-          <button class="btn btn-outline stakeholder-btn" data-stakeholder="investidor">Ver Benefícios</button>
-        </div>
-      </div>
-    </section>
+    button {
+      margin-top: 8px;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #052e16;
+      font-weight: 700;
+      cursor: pointer;
+    }
 
-    <section id="waitlist" class="section waitlist">
-      <h2>Seja um pioneiro</h2>
-      <p class="muted">Garanta acesso antecipado e participe da construção da revolução no transporte de veículos no Brasil.</p>
+    button:hover {
+      filter: brightness(1.05);
+    }
 
-      <form id="waitlist-form" name="waitlist" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" aria-label="Formulário de lista de espera">
-        <input type="hidden" name="form-name" value="waitlist" />
-        <p style="display:none"><label>Não preencha se for humano: <input name="bot-field" /></label></p>
+    /* PIX ACTIONS */
+    .pix-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
 
-        <label for="waitlist-name">Nome completo
-          <input id="waitlist-name" name="name" required aria-required="true" />
-        </label>
+    .pix-actions .btn {
+      background: #16a34a;
+      color: #ecfdf5;
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-        <label for="input-whatsapp">Whatsapp (DDD+Número)
-          <input name="whatsapp" id="input-whatsapp" placeholder="11999998888" pattern="\d{10,11}" required aria-required="true" aria-describedby="whatsapp-help" />
-        </label>
-        <span id="whatsapp-help" class="visually-hidden">Digite apenas números com DDD, exemplo: 11999998888</span>
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 32px 16px;
+    }
+  </style></head><body>  <header>
+    <img src="assets/logo.png" alt="Loomper" />
+  </header>  <main class="hero">
+    <h1>Quero ser pioneiro</h1>
+    <p>Entre para a lista inicial e participe da construção do futuro do transporte.</p><div class="card">
+  <h2>Simulação de acesso antecipado</h2>
+  <p>Deixe seus dados e receba prioridade quando abrirmos a plataforma.</p>
 
-        <label for="waitlist-email">E-mail
-          <input id="waitlist-email" type="email" name="email" required aria-required="true" />
-        </label>
+  <!-- NETLIFY FORM -->
+  <form 
+    name="waitlist" 
+    method="POST" 
+    data-netlify="true" 
+    action="/sucesso.html"
+  >
+    <input type="hidden" name="form-name" value="waitlist" />
 
-        <label for="waitlist-uf">UF
-          <select id="waitlist-uf" name="uf" required aria-required="true">
-            <option value="">Selecione</option>
-            <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option>
-            <option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option>
-            <option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option>
-            <option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option>
-            <option>SP</option><option>SE</option><option>TO</option>
-          </select>
-        </label>
+    <input type="text" name="nome" placeholder="Seu nome" required />
+    <input type="email" name="email" placeholder="Seu melhor e-mail" required />
 
-        <label for="waitlist-city">Cidade (digite sem acento)
-          <input id="waitlist-city" name="city" required aria-required="true" />
-        </label>
+    <button type="submit">Entrar na lista de pioneiros</button>
+  </form>
 
-        <label for="waitlist-user-type">Tipo de usuário
-          <select id="waitlist-user-type" name="user_type" required aria-required="true">
-            <option>Motorista</option>
-            <option>Chapa / Ajudante</option>
-            <option>Transportadora</option>
-            <option>Investidor</option>
-            <option>Outro</option>
-          </select>
-        </label>
-
-        <label for="waitlist-invite-email">Convidar amigo (opcional)
-          <input id="waitlist-invite-email" name="invite_email" placeholder="E-mail do amigo" type="email" />
-        </label>
-
-        <input type="hidden" id="referrer_id" name="referrer_id" />
-        <input type="hidden" id="id_user" name="id_user" />
-
-        <div class="terms">
-          <input id="waitlist-terms" type="checkbox" name="terms" required aria-required="true" />
-          <label for="waitlist-terms">Aceito os <a href="/terms.html" target="_blank" rel="noopener" style="color: var(--orange)">Termos de Uso</a> e a <a href="/privacy.html" target="_blank" rel="noopener" style="color: var(--orange)">Política de Privacidade</a></label>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary" aria-label="Entrar na lista de espera">ENTRAR NA LISTA</button>
-        </div>
-      </form>
-    </section>
-
-  </main>
-
-  <div id="success-modal" class="modal" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" id="modal-close">&times;</button>
-      <h3>Obrigado! Sua inscrição foi recebida.</h3>
-      <p>Clique para entrar no grupo fechado de testadores via WhatsApp ou convide amigos para garantir prioridade.</p>
-      <div class="modal-actions">
-        <button id="enter-whatsapp" class="btn btn-primary">Entrar no WhatsApp</button>
-        <button id="invite-friends" class="btn">Convidar amigos</button>
-      </div>
-      <p class="muted small">Mensagem automática: "Olá, sou {NOME} — quero participar do Beta LOOMPER. Meu id: {id_user}."</p>
-    </div>
+  <div class="pix-actions">
+    <a href="#" class="btn">Apoiar via PIX</a>
+    <a href="#" class="btn">Saber mais</a>
   </div>
+</div>
 
-  <div id="stakeholder-modal" class="modal" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" id="stakeholder-modal-close">&times;</button>
-      <h3 id="stakeholder-title">Benefícios</h3>
-      <div id="stakeholder-content"></div>
-      <div class="modal-actions">
-        <button id="contact-stakeholder" class="btn btn-primary">Entrar em Contato</button>
-      </div>
-    </div>
-  </div>
-
-  <footer class="lp-footer">
-    <div class="container footer-inner">
-      <div class="left">
-        <div class="footer-logo"><img src="/assets/images/logo-horizontal.jpg" alt="LOOMPER" /></div>
-        <p>Ajud.ai Brasil Inova Simples (I.S.) — CNPJ 59.150.688/0001-39 — São Bernardo do Campo | SP | BRASIL</p>
-        <p>© 2025 LOOMPER — todos os direitos reservados. FROM BRAZIL TO WORLD</p>
-      </div>
-      <div class="right">
-        <p><a href="/terms.html" target="_blank" rel="noopener">Termos de Uso</a> | <a href="/privacy.html" target="_blank" rel="noopener">Política de Privacidade</a></p>
-        <p><a href="mailto:contato@loomper.com.br">Contato</a></p>
-      </div>
-    </div>
-  </footer>
-
-  <a class="whatsapp-fab" href="https://wa.me/5511965858142?text=Estou%20interessado%20no%20LOOMPER" target="_blank" aria-label="Contato WhatsApp">
-    <img src="/assets/images/icon-l.png" alt="WhatsApp" />
-  </a>
-
-  <script type="module" src="/assets/loomper-app.js"></script>
-</body>
+  </main>  <footer>
+    © 2025 Loomper • Construindo com propósito
+  </footer></body>
 </html>
