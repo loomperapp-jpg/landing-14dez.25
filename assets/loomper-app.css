@@ -145,4 +145,14 @@ h4{color:#ffffff}
 .apoie .pix-actions .btn {
   width: 100%;
   min-width: auto;
-}}
+}}/* ===============================
+   HEADER COMPACTO
+================================ */
+
+.lp-header {
+  padding: 8px 0;
+}
+
+.logo img {
+  height: 42px;
+}
