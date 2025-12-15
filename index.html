@@ -130,6 +130,13 @@
           <button class="btn donate" data-amount="75" aria-label="Doar R$ 75">R$75</button>
           <button id="donate-other" class="btn" aria-label="Doar outro valor">Outro</button>
         </div>
+        <div id="custom-amount-field" style="display:none;margin-top:12px;">
+          <label for="custom-amount" style="display:block;margin-bottom:6px;color:var(--muted);">Digite o valor desejado (R$):</label>
+          <div style="display:flex;gap:8px;">
+            <input type="number" id="custom-amount" min="1" step="0.01" placeholder="Ex: 100" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--text);" />
+            <button id="confirm-custom-amount" class="btn btn-primary">Confirmar</button>
+          </div>
+        </div>
         <p class="muted">Chave PIX: <strong id="pix-key" aria-label="Chave PIX para doação">loomper.app@gmail.com</strong></p>
         <div class="pix-actions">
           <button id="copy-pix" class="btn" aria-label="Copiar chave PIX">COPIAR PIX</button>
@@ -137,6 +144,37 @@
         </div>
         <div id="pix-qr" class="pix-qr" aria-hidden="true" role="img" aria-label="QR Code do PIX"></div>
         <p class="micro">Ao copiar o PIX, cole no seu app bancário. Obrigado por apoiar os ajudantes e motoristas.</p>
+      </div>
+    </section>
+
+    <section id="stakeholders" class="section stakeholders">
+      <h2>Benefícios para cada stakeholder</h2>
+      <p class="muted">Descubra como o LOOMPER pode transformar seu negócio e rotina profissional.</p>
+      
+      <div class="stakeholder-cards">
+        <div class="stakeholder-card">
+          <h3>🚚 Motorista</h3>
+          <p>Encontre chapas qualificados rapidamente, reduza tempo de espera e aumente sua produtividade.</p>
+          <button class="btn btn-outline stakeholder-btn" data-stakeholder="motorista">Ver Benefícios</button>
+        </div>
+        
+        <div class="stakeholder-card">
+          <h3>👷 Chapa / Ajudante</h3>
+          <p>Acesso a mais oportunidades, pagamentos transparentes e valorização do seu trabalho.</p>
+          <button class="btn btn-outline stakeholder-btn" data-stakeholder="chapa">Ver Benefícios</button>
+        </div>
+        
+        <div class="stakeholder-card">
+          <h3>🏢 Transportadora</h3>
+          <p>Gestão eficiente da frota, redução de custos operacionais e dashboards em tempo real.</p>
+          <button class="btn btn-outline stakeholder-btn" data-stakeholder="transportadora">Ver Benefícios</button>
+        </div>
+        
+        <div class="stakeholder-card">
+          <h3>💼 Investidor / Parceiro</h3>
+          <p>Oportunidade única em mercado bilionário com impacto social mensurável.</p>
+          <button class="btn btn-outline stakeholder-btn" data-stakeholder="investidor">Ver Benefícios</button>
+        </div>
       </div>
     </section>
 
@@ -195,7 +233,7 @@
 
         <div class="terms">
           <input id="waitlist-terms" type="checkbox" name="terms" required aria-required="true" />
-          <label for="waitlist-terms">Aceito os Termos de Uso e a Política de Privacidade</label>
+          <label for="waitlist-terms">Aceito os <a href="/terms.html" target="_blank" rel="noopener" style="color: var(--orange)">Termos de Uso</a> e a <a href="/privacy.html" target="_blank" rel="noopener" style="color: var(--orange)">Política de Privacidade</a></label>
         </div>
 
         <div class="form-actions">
@@ -219,6 +257,17 @@
     </div>
   </div>
 
+  <div id="stakeholder-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="stakeholder-modal-close">&times;</button>
+      <h3 id="stakeholder-title">Benefícios</h3>
+      <div id="stakeholder-content"></div>
+      <div class="modal-actions">
+        <button id="contact-stakeholder" class="btn btn-primary">Entrar em Contato</button>
+      </div>
+    </div>
+  </div>
+
   <footer class="lp-footer">
     <div class="container footer-inner">
       <div class="left">
@@ -227,7 +276,7 @@
         <p>© 2025 LOOMPER — todos os direitos reservados. FROM BRAZIL TO WORLD</p>
       </div>
       <div class="right">
-        <p><a href="/docs/terms.md" target="_blank" rel="noopener">Termos de Uso</a> | <a href="/docs/privacy.md" target="_blank" rel="noopener">Política de Privacidade</a></p>
+        <p><a href="/terms.html" target="_blank" rel="noopener">Termos de Uso</a> | <a href="/privacy.html" target="_blank" rel="noopener">Política de Privacidade</a></p>
         <p><a href="mailto:loomper.app@gmail.com">Contato</a></p>
       </div>
     </div>
