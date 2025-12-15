@@ -196,9 +196,100 @@ function initPix(){
   }
 }
 
-function initSimulador(){ document.querySelectorAll('.tab').forEach(t=> t.addEventListener('click', ()=>{ document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false');}); document.querySelectorAll('.sim-view').forEach(v=>v.classList.remove('active')); t.classList.add('active'); t.setAttribute('aria-selected','true'); document.getElementById(t.dataset.target).classList.add('active'); }));
-  const simForm = document.getElementById('simMotoristaForm'); const resultEl = document.getElementById('motorista-result'); simForm.addEventListener('submit', (e)=>{ e.preventDefault(); const mockChapas = [ { name: 'João (Chapa)', rating: 4.8, phone: '11987654321' }, { name: 'Carlos (Chapa)', rating: 4.6, phone: '11976543210' }, { name: 'Lucas (Chapa)', rating: 4.5, phone: '11965432109' } ]; let html = `<div class="sim-result-list">`; mockChapas.forEach((c, idx)=>{ html += `<div class="sim-candidate"><strong>${c.name}</strong> — avaliação ${c.rating} <button class="btn select-candidate" data-idx="${idx}">Selecionar</button></div>`; }); html += `</div>`; resultEl.innerHTML = html; resultEl.querySelectorAll('.select-candidate').forEach(btn=> btn.addEventListener('click', ()=>{ const idx = btn.getAttribute('data-idx'); const chapa = mockChapas[idx]; const code = String(Math.floor(1000 + Math.random()*9000)); resultEl.innerHTML = `<div class="sim-confirm">Candidato selecionado: <strong>${chapa.name}</strong><p>Código de validação gerado: <strong>${code}</strong></p><p>O código foi enviado ao app do chapa (simulado). Agenda bloqueada para este período.</p></div>`; })); });
-  const chapaList = document.getElementById('chapa-list'); const vacs = [ { id: 'V-001', title: 'Carregar 2 veículos - Zona Leste SP', when: 'Hoje 14:00' }, { id: 'V-002', title: 'Descarregar 1 veículo - Diadema', when: 'Amanhã 09:00' } ]; chapaList.innerHTML = vacs.map(v=> `<div class="vac-item"><strong>${v.title}</strong><div>${v.when}</div><button class="btn apply" data-id="${v.id}">Candidatar</button></div>`).join(''); chapaList.querySelectorAll('.apply').forEach(b=> b.addEventListener('click', ()=> alert('Candidatura enviada (simulado). Aguarde aprovação do motorista.')));
+function initSimulador(){ 
+  // Tab switching logic
+  document.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', () => {
+      // Deactivate all tabs and views
+      document.querySelectorAll('.tab').forEach(x => {
+        x.classList.remove('active');
+        x.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.sim-view').forEach(v => v.classList.remove('active'));
+      
+      // Activate selected tab and view
+      t.classList.add('active');
+      t.setAttribute('aria-selected', 'true');
+      document.getElementById(t.dataset.target).classList.add('active');
+    });
+  });
+  
+  // Motorista simulator
+  const simForm = document.getElementById('simMotoristaForm');
+  const resultEl = document.getElementById('motorista-result');
+  
+  if (simForm) {
+    simForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const mockChapas = [
+        { name: 'João Silva', rating: 4.8, phone: '11987654321', location: 'São Bernardo do Campo' },
+        { name: 'Carlos Santos', rating: 4.6, phone: '11976543210', location: 'Diadema' },
+        { name: 'Lucas Oliveira', rating: 4.5, phone: '11965432109', location: 'Santo André' }
+      ];
+      
+      let html = '<div class="sim-result-list">';
+      mockChapas.forEach((c, idx) => {
+        html += `
+          <div class="sim-candidate">
+            <div>
+              <strong>${c.name}</strong>
+              <div style="color: var(--muted); font-size: 14px;">⭐ ${c.rating} • ${c.location}</div>
+            </div>
+            <button class="btn select-candidate" data-idx="${idx}">Selecionar</button>
+          </div>
+        `;
+      });
+      html += '</div>';
+      
+      resultEl.innerHTML = html;
+      
+      // Handle candidate selection
+      resultEl.querySelectorAll('.select-candidate').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = btn.getAttribute('data-idx');
+          const chapa = mockChapas[idx];
+          const code = String(Math.floor(1000 + Math.random() * 9000));
+          
+          resultEl.innerHTML = `
+            <div class="sim-confirm">
+              <h4>✅ Candidato selecionado!</h4>
+              <p><strong>${chapa.name}</strong></p>
+              <p>Código de validação: <strong style="color: var(--gold); font-size: 24px;">${code}</strong></p>
+              <p style="color: var(--muted);">O código foi enviado ao app do chapa (simulado).<br>Agenda bloqueada para este período.</p>
+            </div>
+          `;
+        });
+      });
+    });
+  }
+  
+  // Chapa simulator
+  const chapaList = document.getElementById('chapa-list');
+  
+  if (chapaList) {
+    const vacs = [
+      { id: 'V-001', title: 'Carregar 2 veículos', location: 'Zona Leste SP', when: 'Hoje 14:00', price: 'R$ 200' },
+      { id: 'V-002', title: 'Descarregar 1 veículo', location: 'Diadema', when: 'Amanhã 09:00', price: 'R$ 150' }
+    ];
+    
+    chapaList.innerHTML = vacs.map(v => `
+      <div class="vac-item">
+        <div>
+          <strong>${v.title}</strong>
+          <div style="color: var(--muted); font-size: 14px;">${v.location} • ${v.when}</div>
+          <div style="color: var(--gold); font-weight: 600; margin-top: 4px;">${v.price}</div>
+        </div>
+        <button class="btn apply" data-id="${v.id}">Candidatar</button>
+      </div>
+    `).join('');
+    
+    chapaList.querySelectorAll('.apply').forEach(b => {
+      b.addEventListener('click', () => {
+        alert('✅ Candidatura enviada (simulado)!\n\nAguarde aprovação do motorista.\nVocê receberá uma notificação quando for selecionado.');
+      });
+    });
+  }
 }
 
 function showStakeholderModal(stakeholderType) {

@@ -96,8 +96,10 @@ h4{color:#ffffff}
 .lp-footer{padding:24px 0;background:transparent;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
 .footer-inner{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .footer-inner p{margin:4px 0}
-.whatsapp-fab{position:fixed;right:18px;bottom:18px;background:var(--orange);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:60}
+.whatsapp-fab{position:fixed;right:18px;bottom:18px;background:var(--orange);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:60;box-shadow:0 4px 12px rgba(255,122,45,0.4);transition:transform 0.3s ease;animation:pulse 2s infinite}
+.whatsapp-fab:hover{transform:scale(1.1)}
 .whatsapp-fab img{height:32px;filter:brightness(0) invert(1)}
+@keyframes pulse{0%,100%{box-shadow:0 4px 12px rgba(255,122,45,0.4)}50%{box-shadow:0 4px 20px rgba(255,122,45,0.7)}}
 @media(max-width:900px){
   .hero-content{left:20px;top:30px}
   .hero h1{font-size:28px}
@@ -105,4 +107,13 @@ h4{color:#ffffff}
   .dash-grid{grid-template-columns:1fr}
   .header-inner{flex-direction:column;align-items:flex-start;gap:12px}
   .main-nav{display:flex;flex-wrap:wrap;gap:10px}
+  .stakeholder-cards{grid-template-columns:1fr}
+  .stakeholder-card{max-width:100%}
+  .modal-content{max-width:95%;padding:20px}
+  .sim-candidate,.vac-item{flex-direction:column;align-items:flex-start}
+  .sim-candidate .btn,.vac-item .btn{width:100%;margin-top:8px}
+  .footer-inner{flex-direction:column;gap:20px}
+  .donation-buttons{display:flex;flex-wrap:wrap}
+  .pix-actions{flex-direction:column}
+  .pix-actions .btn{width:100%;min-width:auto}
 }
