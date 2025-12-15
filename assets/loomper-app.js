@@ -198,7 +198,7 @@ function initPix(){
   
   if(otherBtn && customField) {
     otherBtn.addEventListener('click', ()=>{
-      const isVisible = customField.style.display !== 'none';
+      const isVisible = customField.style.display === 'block';
       customField.style.display = isVisible ? 'none' : 'block';
       if(!isVisible) {
         customAmountInput.focus();
@@ -397,12 +397,32 @@ function initStakeholders() {
   }
 }
 
+/**
+ * Initialize smooth scroll for anchor links
+ * Call this on legal pages or any page with anchor navigation
+ */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
+
 function init(){ 
   fillReferrerFromURL(); 
   fillIdUserField(); 
   initPix(); 
   initSimulador(); 
   initStakeholders(); 
+  initSmoothScroll();
   
   const waitForm = document.getElementById('waitlist-form'); 
   if(waitForm) waitForm.addEventListener('submit', handleWaitlistSubmit); 
