@@ -303,7 +303,7 @@ Este é um projeto privado em desenvolvimento. Para sugestões ou reportar bugs:
 
 - **E-mail**: loomper.app@gmail.com
 - **WhatsApp**: +55 11 96585-8142
-- **Website**: https://loomper.app (em breve)
+- **Website**: https://www.loomper.com.br
 
 ---
 
