@@ -422,7 +422,6 @@ function init(){
   initPix(); 
   initSimulador(); 
   initStakeholders(); 
-  initSmoothScroll();
   
   const waitForm = document.getElementById('waitlist-form'); 
   if(waitForm) waitForm.addEventListener('submit', handleWaitlistSubmit); 
@@ -440,6 +439,14 @@ function init(){
   
   // Track page views and interactions
   trackPageView();
+  
+  // Only init smooth scroll on legal pages (terms.html, privacy.html)
+  // Not on main index.html to avoid interfering with form functionality
+  const isLegalPage = window.location.pathname.includes('terms.html') || 
+                      window.location.pathname.includes('privacy.html');
+  if (isLegalPage) {
+    initSmoothScroll();
+  }
 }
 
 /**
