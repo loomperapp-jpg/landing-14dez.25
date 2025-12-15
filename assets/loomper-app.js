@@ -143,9 +143,11 @@ async function copyToClipboard(text, amount = null){
   try{ 
     await navigator.clipboard.writeText(text); 
     if(amount) {
-      alert(`PIX copiado!\n\nValor sugerido: R$ ${amount}\n\nCole no seu app bancário e insira o valor.`); 
+      trackEvent('donation_copy', { amount: amount, method: 'pix' });
+      alert(`PIX copiado!\n\nValor sugerido: R$ ${amount}\n\nCole no seu app bancário e insira o valor.\n\n💚 Obrigado por apoiar quem move o Brasil!`); 
     } else {
-      alert('PIX copiado! Cole no seu app bancário.');
+      trackEvent('donation_copy', { method: 'pix' });
+      alert('PIX copiado! Cole no seu app bancário.\n\n💚 Obrigado por apoiar o LOOMPER!');
     }
   } catch(err){ 
     const ta = document.createElement('textarea'); 
@@ -155,9 +157,11 @@ async function copyToClipboard(text, amount = null){
     try{ 
       document.execCommand('copy'); 
       if(amount) {
-        alert(`PIX copiado (fallback)!\n\nValor sugerido: R$ ${amount}\n\nCole no seu app bancário.`); 
+        trackEvent('donation_copy_fallback', { amount: amount, method: 'pix' });
+        alert(`PIX copiado (fallback)!\n\nValor sugerido: R$ ${amount}\n\nCole no seu app bancário.\n\n💚 Obrigado por apoiar quem move o Brasil!`); 
       } else {
-        alert('PIX copiado (fallback)!'); 
+        trackEvent('donation_copy_fallback', { method: 'pix' });
+        alert('PIX copiado (fallback)!\n\n💚 Obrigado por apoiar o LOOMPER!'); 
       }
     } finally { 
       document.body.removeChild(ta); 
@@ -173,6 +177,7 @@ function initPix(){
   
   const showQr = document.getElementById('show-qr'); 
   if(showQr) showQr.addEventListener('click', ()=>{ 
+    trackEvent('qr_code_viewed', { method: 'pix' });
     const qr = document.getElementById('pix-qr'); 
     const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(PIX_KEY)}`; 
     qr.innerHTML = `<a href="${qrUrl}" target="_blank" rel="noopener"><img src="${qrUrl}" alt="QR Code PIX - Escaneie para doar"/></a>`; 
@@ -193,9 +198,11 @@ function initPix(){
   
   if(otherBtn && customField) {
     otherBtn.addEventListener('click', ()=>{
-      customField.style.display = customField.style.display === 'none' ? 'block' : 'none';
-      if(customField.style.display === 'block') {
+      const isVisible = customField.style.display === 'block';
+      customField.style.display = isVisible ? 'none' : 'block';
+      if(!isVisible) {
         customAmountInput.focus();
+        trackEvent('custom_donation_opened');
       }
     });
   }
@@ -390,6 +397,105 @@ function initStakeholders() {
   }
 }
 
-function init(){ fillReferrerFromURL(); fillIdUserField(); initPix(); initSimulador(); initStakeholders(); const waitForm = document.getElementById('waitlist-form'); if(waitForm) waitForm.addEventListener('submit', handleWaitlistSubmit); const modal = document.getElementById('success-modal'); if(modal) modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.setAttribute('aria-hidden','true'); }); const closeBtn = document.getElementById('modal-close'); if(closeBtn) closeBtn.addEventListener('click', ()=> { const modal = document.getElementById('success-modal'); if(modal) modal.setAttribute('aria-hidden','true'); }); }
+/**
+ * Initialize smooth scroll for anchor links
+ * Call this on legal pages or any page with anchor navigation
+ */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
+
+function init(){ 
+  fillReferrerFromURL(); 
+  fillIdUserField(); 
+  initPix(); 
+  initSimulador(); 
+  initStakeholders(); 
+  
+  const waitForm = document.getElementById('waitlist-form'); 
+  if(waitForm) waitForm.addEventListener('submit', handleWaitlistSubmit); 
+  
+  const modal = document.getElementById('success-modal'); 
+  if(modal) modal.addEventListener('click', (e)=>{ 
+    if(e.target === modal) modal.setAttribute('aria-hidden','true'); 
+  }); 
+  
+  const closeBtn = document.getElementById('modal-close'); 
+  if(closeBtn) closeBtn.addEventListener('click', ()=> { 
+    const modal = document.getElementById('success-modal'); 
+    if(modal) modal.setAttribute('aria-hidden','true'); 
+  });
+  
+  // Track page views and interactions
+  trackPageView();
+  
+  // Only init smooth scroll on legal pages (terms.html, privacy.html)
+  // Not on main index.html to avoid interfering with form functionality
+  const isLegalPage = window.location.pathname.includes('terms.html') || 
+                      window.location.pathname.includes('privacy.html');
+  if (isLegalPage) {
+    initSmoothScroll();
+  }
+}
+
+/**
+ * Track page view for analytics
+ */
+function trackPageView() {
+  try {
+    const userId = getOrCreateUserId();
+    const pageData = {
+      page: window.location.pathname,
+      timestamp: new Date().toISOString(),
+      userId: userId,
+      referrer: document.referrer
+    };
+    
+    // Store in localStorage for future analytics
+    const views = JSON.parse(localStorage.getItem('loomper_page_views') || '[]');
+    views.push(pageData);
+    // Keep only last 50 views
+    if (views.length > 50) views.shift();
+    localStorage.setItem('loomper_page_views', JSON.stringify(views));
+  } catch (e) {
+    console.warn('Failed to track page view', e);
+  }
+}
+
+/**
+ * Track custom events
+ * @param {string} eventName - Name of the event
+ * @param {Object} eventData - Additional data for the event
+ */
+function trackEvent(eventName, eventData = {}) {
+  try {
+    const userId = getOrCreateUserId();
+    const event = {
+      event: eventName,
+      timestamp: new Date().toISOString(),
+      userId: userId,
+      ...eventData
+    };
+    
+    const events = JSON.parse(localStorage.getItem('loomper_events') || '[]');
+    events.push(event);
+    // Keep only last 100 events
+    if (events.length > 100) events.shift();
+    localStorage.setItem('loomper_events', JSON.stringify(events));
+  } catch (e) {
+    console.warn('Failed to track event', e);
+  }
+}
 
 document.addEventListener('DOMContentLoaded', init);
