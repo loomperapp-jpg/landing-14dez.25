@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/assets/loomper-app.css" />
   <style>
     .doc-container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
       padding: 40px 20px;
       background: rgba(255,255,255,0.02);
@@ -19,15 +19,27 @@
     .doc-container h1 {
       color: #ffffff;
       margin-bottom: 20px;
+      font-size: 2.5rem;
     }
     .doc-container h2 {
       color: #cfa34a;
-      margin-top: 30px;
+      margin-top: 40px;
       margin-bottom: 15px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .doc-container h3 {
+      color: #ff7a2d;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
     }
     .doc-container p, .doc-container li {
       color: #a1b0c5;
       margin-bottom: 12px;
+      font-size: 1rem;
     }
     .doc-container ul {
       margin-left: 20px;
@@ -45,6 +57,95 @@
       color: #ff7a2d;
       text-decoration: none;
       font-weight: 600;
+      transition: transform 0.2s;
+    }
+    .back-link:hover {
+      transform: translateX(-5px);
+    }
+    .summary-box {
+      background: linear-gradient(135deg, rgba(207,163,74,0.1), rgba(255,122,45,0.05));
+      border-left: 4px solid #cfa34a;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 8px;
+    }
+    .summary-box h3 {
+      color: #cfa34a;
+      margin-top: 0;
+      font-size: 1.3rem;
+    }
+    .summary-box ul {
+      margin-left: 20px;
+      color: #ffffff;
+    }
+    .summary-box li {
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .toc {
+      background: rgba(255,255,255,0.03);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 30px 0;
+      border: 1px solid rgba(207,163,74,0.2);
+    }
+    .toc h3 {
+      color: #cfa34a;
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+    }
+    .toc-list li {
+      margin: 0;
+    }
+    .toc-list a {
+      display: block;
+      padding: 10px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 6px;
+      transition: all 0.2s;
+      color: #a1b0c5;
+    }
+    .toc-list a:hover {
+      background: rgba(207,163,74,0.1);
+      color: #cfa34a;
+      transform: translateX(5px);
+      text-decoration: none;
+    }
+    .icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    .highlight-box {
+      background: rgba(255,122,45,0.05);
+      border: 1px solid rgba(255,122,45,0.2);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .highlight-box strong {
+      color: #ff7a2d;
+    }
+    @media (max-width: 768px) {
+      .doc-container {
+        padding: 20px 15px;
+      }
+      .doc-container h1 {
+        font-size: 2rem;
+      }
+      .toc-list {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -55,10 +156,39 @@
     <h1>Termos de Uso - LOOMPER</h1>
     <p><em>Este documento é um rascunho para fins de revisão jurídica. O texto final será produzido pelo departamento jurídico.</em></p>
     
-    <h2>1. Sobre o LOOMPER</h2>
+    <div class="summary-box">
+      <h3>📋 Resumo em Linguagem Simples</h3>
+      <ul>
+        <li><strong>O que é o LOOMPER?</strong> Uma plataforma que conecta motoristas e chapas no transporte de veículos</li>
+        <li><strong>Somos uma intermediária:</strong> Conectamos pessoas, mas não somos empregadores</li>
+        <li><strong>Suas responsabilidades:</strong> Fornecer informações verdadeiras e usar a plataforma de forma ética</li>
+        <li><strong>Nossa responsabilidade:</strong> Manter a plataforma funcionando e proteger seus dados</li>
+        <li><strong>Gratuito para chapas:</strong> Ajudantes e chapas usam a plataforma sem custo</li>
+      </ul>
+    </div>
+    
+    <nav class="toc">
+      <h3>📑 Índice</h3>
+      <ul class="toc-list">
+        <li><a href="#sobre">1. Sobre o LOOMPER</a></li>
+        <li><a href="#natureza">2. Natureza do Serviço</a></li>
+        <li><a href="#cadastro">3. Cadastro e Uso</a></li>
+        <li><a href="#responsabilidades">4. Responsabilidades</a></li>
+        <li><a href="#loomper-resp">5. O que Fazemos</a></li>
+        <li><a href="#limitacoes">6. Limitações</a></li>
+        <li><a href="#pagamentos">7. Pagamentos e Taxas</a></li>
+        <li><a href="#propriedade">8. Propriedade Intelectual</a></li>
+        <li><a href="#modificacoes">9. Modificações</a></li>
+        <li><a href="#rescisao">10. Rescisão</a></li>
+        <li><a href="#lei">11. Lei Aplicável</a></li>
+        <li><a href="#contato">12. Contato</a></li>
+      </ul>
+    </nav>
+    
+    <h2 id="sobre"><span class="icon">📱</span>1. Sobre o LOOMPER</h2>
     <p>O LOOMPER é uma plataforma tecnológica que conecta contratantes (motoristas e transportadoras) com prestadores de serviços (chapas e ajudantes) no setor de transporte de veículos no Brasil.</p>
     
-    <h2>2. Natureza do Serviço</h2>
+    <h2 id="natureza"><span class="icon">🤝</span>2. Natureza do Serviço</h2>
     <ul>
       <li>O LOOMPER atua exclusivamente como intermediário tecnológico</li>
       <li>Não há vínculo empregatício entre o LOOMPER e os usuários da plataforma</li>
@@ -66,7 +196,7 @@
       <li>Cada usuário é responsável por suas próprias obrigações fiscais e trabalhistas</li>
     </ul>
     
-    <h2>3. Cadastro e Uso da Plataforma</h2>
+    <h2 id="cadastro"><span class="icon">✍️</span>3. Cadastro e Uso da Plataforma</h2>
     <p>Ao se cadastrar no LOOMPER, você:</p>
     <ul>
       <li>Garante que as informações fornecidas são verdadeiras e completas</li>
@@ -75,7 +205,7 @@
       <li>Concorda em usar a plataforma de forma legal e ética</li>
     </ul>
     
-    <h2>4. Responsabilidades dos Usuários</h2>
+    <h2 id="responsabilidades"><span class="icon">👥</span>4. Responsabilidades dos Usuários</h2>
     <h3>Contratantes (Motoristas/Transportadoras):</h3>
     <ul>
       <li>Fornecer informações precisas sobre as vagas publicadas</li>
@@ -92,7 +222,7 @@
       <li>Respeitar as normas de segurança no trabalho</li>
     </ul>
     
-    <h2>5. Responsabilidades do LOOMPER</h2>
+    <h2 id="loomper-resp"><span class="icon">🛡️</span>5. Responsabilidades do LOOMPER</h2>
     <p>O LOOMPER se compromete a:</p>
     <ul>
       <li>Manter a plataforma tecnológica funcionando adequadamente</li>
@@ -101,7 +231,7 @@
       <li>Implementar melhorias contínuas na plataforma</li>
     </ul>
     
-    <h2>6. Limitações de Responsabilidade</h2>
+    <h2 id="limitacoes"><span class="icon">⚠️</span>6. Limitações de Responsabilidade</h2>
     <p>O LOOMPER não se responsabiliza por:</p>
     <ul>
       <li>Atos, omissões ou condutas de terceiros usuários da plataforma</li>
@@ -111,7 +241,10 @@
       <li>Disputas contratuais entre contratantes e prestadores de serviço</li>
     </ul>
     
-    <h2>7. Pagamentos e Taxas</h2>
+    <h2 id="pagamentos"><span class="icon">💰</span>7. Pagamentos e Taxas</h2>
+    <div class="highlight-box">
+      <p><strong>💚 IMPORTANTE:</strong> O LOOMPER é <strong>100% GRATUITO</strong> para chapas e ajudantes. Nosso compromisso é valorizar esses profissionais e facilitar o acesso a oportunidades.</p>
+    </div>
     <p>As condições comerciais da plataforma serão definidas e comunicadas oportunamente. O LOOMPER se reserva o direito de:</p>
     <ul>
       <li>Cobrar taxas pela utilização de determinadas funcionalidades</li>
@@ -119,13 +252,13 @@
       <li>Alterar os valores e condições mediante aviso prévio</li>
     </ul>
     
-    <h2>8. Propriedade Intelectual</h2>
+    <h2 id="propriedade"><span class="icon">©️</span>8. Propriedade Intelectual</h2>
     <p>Todos os direitos de propriedade intelectual relacionados ao LOOMPER, incluindo mas não limitado a design, código, marca e conteúdo, são de propriedade exclusiva da Ajud.ai Brasil Inova Simples.</p>
     
-    <h2>9. Modificações nos Termos</h2>
+    <h2 id="modificacoes"><span class="icon">📝</span>9. Modificações nos Termos</h2>
     <p>O LOOMPER se reserva o direito de modificar estes Termos de Uso a qualquer momento. Alterações significativas serão comunicadas aos usuários.</p>
     
-    <h2>10. Rescisão</h2>
+    <h2 id="rescisao"><span class="icon">🚫</span>10. Rescisão</h2>
     <p>O LOOMPER pode suspender ou encerrar o acesso de qualquer usuário que:</p>
     <ul>
       <li>Violar estes Termos de Uso</li>
@@ -134,10 +267,10 @@
       <li>Causar danos a outros usuários ou à reputação do LOOMPER</li>
     </ul>
     
-    <h2>11. Lei Aplicável e Foro</h2>
+    <h2 id="lei"><span class="icon">⚖️</span>11. Lei Aplicável e Foro</h2>
     <p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da comarca de São Bernardo do Campo - SP para dirimir quaisquer questões relacionadas a estes Termos.</p>
     
-    <h2>12. Contato</h2>
+    <h2 id="contato"><span class="icon">📧</span>12. Contato</h2>
     <p>Para questões sobre estes Termos de Uso, entre em contato:</p>
     <p>E-mail: <a href="mailto:loomper.app@gmail.com">loomper.app@gmail.com</a></p>
     <p>Empresa: Ajud.ai Brasil Inova Simples (I.S.)<br>
@@ -154,5 +287,21 @@
       <a href="/" class="back-link">← Voltar para a página inicial</a>
     </p>
   </div>
+  
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

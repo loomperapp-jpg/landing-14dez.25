@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/assets/loomper-app.css" />
   <style>
     .doc-container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
       padding: 40px 20px;
       background: rgba(255,255,255,0.02);
@@ -19,15 +19,27 @@
     .doc-container h1 {
       color: #ffffff;
       margin-bottom: 20px;
+      font-size: 2.5rem;
     }
     .doc-container h2 {
       color: #cfa34a;
-      margin-top: 30px;
+      margin-top: 40px;
       margin-bottom: 15px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .doc-container h3 {
+      color: #ff7a2d;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
     }
     .doc-container p, .doc-container li {
       color: #a1b0c5;
       margin-bottom: 12px;
+      font-size: 1rem;
     }
     .doc-container ul {
       margin-left: 20px;
@@ -45,6 +57,133 @@
       color: #ff7a2d;
       text-decoration: none;
       font-weight: 600;
+      transition: transform 0.2s;
+    }
+    .back-link:hover {
+      transform: translateX(-5px);
+    }
+    .summary-box {
+      background: linear-gradient(135deg, rgba(207,163,74,0.1), rgba(255,122,45,0.05));
+      border-left: 4px solid #cfa34a;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 8px;
+    }
+    .summary-box h3 {
+      color: #cfa34a;
+      margin-top: 0;
+      font-size: 1.3rem;
+    }
+    .summary-box ul {
+      margin-left: 20px;
+      color: #ffffff;
+    }
+    .summary-box li {
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .toc {
+      background: rgba(255,255,255,0.03);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 30px 0;
+      border: 1px solid rgba(207,163,74,0.2);
+    }
+    .toc h3 {
+      color: #cfa34a;
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+    }
+    .toc-list li {
+      margin: 0;
+    }
+    .toc-list a {
+      display: block;
+      padding: 10px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 6px;
+      transition: all 0.2s;
+      color: #a1b0c5;
+    }
+    .toc-list a:hover {
+      background: rgba(207,163,74,0.1);
+      color: #cfa34a;
+      transform: translateX(5px);
+      text-decoration: none;
+    }
+    .icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .data-table th {
+      background: rgba(207,163,74,0.2);
+      color: #cfa34a;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: #a1b0c5;
+    }
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+    .rights-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .rights-item {
+      background: rgba(255,122,45,0.05);
+      border: 1px solid rgba(255,122,45,0.2);
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .rights-item strong {
+      color: #ff7a2d;
+      display: block;
+      margin-bottom: 5px;
+      font-size: 2rem;
+    }
+    @media (max-width: 768px) {
+      .doc-container {
+        padding: 20px 15px;
+      }
+      .doc-container h1 {
+        font-size: 2rem;
+      }
+      .toc-list {
+        grid-template-columns: 1fr;
+      }
+      .data-table {
+        font-size: 0.9rem;
+      }
+      .data-table th, .data-table td {
+        padding: 8px;
+      }
     }
   </style>
 </head>
@@ -55,20 +194,78 @@
     <h1>Política de Privacidade - LOOMPER</h1>
     <p><em>Rascunho para revisão jurídica. Este documento descreve de forma resumida como o LOOMPER trata dados.</em></p>
     
-    <h2>1. Dados Coletados</h2>
-    <p>Coletamos os seguintes dados através do formulário de cadastro:</p>
-    <ul>
-      <li>Nome completo</li>
-      <li>E-mail</li>
-      <li>Telefone/WhatsApp</li>
-      <li>UF (Unidade Federativa)</li>
-      <li>Cidade</li>
-      <li>Tipo de usuário (Motorista, Chapa/Ajudante, Transportadora, Investidor, Outro)</li>
-      <li>Informações de referência (ID de quem indicou)</li>
-      <li>Demais informações fornecidas voluntariamente</li>
-    </ul>
+    <div class="summary-box">
+      <h3>🔒 Resumo em Linguagem Simples</h3>
+      <ul>
+        <li><strong>Transparência Total:</strong> Coletamos apenas dados essenciais para conectar você com oportunidades</li>
+        <li><strong>Seus direitos garantidos:</strong> Você pode acessar, corrigir ou excluir seus dados a qualquer momento</li>
+        <li><strong>Segurança em primeiro lugar:</strong> Utilizamos medidas técnicas avançadas para proteger suas informações</li>
+        <li><strong>Nunca vendemos dados:</strong> Suas informações não serão comercializadas</li>
+        <li><strong>Conformidade LGPD:</strong> Seguimos todas as leis brasileiras de proteção de dados</li>
+      </ul>
+    </div>
     
-    <h2>2. Finalidade</h2>
+    <nav class="toc">
+      <h3>📑 Índice Rápido</h3>
+      <ul class="toc-list">
+        <li><a href="#dados-coletados">1. Dados Coletados</a></li>
+        <li><a href="#finalidade">2. Finalidade</a></li>
+        <li><a href="#base-legal">3. Base Legal</a></li>
+        <li><a href="#direitos">4. Seus Direitos</a></li>
+        <li><a href="#terceiros">5. Programa de Indicação</a></li>
+        <li><a href="#seguranca">6. Segurança</a></li>
+        <li><a href="#compartilhamento">7. Compartilhamento</a></li>
+        <li><a href="#dpo">8. Contato - DPO</a></li>
+        <li><a href="#alteracoes">9. Alterações</a></li>
+      </ul>
+    </nav>
+    
+    <h2 id="dados-coletados"><span class="icon">📊</span>1. Dados Coletados</h2>
+    <p>Coletamos os seguintes dados através do formulário de cadastro:</p>
+    
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Dado Coletado</th>
+          <th>Finalidade</th>
+          <th>Obrigatório</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nome completo</td>
+          <td>Identificação e comunicação</td>
+          <td>Sim</td>
+        </tr>
+        <tr>
+          <td>E-mail</td>
+          <td>Contato e acesso à plataforma</td>
+          <td>Sim</td>
+        </tr>
+        <tr>
+          <td>Telefone/WhatsApp</td>
+          <td>Comunicação rápida e suporte</td>
+          <td>Sim</td>
+        </tr>
+        <tr>
+          <td>UF e Cidade</td>
+          <td>Conexão com oportunidades locais</td>
+          <td>Sim</td>
+        </tr>
+        <tr>
+          <td>Tipo de usuário</td>
+          <td>Personalização da experiência</td>
+          <td>Sim</td>
+        </tr>
+        <tr>
+          <td>ID de referência</td>
+          <td>Programa de indicações</td>
+          <td>Não</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h2 id="finalidade"><span class="icon">🎯</span>2. Finalidade</h2>
     <p>Os dados coletados são utilizados para:</p>
     <ul>
       <li>Permitir o contato direto com você</li>
@@ -79,7 +276,7 @@
       <li>Enviar comunicações relevantes sobre o LOOMPER</li>
     </ul>
     
-    <h2>3. Base Legal</h2>
+    <h2 id="base-legal"><span class="icon">⚖️</span>3. Base Legal</h2>
     <p>O tratamento dos seus dados pessoais se baseia em:</p>
     <ul>
       <li>Consentimento do titular dos dados</li>
@@ -87,28 +284,49 @@
       <li>Cumprimento de obrigação legal ou regulatória</li>
     </ul>
     
-    <h2>4. Seus Direitos</h2>
-    <p>Você tem direito a:</p>
-    <ul>
-      <li>Acessar seus dados pessoais</li>
-      <li>Corrigir dados incompletos, inexatos ou desatualizados</li>
-      <li>Solicitar a exclusão dos seus dados</li>
-      <li>Revogar o consentimento</li>
-      <li>Solicitar a portabilidade dos dados</li>
-    </ul>
+    <h2 id="direitos"><span class="icon">✅</span>4. Seus Direitos</h2>
+    <p>De acordo com a LGPD (Lei Geral de Proteção de Dados), você tem direito a:</p>
+    
+    <div class="rights-box">
+      <div class="rights-item">
+        <strong>👁️</strong>
+        Acessar seus dados
+      </div>
+      <div class="rights-item">
+        <strong>✏️</strong>
+        Corrigir dados
+      </div>
+      <div class="rights-item">
+        <strong>🗑️</strong>
+        Solicitar exclusão
+      </div>
+      <div class="rights-item">
+        <strong>🚫</strong>
+        Revogar consentimento
+      </div>
+      <div class="rights-item">
+        <strong>📦</strong>
+        Portabilidade
+      </div>
+      <div class="rights-item">
+        <strong>ℹ️</strong>
+        Informação sobre uso
+      </div>
+    </div>
+    
     <p>Para exercer esses direitos, entre em contato conosco através do e-mail: <a href="mailto:loomper.app@gmail.com">loomper.app@gmail.com</a></p>
     
-    <h2>5. Dados de Terceiros (Programa de Indicação)</h2>
+    <h2 id="terceiros"><span class="icon">🤝</span>5. Dados de Terceiros (Programa de Indicação)</h2>
     <p>Quando você indica um amigo, armazenamos:</p>
     <ul>
       <li>ID de referência (referrer_id) para fins de campanhas e recompensas</li>
       <li>Regras anti-fraude e validações são aplicadas para garantir a integridade do programa</li>
     </ul>
     
-    <h2>6. Segurança dos Dados</h2>
+    <h2 id="seguranca"><span class="icon">🔐</span>6. Segurança dos Dados</h2>
     <p>Adotamos medidas de segurança técnicas e organizacionais para proteger seus dados contra acesso não autorizado, perda, destruição ou alteração.</p>
     
-    <h2>7. Compartilhamento de Dados</h2>
+    <h2 id="compartilhamento"><span class="icon">🔄</span>7. Compartilhamento de Dados</h2>
     <p>Seus dados não serão vendidos ou compartilhados com terceiros para fins de marketing sem o seu consentimento explícito. Podemos compartilhar dados apenas quando:</p>
     <ul>
       <li>Necessário para a prestação do serviço</li>
@@ -116,11 +334,11 @@
       <li>Com sua autorização prévia</li>
     </ul>
     
-    <h2>8. Contato - DPO</h2>
+    <h2 id="dpo"><span class="icon">📧</span>8. Contato - DPO</h2>
     <p>Para questões relacionadas à privacidade e proteção de dados, entre em contato com nosso DPO (Data Protection Officer):</p>
     <p>E-mail: <a href="mailto:dpo@loomper.app">dpo@loomper.app</a> (provisório)</p>
     
-    <h2>9. Alterações nesta Política</h2>
+    <h2 id="alteracoes"><span class="icon">🔄</span>9. Alterações nesta Política</h2>
     <p>Esta política pode ser atualizada periodicamente. Recomendamos que você a revise regularmente. A versão mais recente estará sempre disponível nesta página.</p>
     
     <p><strong>Última atualização:</strong> 14 de Dezembro de 2024</p>
@@ -133,5 +351,21 @@
       <a href="/" class="back-link">← Voltar para a página inicial</a>
     </p>
   </div>
+  
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
