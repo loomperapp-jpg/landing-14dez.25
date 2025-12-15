@@ -116,4 +116,33 @@ h4{color:#ffffff}
   .donation-buttons{display:flex;flex-wrap:wrap}
   .pix-actions{flex-direction:column}
   .pix-actions .btn{width:100%;min-width:auto}
+/* ===============================
+   PIX / DOAÇÕES – IDENTIDADE
+================================ */
+
+.apoie .donation-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
+
+.apoie .donation .btn {
+  background: linear-gradient(135deg, #00c853, #00a844);
+  color: #0b1b12;
+  font-weight: 600;
+  border-radius: 14px;
+}
+
+.apoie .donation .btn:hover {
+  filter: brightness(1.1);
+}
+
+.apoie .pix-actions {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.apoie .pix-actions .btn {
+  width: 100%;
+  min-width: auto;
+}}
