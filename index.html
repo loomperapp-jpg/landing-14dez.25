@@ -97,7 +97,19 @@
               <input id="sim-price" name="price" type="text" placeholder="150, 200, outro..." aria-label="Valor do serviço em reais" />
             </label>
             <div class="sim-actions"><button type="submit" class="btn btn-primary" aria-label="Publicar vaga simulada">Publicar Vaga (Simulado)</button></div>
-          </form>
+          <<form
+  name="waitlist"
+  method="POST"
+  data-netlify="true"
+  action="/sucesso.html"
+>
+  <input type="hidden" name="form-name" value="waitlist" />
+
+  <input type="text" name="nome" required />
+  <input type="email" name="email" required />
+
+  <button type="submit">Quero ser pioneiro</button>
+</form>*>
 
           <div id="motorista-result" class="sim-result" aria-live="polite"></div>
         </div>
