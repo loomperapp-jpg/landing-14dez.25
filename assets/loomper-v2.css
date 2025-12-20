@@ -1354,3 +1354,23 @@ select option {
   font-size: 0.95rem;
   opacity: 0.85;
 }
+
+
+/* Marca d’água no HERO */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/ativos/images/loomper_logo_semfundo.PNG");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  opacity: 0.06; /* ajuste fino aqui */
+  z-index: 0;
+  pointer-events: none;
+}
