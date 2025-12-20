@@ -283,11 +283,13 @@ ul, ol {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
-  color: #000;
+  color: #fff;
+  font-weight: 700;
   box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
 .btn-primary:hover {
+  background: linear-gradient(135deg, var(--orange-dark) 0%, #d94d1f 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
 }
@@ -295,23 +297,27 @@ ul, ol {
 .btn-outline {
   background: transparent;
   color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--gold);
+  font-weight: 600;
 }
 
 .btn-outline:hover {
+  background: var(--gold);
   border-color: var(--gold);
-  color: var(--gold);
+  color: #000;
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-ghost:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .btn-sm {
@@ -388,7 +394,7 @@ ul, ol {
 
 .hero-content {
   position: relative;
-  max-width: 800px;
+  max-width: var(--container-max);
   text-align: center;
   margin: 0 auto;
   padding: var(--spacing-2xl) var(--spacing-lg);
@@ -499,10 +505,10 @@ ul, ol {
 }
 
 .about-text p {
-  color: var(--text-secondary);
+  color: var(--text-primary);
   margin-bottom: var(--spacing-md);
   font-size: 17px;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 .about-text strong {
@@ -575,8 +581,9 @@ ul, ol {
   position: relative;
   padding-left: var(--spacing-lg);
   margin-bottom: var(--spacing-sm);
-  color: var(--text-secondary);
-  font-size: 14px;
+  color: var(--text-primary);
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .profile-benefits li::before {
@@ -1372,10 +1379,10 @@ select option {
 
 
 .hero .btn {
-  background-color: var(--loomper-orange);
-  color: #111;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+  color: #fff;
   font-size: 1.05rem;       /* letra maior */
-  font-weight: 600;
+  font-weight: 700;
   padding: 14px 22px;       /* mais “corpo” */
   border-radius: 10px;
   min-height: 52px;
@@ -1385,18 +1392,18 @@ select option {
   text-align: center;
   border: none;
   transition: all 0.25s ease;
-  box-shadow: 0 6px 18px rgba(230, 126, 34, 0.25);
+  box-shadow: 0 6px 18px rgba(255, 107, 53, 0.3);
 }
 
 .hero .btn:hover {
-  background-color: var(--loomper-orange-dark);
+  background: linear-gradient(135deg, var(--orange-dark) 0%, #d94d1f 100%);
   transform: translateY(-1px);
-  box-shadow: 0 10px 26px rgba(207, 109, 23, 0.35);
+  box-shadow: 0 10px 26px rgba(229, 90, 43, 0.4);
 }
 
 .hero .btn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.35);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -1407,22 +1414,22 @@ select option {
   }
 
 .hero-ctas .btn-investor {
-  background-color: var(--loomper-orange) !important;
-  color: #111 !important;
+  background-color: var(--orange);
+  color: #fff;
   font-size: 1.05rem;
   font-weight: 600;
   border: none;
 }
 .profile-actions .btn-outline {
-  background-color: var(--loomper-orange);
-  color: #111;
+  background-color: var(--orange);
+  color: #fff;
   border: none;
   font-weight: 600;
   padding: 10px 16px;
 }
 
 .profile-actions .btn-outline:hover {
-  background-color: var(--loomper-orange-dark);
+  background-color: var(--orange-dark);
 }
 .profile-actions .btn-ghost {
   color: #fff;
@@ -1455,12 +1462,12 @@ select option {
   opacity: 0.95;
 }
 .terms-group .checkmark {
-  border: 2px solid var(--loomper-orange);
+  border: 2px solid var(--orange);
   background-color: transparent;
 }
 
 .terms-group input:checked + .checkmark {
-  background-color: var(--loomper-orange);
+  background-color: var(--orange);
 }
 .form-trust,
 .footer,
@@ -1498,15 +1505,6 @@ a.btn-investidor,
 a.btn-investidor:hover {
   background-color: #cf6d17 !important;
   color: #ffffff !important;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("./ativos/images/hero-truck.png") center / cover no-repeat;
-  opacity: 0.18;
-  filter: brightness(1.3);
-  z-index: 0;
 }
 
 .hero > * {
@@ -1633,21 +1631,6 @@ a.btn-investidor:hover {
   margin-top: 1rem;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(
-      rgba(0,0,0,0.75),
-      rgba(0,0,0,0.85)
-    ),
-    url("/ativos/images/hero-truck.png");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.35; /* AQUI está o segredo */
-  z-index: -1;
-}
 
 .hero-ctas {
   margin-top: 2.5rem;
@@ -1795,11 +1778,6 @@ a.btn-investidor:hover {
    AJUSTES PERSONALIZADOS - DEZEMBRO 2025
    =========================================== */
 
-/* Alinhamento do container do bloco inicial */
-.hero-content {
-  padding: 0 var(--spacing-lg);
-  margin: 0 auto;
-}
 
 /* Ajustes para marca d'água no Hero em Mobile */
 .hero-bg img {
@@ -1811,18 +1789,19 @@ a.btn-investidor:hover {
 @media (max-width: 768px) {
   .hero-bg img {
     object-fit: contain;
-    filter: grayscale(75%);
+    filter: grayscale(70%) brightness(0.5) contrast(1.2);
   }
 }
 
 /* Contraste aprimorado nos botões de ação */
 .btn-primary {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 100%);
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
   color: #fff;
+  font-weight: 700;
 }
 
 .btn-primary:hover {
-  background: var(--orange-dark);
+  background: linear-gradient(135deg, var(--orange-dark) 0%, #d94d1f 100%);
   transform: scale(1.02);
 }
 
@@ -1833,12 +1812,18 @@ body {
 
 .about-text p,
 .profile-benefits li {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--text-primary); /* Melhoria do contraste */
+  line-height: 1.7;
 }
 
 @media (max-width: 768px) {
   body {
+    font-size: 16px;
+  }
+  
+  .about-text p,
+  .profile-benefits li {
     font-size: 16px;
   }
 }
