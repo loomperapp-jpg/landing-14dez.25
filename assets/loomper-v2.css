@@ -1291,4 +1291,9 @@ ul, ol {
   }
 }
 
+/* Ajuste de âncora para o formulário */
+#waitlist {
+  scroll-margin-top: 120px;
+}
+
 
