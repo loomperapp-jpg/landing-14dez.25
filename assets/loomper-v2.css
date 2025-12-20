@@ -1375,3 +1375,20 @@ select option {
   pointer-events: none;
 }
 
+
+.hero .btn {
+  background-color: var(--loomper-orange);
+  color: #111;
+  font-size: 1.05rem;       /* letra maior */
+  font-weight: 600;
+  padding: 14px 22px;       /* mais “corpo” */
+  border-radius: 10px;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(230, 126, 34, 0.25);
+}
