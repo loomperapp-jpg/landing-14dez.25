@@ -1615,3 +1615,51 @@ a.btn-investidor:hover {
   }
 }
 
+
+.hero {
+  min-height: 100svh; /* adapta à altura real do celular */
+  padding: 6rem 1.25rem 3.5rem; 
+  display: flex;
+  align-items: flex-start;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  line-height: 1.15;
+  text-align: left;
+  max-width: 100%;
+}
+
+.hero p {
+  font-size: 1rem;
+  line-height: 1.45;
+  text-align: left;
+  color: rgba(255,255,255,0.75);
+  margin-top: 1rem;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(
+      rgba(0,0,0,0.75),
+      rgba(0,0,0,0.85)
+    ),
+    url("/ativos/images/hero-truck.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35; /* AQUI está o segredo */
+  z-index: -1;
+}
+
+.hero-ctas {
+  margin-top: 2.5rem;
+}
+
+.hero-ctas .btn {
+  font-size: 1.05rem;
+  padding: 0.9rem 1.25rem;
+}
+
