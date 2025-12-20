@@ -1411,3 +1411,8 @@ select option {
     min-height: 56px;
   }
 }
+
+.btn-investor {
+  background-color: var(--loomper-orange) !important;
+  color: #111 !important;
+}
