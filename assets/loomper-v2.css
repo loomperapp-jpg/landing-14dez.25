@@ -1322,6 +1322,35 @@ select option {
   font-weight: 400;
   opacity: 0.9;
 }
+.section-visual-flow {
+  background: rgba(255,255,255,0.02);
+}
 
+.visual-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
 
+.visual-card {
+  text-align: center;
+  padding: 24px;
+}
 
+.visual-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.visual-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.visual-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
