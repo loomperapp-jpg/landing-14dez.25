@@ -1392,3 +1392,22 @@ select option {
   transition: all 0.25s ease;
   box-shadow: 0 6px 18px rgba(230, 126, 34, 0.25);
 }
+
+.hero .btn:hover {
+  background-color: var(--loomper-orange-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(207, 109, 23, 0.35);
+}
+
+.hero .btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.35);
+}
+
+@media (max-width: 768px) {
+  .hero .btn {
+    font-size: 1.1rem;
+    width: 100%;
+    min-height: 56px;
+  }
+}
