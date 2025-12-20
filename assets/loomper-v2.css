@@ -518,12 +518,13 @@ ul, ol {
 }
 
 .visual-placeholder {
-  background: var(--bg-card);
+  background-image: url("/assets/images/motorista-ajudante-logistica-urbana.webp.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   border-radius: var(--radius-lg);
-  padding: var(--spacing-2xl);
-  text-align: center;
-  color: var(--text-muted);
-  border: 1px dashed var(--border-color);
+  background-color: var(--bg-card);
 }
 
 /* ----------------------------------------
@@ -1280,3 +1281,4 @@ ul, ol {
     padding: var(--spacing-xl) 0;
   }
 }
+
