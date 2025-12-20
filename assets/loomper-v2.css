@@ -1295,5 +1295,17 @@ ul, ol {
 #waitlist {
   scroll-margin-top: 120px;
 }
+/* Ajuste visual do select (desktop) */
+select {
+  color: #222;              /* texto escuro */
+  background-color: #fff;   /* fundo branco */
+}
+
+/* Garantia para as opções */
+select option {
+  color: #222;
+  background-color: #fff;
+}
+
 
 
