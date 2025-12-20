@@ -1362,19 +1362,6 @@ select option {
   overflow: hidden;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("/assets/images/hero-truck.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 60%;
-  opacity: 0.06; /* ajuste fino aqui */
-  z-index: 0;
-  pointer-events: none;
-}
-
 
 .hero .btn {
   background-color: var(--loomper-orange);
@@ -1504,15 +1491,6 @@ a.btn-investidor:hover {
   background-color: #cf6d17 !important;
   color: #ffffff !important;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("./ativos/images/hero-truck.png") center / cover no-repeat;
-  opacity: 0.18;
-  filter: brightness(1.3);
-  z-index: 0;
-}
 
 .hero > * {
   position: relative;
@@ -1616,6 +1594,7 @@ a.btn-investidor:hover {
 }
 
 
+
 .hero {
   min-height: 100svh; /* adapta à altura real do celular */
   padding: 6rem 1.25rem 3.5rem; 
@@ -1638,21 +1617,6 @@ a.btn-investidor:hover {
   margin-top: 1rem;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(
-      rgba(0,0,0,0.75),
-      rgba(0,0,0,0.85)
-    ),
-    url("/ativos/images/hero-truck.png");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.35; /* AQUI está o segredo */
-  z-index: -1;
-}
 
 .hero-ctas {
   margin-top: 2.5rem;
@@ -1694,67 +1658,59 @@ a.btn-investidor:hover {
     padding-right: 0.75rem;
   }
 }
-
 /* =========================
-   RESET FORÇADO HERO MOBILE
+   HERO DEFINITIVO – LIMPO
    ========================= */
-@media (max-width: 767px) {
 
-  html, body {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  body {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-  }
-
-  main, section, .page, .wrapper {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-  }
-
-  .hero,
-  .hero * {
-    box-sizing: border-box;
-  }
-
-  .hero {
-    width: 100vw;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-  }
-
-  .hero .container,
-  .hero .content,
-  .hero .hero-content {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
 .hero {
-  background-image:
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  background:
     linear-gradient(
-      rgba(0,0,0,0.6),
-      rgba(0,0,0,0.75)
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.85)
     ),
     url("/ativos/images/hero-truck.png");
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
+
+/* conteúdo */
+.hero-content {
+  max-width: 720px;
+  padding: 5rem 1.25rem 3.5rem;
+}
+
+/* tipografia */
+.hero h1 {
+  font-size: 2.2rem;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.hero p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.78);
+  margin-top: 1rem;
+}
+
+/* botões */
+.hero-ctas {
+  margin-top: 2.5rem;
+}
+
+/* MOBILE */
 @media (max-width: 767px) {
-  .hero h1 {
-    font-size: 2.1rem;
-    line-height: 1.15;
-    word-break: normal;
-    hyphens: none;
-    text-align: left;
+  .hero {
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    padding-top: 6rem;
   }
 }
-
-
 
