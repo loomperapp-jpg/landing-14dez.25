@@ -81,22 +81,21 @@
       
       <!-- CTAs por perfil -->
       <div class="hero-ctas">
-        <a href="#waitlist" class="btn btn-primary" data-profile="motorista" data-action="hero-cta">
-          Sou Motorista
-        </a>
-        <a href="#waitlist" class="btn btn-primary" data-profile="chapa" data-action="hero-cta">
-          Sou Chapa / Ajudante
-        </a>
-        <a href="#waitlist" class="btn btn-primary" data-profile="transportadora" data-action="hero-cta">
-          Sou Transportadora
-        </a>
-<!-- CTA Investidor -->
-<a href="#waitlist"
-   class="btn btn-secondary btn-investor"
-   data-profile="investidor"
-   data-action="hero-cta">
-  Sou Investidor
-</a>
+  <a href="#waitlist" class="btn btn-primary" data-profile="motorista" data-action="hero-cta">
+    Sou Motorista
+  </a>
+
+  <a href="#waitlist" class="btn btn-primary" data-profile="chapa" data-action="hero-cta">
+    Sou Chapa / Ajudante
+  </a>
+
+  <a href="#waitlist" class="btn btn-primary" data-profile="transportadora" data-action="hero-cta">
+    Sou Transportadora
+  </a>
+
+  <a href="#waitlist" class="btn btn-secondary btn-investor" data-profile="investidor" data-action="hero-cta">
+    Sou Investidor
+  </a>
 </div>
   </section>
 
@@ -315,7 +314,9 @@
         </div>
         
         <div class="simulator-footer">
-          <a href="#waitlist" class="btn btn-primary" data-action="simulator-cta">Quero ser pioneiro</a>
+          <a href="#waitlist" class="btn btn-primary" data-action="hero-cta">
+  Quero ser pioneiro
+</a>
         </div>
       </div>
     </div>
@@ -678,8 +679,37 @@
 
   <!-- Scripts -->
   <script src="/assets/loomper-v2.js"></script>
+<script>
+  document.querySelectorAll('[data-profile]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const profile = btn.dataset.profile;
+      localStorage.setItem('loomper_profile', profile);
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedProfile = localStorage.getItem('loomper_profile');
+    if (!savedProfile) return;
+
+    const profileSelect = document.getElementById('waitlist-profile');
+    if (!profileSelect) return;
+
+    const map = {
+      motorista: 'Motorista',
+      chapa: 'Chapa / Ajudante',
+      transportadora: 'Transportadora',
+      investidor: 'Investidor / Parceiro'
+    };
+
+    if (map[savedProfile]) {
+      profileSelect.value = map[savedProfile];
+    }
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
