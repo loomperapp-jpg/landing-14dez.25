@@ -1587,4 +1587,31 @@ a.btn-investidor:hover {
   }
 }
 
+.como-funciona {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem; /* MOBILE FIRST */
+}
+
+.fluxo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+.como-funciona .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .como-funciona {
+    padding: 5rem 2.5rem;
+  }
+
+  .fluxo {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
