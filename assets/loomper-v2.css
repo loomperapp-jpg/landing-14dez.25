@@ -1307,5 +1307,21 @@ select option {
   background-color: #fff;
 }
 
+.btn {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    font-size: 1.05rem;
+  }
+}
+.section-subtitle {
+  font-weight: 400;
+  opacity: 0.9;
+}
+
 
 
