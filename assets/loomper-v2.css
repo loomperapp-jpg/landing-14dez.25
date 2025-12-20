@@ -1663,3 +1663,35 @@ a.btn-investidor:hover {
   padding: 0.9rem 1.25rem;
 }
 
+/* =========================
+   MOBILE: HERO FULL BLEED
+   ========================= */
+@media (max-width: 767px) {
+  .hero .container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+
+  .hero-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero h1,
+  .hero p {
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-content {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
