@@ -1791,4 +1791,55 @@ a.btn-investidor:hover {
 }
 
 
+/* ===========================================
+   AJUSTES PERSONALIZADOS - DEZEMBRO 2025
+   =========================================== */
+
+/* Alinhamento do container do bloco inicial */
+.hero-content {
+  padding: 0 var(--spacing-lg);
+  margin: 0 auto;
+}
+
+/* Ajustes para marca d'água no Hero em Mobile */
+.hero-bg img {
+  object-fit: cover;
+  height: auto;
+  filter: grayscale(80%) brightness(0.4);
+}
+
+@media (max-width: 768px) {
+  .hero-bg img {
+    object-fit: contain;
+    filter: grayscale(75%);
+  }
+}
+
+/* Contraste aprimorado nos botões de ação */
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 100%);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: scale(1.02);
+}
+
+/* Incremento do tamanho da fonte para melhor legibilidade */
+body {
+  font-size: 18px; /* Fonte base maior */
+}
+
+.about-text p,
+.profile-benefits li {
+  font-size: 16px;
+  color: var(--text-primary); /* Melhoria do contraste */
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
 
