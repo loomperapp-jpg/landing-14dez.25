@@ -1518,6 +1518,73 @@ a.btn-investidor:hover {
   position: relative;
   z-index: 1;
 }
+/* === COMO FUNCIONA === */
 
+.como-funciona {
+  padding: 70px 20px;
+  background: #0f1a22;
+  text-align: center;
+}
+
+.como-funciona h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.como-funciona .subtitulo {
+  color: #cfd8dc;
+  font-size: 1.05rem;
+  margin-bottom: 50px;
+}
+
+.fluxo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.passo {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  padding: 30px 22px;
+  text-align: left;
+}
+
+.passo .numero {
+  display: inline-block;
+  background: #f7931e;
+  color: #000;
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 50%;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.passo h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.passo p {
+  font-size: 0.95rem;
+  color: #d6dde2;
+  line-height: 1.5;
+}
+
+/* Mobile refinado */
+@media (max-width: 768px) {
+  .como-funciona {
+    padding: 90px 16px;
+  }
+
+  .passo {
+    text-align: center;
+  }
+}
 
 
