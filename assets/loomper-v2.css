@@ -433,10 +433,19 @@ ul, ol {
 
 .hero-ctas {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--spacing-md);
+  gap: 1rem;
+  margin-top: 2rem;
+
+  padding: 1rem;
+  border-radius: 1rem;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 153, 0, 0.12),
+    rgba(255, 153, 0, 0.04)
+  );
 }
+
 
 /* ----------------------------------------
    SECTIONS
@@ -1281,4 +1290,5 @@ ul, ol {
     padding: var(--spacing-xl) 0;
   }
 }
+
 
