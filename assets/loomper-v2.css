@@ -1482,4 +1482,27 @@ select option {
     line-height: 1.5;
   }
 }
+/* === CORREÇÃO DEFINITIVA DO BOTÃO INVESTIDOR === */
+
+.btn-investidor,
+a.btn-investidor,
+.investidor .btn,
+.btn[data-role="investidor"] {
+  background-color: #e67e22 !important; /* mesmo laranja dos outros */
+  color: #ffffff !important;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+/* Hover igual aos demais */
+.btn-investidor:hover,
+a.btn-investidor:hover {
+  background-color: #cf6d17 !important;
+  color: #ffffff !important;
+}
+
 
