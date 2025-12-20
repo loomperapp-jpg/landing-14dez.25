@@ -1695,3 +1695,66 @@ a.btn-investidor:hover {
   }
 }
 
+/* =========================
+   RESET FORÇADO HERO MOBILE
+   ========================= */
+@media (max-width: 767px) {
+
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  main, section, .page, .wrapper {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .hero,
+  .hero * {
+    box-sizing: border-box;
+  }
+
+  .hero {
+    width: 100vw;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .hero .container,
+  .hero .content,
+  .hero .hero-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.hero {
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.75)
+    ),
+    url("/ativos/images/hero-truck.png");
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 767px) {
+  .hero h1 {
+    font-size: 2.1rem;
+    line-height: 1.15;
+    word-break: normal;
+    hyphens: none;
+    text-align: left;
+  }
+}
+
+
+
