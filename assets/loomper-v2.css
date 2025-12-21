@@ -1843,3 +1843,19 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .hero-bg {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .hero-bg img {
+    max-width: 90%;
+    margin-top: 1rem;
+  }
+
+  .hero-content {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
