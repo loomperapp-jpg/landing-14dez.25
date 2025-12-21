@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LOOMPER — A evolução da conexão no transporte de veículos</title>
-  <meta name="description" content="LOOMPER conecta motoristas, chapas/ajudantes e transportadoras em um ecossistema seguro e eficiente. Versão Beta • Acesso fechado." />
+  <meta name="description" content="LOOMPER conecta motoristas de caminhão cegonha, chapas/ajudantes e transportadoras de veículos em um ecossistema seguro e eficiente. Versão Beta • Acesso fechado." />
   
   <!-- Open Graph -->
   <meta property="og:title" content="LOOMPER — Conexão no transporte de veículos" />
-  <meta property="og:description" content="Conectamos quem precisa chegar ao destino com quem conhece o caminho." />
+  <meta property="og:description" content="Conectamos quem precisa chegar ao destino com quem já conhece o caminho." />
   <meta property="og:type" content="website" />
   
   <!-- Favicon -->
@@ -57,23 +57,28 @@
     </div>
     
     <div class="container hero-content">
-      <span class="hero-badge">Versão Beta • Acesso Fechado</span>
-      <h1 class="hero-title">
-        <span class="text-gold">LOOMPER</span>, a evolução da conexão no transporte de veículos.
-      </h1>
-      <p class="hero-subtitle">
-        Conectamos quem precisa chegar ao destino com quem conhece o caminho.<br>
-        <span class="text-silver">Agilidade, segurança e respeito</span> para quem vive a coleta e a entrega todos os dias.
-      </p>
-      <p class="hero-micro">Construído junto com quem está na operação real.</p>
-      
-      <div class="hero-ctas">
-        <a href="#waitlist" class="btn btn-primary" data-profile="motorista" data-action="hero-cta">Sou Motorista</a>
-        <a href="#waitlist" class="btn btn-primary" data-profile="chapa" data-action="hero-cta">Sou Chapa / Ajudante</a>
-        <a href="#waitlist" class="btn btn-primary" data-profile="transportadora" data-action="hero-cta">Sou Transportadora</a>
-        <a href="#waitlist" class="btn btn-primary" data-profile="investor" data-action="hero-cta">Sou Investidor</a>
-      </div>
-    </div>
+
+  <div class="hero-text">
+    <span class="hero-badge">Versão Beta • Acesso Fechado</span>
+
+    <h1 class="hero-title">
+      <span class="text-gold">LOOMPER</span>, a evolução da conexão no transporte de veículos.
+    </h1>
+
+    <p class="hero-subtitle">
+      Conectamos quem precisa chegar ao destino com quem já conhece o caminho.<br>
+      <span class="text-silver">Agilidade, segurança, dignidade e respeito</span> para quem vive a coleta e a entrega todos os dias.
+    </p>
+
+    <p class="hero-micro">Construído junto com você que está na operação real.</p>
+  </div>
+
+  <div class="hero-ctas">
+    ...
+  </div>
+
+</div>
+
   </section>
 
   <main>
@@ -88,8 +93,8 @@
           <div class="about-text">
             <p>
               O Loomper é um <strong class="text-silver">ecossistema logístico colaborativo</strong> criado a partir da escuta 
-              de quem está na coleta e na entrega — geralmente nos grandes centros urbanos, 
-              muitas vezes na madrugada, longe do glamour da estrada.
+              de quem está na coleta e na entrega — geralmente em grandes centros urbanos, 
+              após o horário comercial, nas madrugadas, enfrentando riscos reais, longe do glamour e estrutura da estrada.
             </p>
             <p class="about-highlight">
               Aqui, conexão não é discurso.<br>
@@ -121,11 +126,17 @@
               <li>Encontre ajudantes confiáveis no momento certo</li>
               <li>Mais previsibilidade na carga e descarga</li>
               <li>Apoio local para decisões rápidas e seguras</li>
+              <li>Menos perda de tempo signfica MAIS DINHEIRO NO BOLSO</li>
             </ul>
             <div class="profile-actions">
               <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="motorista" data-action="profile-card">Quero participar</a>
-              <button class="btn btn-ghost btn-sm" data-action="simulate" data-profile="motorista">Ver simulação</button>
-            </div>
+             <button class="btn btn-ghost btn-sm"
+        data-action="simulate"
+        data-profile="motorista"
+        aria-label="Ver simulação de funcionamento para motorista">
+  Ver simulação
+</button>
+           </div>
           </div>
           
           <!-- Chapa -->
@@ -134,8 +145,9 @@
             <h3 class="profile-title text-gold">Chapas / Ajudantes</h3>
             <ul class="profile-benefits">
               <li>Mais visibilidade para quem sabe fazer</li>
-              <li>Oportunidades recorrentes, com respeito</li>
+              <li>Oportunidades recorrentes, com dignidade e respeito</li>
               <li>Reputação construída pelo trabalho bem feito</li>
+              <li>Menos dependência dos contatos conhecidos, MAIS DINHEIRO NO BOLSO</li>
             </ul>
             <div class="profile-actions">
               <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="chapa" data-action="profile-card">Quero participar</a>
@@ -149,8 +161,9 @@
             <h3 class="profile-title text-gold">Transportadoras</h3>
             <ul class="profile-benefits">
               <li>Mais organização na operação urbana</li>
-              <li>Melhor previsibilidade nos pontos críticos</li>
+              <li>Relatórios gerenciais que facilitam a tomada de decisões</li>
               <li>Transparência no apoio local à frota</li>
+              <li>Menos tempo ocisoso da frota, MAIS DINHEIRO NO BOLSO</li>
             </ul>
             <div class="profile-actions">
               <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="transportadora" data-action="profile-card">Quero participar</a>
@@ -214,7 +227,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="sim-city">Cidade</label>
+                <label for="waitlist-city">Cidade</label>
                 <input type="text" id="waitlist-city" name="cidade" placeholder="Digite sua cidade" autocomplete="off" required />
                 <datalist id="sim-city-list"></datalist>
               </div>
@@ -292,13 +305,13 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label text-bronze">Beta Fechado</span>
-          <h2 class="section-title">Primeiro é para poucos. <span class="text-gold">Depois, para o mercado.</span></h2>
+          <h2 class="section-title">Primeiro é para poucos escolhidos. <span class="text-gold">Depois, para o mercado.</span></h2>
         </div>
         
         <div class="pioneer-content">
           <p class="pioneer-text">
             O Loomper está em fase Beta e será testado por um grupo fechado de pioneiros.<br>
-            <strong>Essas pessoas não estão apenas usando a plataforma — estão ajudando a moldá-la.</strong>
+            <strong>Em qualquer lugar, quem chega primeiro escolhe os melhores lugares e se beneficia dessa escolha durante o uso. Aproveite essa oportunidade única e construa conosco.</strong>
           </p>
           
           <div class="pioneer-benefits">
@@ -306,14 +319,14 @@
               <div class="pioneer-icon">🚀</div>
               <div>
                 <h4>Acesso Antecipado</h4>
-                <p>Entre antes, entenda antes, esteja pronto antes.</p>
+                <p>Entre antes, entenda antes, esteja pronto antes e se beneficie depois.</p>
               </div>
             </div>
             <div class="pioneer-item">
               <div class="pioneer-icon">🛠️</div>
               <div>
                 <h4>Construção Conjunta</h4>
-                <p>Quem vive a operação ajuda a definir o que realmente funciona.</p>
+                <p>Quem vive a operação ajuda a definir o que realmente funciona e é necessário.</p>
               </div>
             </div>
             <div class="pioneer-item">
@@ -337,9 +350,9 @@
         <div class="vision-content">
           <h2 class="vision-title">Nossa Visão</h2>
           <p class="vision-text">
-            O transporte de veículos no Brasil é grande, complexo e essencial.<br>
+            O transporte de veículos no Brasil é robusto, complexo e dinâmico.<br>
             O Loomper surge para <span class="text-gold">organizar relações</span>, 
-            <span class="text-silver">valorizar pessoas</span> e transformar dados em decisões melhores.
+            <span class="text-silver">reconhecer e valorizar pessoas</span> transformando dados em decisões melhores.
           </p>
           <p class="vision-highlight">
             Aqui, eficiência e dignidade caminham juntas.<br>
@@ -466,12 +479,12 @@
           </div>
           
           <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitBtn">
-            Entrar para o Beta Loomper
+            Entrar para a comunidade Beta Loomper
           </button>
           
           <p class="form-trust">
             🔒 Usaremos seus dados apenas para comunicação sobre o Loomper.<br>
-            Respeito e transparência desde o primeiro contato.
+            Respeito e transparência desde o primeiro contato. Descadastre-se a qualquer momento.
           </p>
         </form>
       </div>
@@ -514,7 +527,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="/assets/images/loomper_logo_semfundo.PNG" alt="LOOMPER" class="footer-logo" />
-        <p class="footer-tagline">Logística • Tecnologia • Pessoas</p>
+        <p class="footer-tagline">Logística • ESG • Tecnologia • Pessoas</p>
       </div>
       
       <div class="footer-info">
@@ -588,3 +601,4 @@
   </script>
 </body>
 </html>
+
