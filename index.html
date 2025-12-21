@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LOOMPER — A evolução da conexão no transporte de veículos</title>
-  <meta name="description" content="LOOMPER conecta motoristas, chapas/ajudantes e transportadoras em um ecossistema seguro e eficiente. Versão Beta • Acesso fechado." />
+  <meta name="description" content="LOOMPER conecta motoristas de cegonha, chapas/ajudantes e transportadoras numa plataforma segura e eficiente. Versão Beta • Acesso fechado." />
   
   <!-- Open Graph -->
   <meta property="og:title" content="LOOMPER — Conexão no transporte de veículos" />
@@ -29,7 +29,7 @@
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="#" class="logo">
-        <img src="/assets/images/logo-horizontal.png" alt="LOOMPER" />
+        <img src="/assets/images/loomper_logo_semfundo.png" alt="LOOMPER" />
       </a>
       
       <nav class="nav-desktop" id="navDesktop">
@@ -58,12 +58,20 @@
   <!-- ============================================
        SEÇÃO 1 - HERO
        ============================================ -->
-  <section class="hero" id="hero">
-    <!-- Background com overlay escurecido -->
-    <div class="hero-bg">
-      <img src="/assets/images/hero-truck.png" alt="" aria-hidden="true" />
-      <div class="hero-overlay"></div>
-    </div>
+ .hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Nitidez e vida */
+  filter: 
+    contrast(1.12)
+    saturate(1.08)
+    brightness(0.95);
+
+  /* Leve ganho de definição */
+  image-rendering: auto;
+}
     
     <div class="container hero-content">
       <span class="hero-badge">Versão Beta • Acesso Fechado</span>
@@ -108,9 +116,8 @@
         <div class="about-content">
           <div class="about-text">
             <p>
-              O Loomper é um <strong class="text-silver">ecossistema logístico colaborativo</strong> criado a partir da escuta 
-              de quem está na coleta e na entrega — geralmente nos grandes centros urbanos, 
-              muitas vezes na madrugada, longe do glamour da estrada.
+              O Loomper é uma <strong class="text-silver">plataforma logística colaborativa</strong> criada a partir da escuta 
+              de quem está na coleta e na entrega — geralmente nos grandes centros urbanos, nas madrugadas, enfrentando os desafios reais da operação.
             </p>
             <p class="about-highlight">
               Aqui, conexão não é discurso.<br>
@@ -145,8 +152,8 @@
             <h3 class="profile-title text-gold">Motoristas</h3>
             <ul class="profile-benefits">
               <li>Encontre ajudantes confiáveis no momento certo</li>
-              <li>Mais previsibilidade na carga e descarga</li>
-              <li>Apoio local para decisões rápidas e seguras</li>
+              <li>Mais agilidade e segurança na carga e descarga</li>
+              <li>Menos tempo parado, mais rodagem e faturamento</li>
             </ul>
             <div class="profile-actions">
               <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="motorista" data-action="profile-card">
@@ -163,9 +170,9 @@
             <div class="profile-icon">👷</div>
             <h3 class="profile-title text-gold">Chapas / Ajudantes</h3>
             <ul class="profile-benefits">
-              <li>Mais visibilidade para quem sabe fazer</li>
-              <li>Oportunidades recorrentes, com respeito</li>
-              <li>Reputação construída pelo trabalho bem feito</li>
+              <li>Mais visibilidade para quem sabe fazer o trabalho bem feito</li>
+              <li>Oportunidades recorrentes, sem depender exclusivamente de indicações</li>
+              <li>Reputação construída pelo histórico e avaliação dos motoristas cegonheiros</li>
             </ul>
             <div class="profile-actions">
               <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="chapa" data-action="profile-card">
@@ -182,9 +189,9 @@
             <div class="profile-icon">🏢</div>
             <h3 class="profile-title text-gold">Transportadoras</h3>
             <ul class="profile-benefits">
-              <li>Mais organização na operação urbana</li>
-              <li>Melhor previsibilidade nos pontos críticos</li>
-              <li>Transparência no apoio local à frota</li>
+              <li>Mais organização na ultima milha da operação urbana</li>
+              <li>Relatórios gerenciais que apoiam a tomada de decisão</li>
+              <li>Menos ociosidade da frota, otimização logística e mais faturamento</li>
             </ul>
             <div class="profile-actions">
               <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="transportadora" data-action="profile-card">
@@ -321,13 +328,13 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label text-bronze">Beta Fechado</span>
-          <h2 class="section-title">Primeiro é para poucos. <span class="text-gold">Depois, para o mercado.</span></h2>
+          <h2 class="section-title">Primeiro é para poucos escolhidos. <span class="text-gold">Depois, para o mercado.</span></h2>
         </div>
         
         <div class="pioneer-content">
           <p class="pioneer-text">
             O Loomper está em fase Beta e será testado por um grupo fechado de pioneiros.<br>
-            <strong>Essas pessoas não estão apenas usando a plataforma — estão ajudando a moldá-la.</strong>
+            <strong>Essas pessoas ajudam a melhorar o sistema, usando a plataforma.</strong>
           </p>
           
           <div class="pioneer-benefits">
@@ -335,14 +342,14 @@
               <div class="pioneer-icon">🚀</div>
               <div>
                 <h4>Acesso Antecipado</h4>
-                <p>Entre antes, entenda antes, esteja pronto antes.</p>
+                <p>Entre antes, entenda antes, se posicione antes e colha muitas vantagens após o lançamento.</p>
               </div>
             </div>
             <div class="pioneer-item">
               <div class="pioneer-icon">🛠️</div>
               <div>
                 <h4>Construção Conjunta</h4>
-                <p>Quem vive a operação ajuda a definir o que realmente funciona.</p>
+                <p>Quem vive a operação ajuda a definir o que realmente funciona e importa.</p>
               </div>
             </div>
             <div class="pioneer-item">
@@ -369,9 +376,9 @@
         <div class="vision-content">
           <h2 class="vision-title">Nossa Visão</h2>
           <p class="vision-text">
-            O transporte de veículos no Brasil é grande, complexo e essencial.<br>
-            O Loomper surge para <span class="text-gold">organizar relações</span>, 
-            <span class="text-silver">valorizar pessoas</span> e transformar dados em decisões melhores.
+            O transporte de veículos no Brasil é robusto, dinâmico, complexo e essencial.<br>
+            O Loomper surge para <span class="text-gold">organizar as relações que já existem</span>, 
+            <span class="text-silver">reconhecendo e valorizando pessoas</span>transformando dados em melhores decisões.
           </p>
           <p class="vision-highlight">
             Aqui, eficiência e dignidade caminham juntas.<br>
@@ -533,7 +540,7 @@
               name="invite_phone" 
               placeholder="WhatsApp do amigo: 11999998888" 
             />
-            <span class="field-hint">Indique um amigo e ganhe prioridade</span>
+            <span class="field-hint">Indique um amigo e ganhe mais benefícios</span>
           </div>
           
           <!-- Termos -->
@@ -556,7 +563,7 @@
           
           <p class="form-trust">
             🔒 Usaremos seus dados apenas para comunicação sobre o Loomper.<br>
-            Respeito e transparência desde o primeiro contato.
+            Respeito e transparência em todas as interações, desde o primeiro contato.
           </p>
         </form>
       </div>
@@ -568,8 +575,8 @@
     <section class="section section-support" id="apoie">
       <div class="container">
         <div class="support-content">
-          <h2 class="support-title">Apoie quem move o Brasil</h2>
-          <p class="support-text">Ajude a manter o projeto e o impacto social do movimento.</p>
+          <h2 class="support-title">Somos uma força independente e nos mantemos com recursos próprios</h2>
+          <p class="support-text">Se isto fizer sentido para você, nos ajude a manter o projeto e o impacto social do movimento.</p>
           
           <div class="donation-area">
             <div class="donation-buttons">
@@ -604,8 +611,8 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="/assets/images/logo-horizontal.png" alt="LOOMPER" class="footer-logo" />
-        <p class="footer-tagline">Logística • Tecnologia • Pessoas</p>
+        <img src="/assets/images/loomper_logo_semfundo.png.png" alt="LOOMPER" class="footer-logo" />
+        <p class="footer-tagline">Logística • Tecnologia • Pessoas • ESG Social</p>
       </div>
       
       <div class="footer-info">
@@ -665,7 +672,7 @@
       </div>
       
       <p class="modal-note">
-        Em breve você receberá mais informações por WhatsApp e e-mail.
+        Obrigado por sua inscrição, em breve você receberá mais informações por WhatsApp e e-mail.
       </p>
     </div>
   </div>
@@ -674,3 +681,4 @@
   <script src="/assets/loomper-v2.js"></script>
 </body>
 </html>
+
