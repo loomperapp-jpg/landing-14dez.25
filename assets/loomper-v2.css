@@ -1,29 +1,24 @@
+
 /* ============================================
-
-LOOMPER V2 - Styles
-
-Versão minimalista, elegante e profunda
-
-============================================ */
+   LOOMPER V2 - Styles
+   Versão minimalista, elegante e profunda
+   ============================================ */
 
 /* ----------------------------------------
-
-CSS VARIABLES
-
----------------------------------------- */
-
+   CSS VARIABLES
+   ---------------------------------------- */
 :root {
   /* Cores base */
   --bg-primary: #0a0a0f;
   --bg-secondary: #12121a;
   --bg-card: #1a1a24;
   --bg-input: rgba(255, 255, 255, 0.03);
-
+  
   /* Cores de texto */
   --text-primary: #ffffff;
   --text-secondary: #b8b8c8;
   --text-muted: #6b6b7b;
-
+  
   /* Cores de destaque */
   --gold: #d4a847;
   --gold-light: #e8c56b;
@@ -31,16 +26,16 @@ CSS VARIABLES
   --bronze: #cd7f32;
   --orange: #ff6b35;
   --orange-dark: #e55a2b;
-
+  
   /* Utilitários */
   --border-color: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.15);
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
   --shadow-strong: 0 8px 40px rgba(0, 0, 0, 0.5);
-
+  
   /* Tipografia */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
+  
   /* Espaçamentos */
   --container-max: 1100px;
   --spacing-xs: 4px;
@@ -49,22 +44,19 @@ CSS VARIABLES
   --spacing-lg: 24px;
   --spacing-xl: 40px;
   --spacing-2xl: 64px;
-
+  
   /* Transições */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
-
+  
   /* Border radius */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
 }
-
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -105,17 +97,13 @@ button {
   background: none;
 }
 
-ul,
-ol {
+ul, ol {
   list-style: none;
 }
 
 /* ----------------------------------------
-
-UTILITIES
-
----------------------------------------- */
-
+   UTILITIES
+   ---------------------------------------- */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -128,6 +116,7 @@ UTILITIES
 .text-bronze { color: var(--bronze); }
 .text-orange { color: var(--orange); }
 .text-muted { color: var(--text-muted); }
+
 .muted { color: var(--text-secondary); }
 
 .visually-hidden {
@@ -142,11 +131,8 @@ UTILITIES
 }
 
 /* ----------------------------------------
-
-HEADER
-
----------------------------------------- */
-
+   HEADER
+   ---------------------------------------- */
 .header {
   position: fixed;
   top: 0;
@@ -220,7 +206,6 @@ HEADER
 }
 
 /* Menu Toggle Mobile */
-
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -248,7 +233,6 @@ HEADER
 }
 
 /* Nav Mobile */
-
 .nav-mobile {
   display: none;
   flex-direction: column;
@@ -280,11 +264,8 @@ HEADER
 }
 
 /* ----------------------------------------
-
-BUTTONS
-
----------------------------------------- */
-
+   BUTTONS
+   ---------------------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -371,11 +352,8 @@ BUTTONS
 }
 
 /* ----------------------------------------
-
-HERO SECTION
-
----------------------------------------- */
-
+   HERO SECTION
+   ---------------------------------------- */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -401,7 +379,11 @@ HERO SECTION
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 15, 0.85) 0%, rgba(10, 10, 15, 0.95) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 15, 0.85) 0%,
+    rgba(10, 10, 15, 0.95) 100%
+  );
 }
 
 .hero-content {
@@ -426,6 +408,20 @@ HERO SECTION
   margin-bottom: var(--spacing-lg);
 }
 
+.hero-title {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
 .hero-micro {
   font-size: 13px;
   color: var(--text-muted);
@@ -436,17 +432,21 @@ HERO SECTION
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+
   padding: 1rem;
   border-radius: 1rem;
-  background: linear-gradient(135deg, rgba(255, 153, 0, 0.12), rgba(255, 153, 0, 0.04));
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 153, 0, 0.12),
+    rgba(255, 153, 0, 0.04)
+  );
 }
 
+
 /* ----------------------------------------
-
-SECTIONS
-
----------------------------------------- */
-
+   SECTIONS
+   ---------------------------------------- */
 .section {
   padding: var(--spacing-2xl) 0;
 }
@@ -489,11 +489,8 @@ SECTIONS
 }
 
 /* ----------------------------------------
-
-ABOUT SECTION
-
----------------------------------------- */
-
+   ABOUT SECTION
+   ---------------------------------------- */
 .about-content {
   display: grid;
   grid-template-columns: 1fr;
@@ -531,16 +528,14 @@ ABOUT SECTION
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
   border-radius: var(--radius-lg);
   background-color: var(--bg-card);
 }
 
 /* ----------------------------------------
-
-PROFILE CARDS
-
----------------------------------------- */
-
+   PROFILE CARDS
+   ---------------------------------------- */
 .profile-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -598,11 +593,8 @@ PROFILE CARDS
 }
 
 /* ----------------------------------------
-
-SIMULATOR MODAL
-
----------------------------------------- */
-
+   SIMULATOR MODAL
+   ---------------------------------------- */
 .simulator-modal {
   position: fixed;
   inset: 0;
@@ -673,7 +665,6 @@ SIMULATOR MODAL
 }
 
 /* Simulator Form */
-
 .sim-form {
   display: flex;
   flex-direction: column;
@@ -688,7 +679,6 @@ SIMULATOR MODAL
 }
 
 /* Dashboard Grid */
-
 .dash-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -752,11 +742,8 @@ SIMULATOR MODAL
 }
 
 /* ----------------------------------------
-
-PIONEER SECTION
-
----------------------------------------- */
-
+   PIONEER SECTION
+   ---------------------------------------- */
 .pioneer-content {
   max-width: 700px;
   margin: 0 auto;
@@ -811,11 +798,8 @@ PIONEER SECTION
 }
 
 /* ----------------------------------------
-
-VISION SECTION
-
----------------------------------------- */
-
+   VISION SECTION
+   ---------------------------------------- */
 .vision-content {
   max-width: 700px;
   margin: 0 auto;
@@ -844,11 +828,8 @@ VISION SECTION
 }
 
 /* ----------------------------------------
-
-FORM STYLES
-
----------------------------------------- */
-
+   FORM STYLES
+   ---------------------------------------- */
 .waitlist-form {
   max-width: 500px;
   margin: 0 auto;
@@ -929,7 +910,6 @@ FORM STYLES
 }
 
 /* Checkbox */
-
 .terms-group {
   margin-top: var(--spacing-lg);
 }
@@ -994,11 +974,8 @@ FORM STYLES
 }
 
 /* ----------------------------------------
-
-SUPPORT SECTION
-
----------------------------------------- */
-
+   SUPPORT SECTION
+   ---------------------------------------- */
 .section-support {
   background: linear-gradient(135deg, rgba(212, 168, 71, 0.08) 0%, var(--bg-secondary) 100%);
   border-top: 1px solid var(--gold);
@@ -1081,11 +1058,8 @@ SUPPORT SECTION
 }
 
 /* ----------------------------------------
-
-FOOTER
-
----------------------------------------- */
-
+   FOOTER
+   ---------------------------------------- */
 .footer {
   padding: var(--spacing-2xl) 0 var(--spacing-xl);
   background: var(--bg-primary);
@@ -1144,11 +1118,8 @@ FOOTER
 }
 
 /* ----------------------------------------
-
-WHATSAPP FAB
-
----------------------------------------- */
-
+   WHATSAPP FAB
+   ---------------------------------------- */
 .whatsapp-fab {
   position: fixed;
   right: 20px;
@@ -1177,11 +1148,8 @@ WHATSAPP FAB
 }
 
 /* ----------------------------------------
-
-MODAL
-
----------------------------------------- */
-
+   MODAL
+   ---------------------------------------- */
 .modal {
   position: fixed;
   inset: 0;
@@ -1260,30 +1228,35 @@ MODAL
 }
 
 /* ----------------------------------------
-
-RESPONSIVE
-
----------------------------------------- */
+   RESPONSIVE
+   ---------------------------------------- */
+@media (max-width: 768px) {
+  .fluxo {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+  
   .hero-ctas {
     flex-direction: column;
   }
-
+  
   .hero-ctas .btn {
     width: 100%;
   }
-
+  
   .form-row {
     grid-template-columns: 1fr;
   }
-
+  
   .dash-grid {
     grid-template-columns: 1fr;
   }
-
+  
   .profile-cards {
     grid-template-columns: 1fr;
   }
-
+  
   .about-visual {
     display: none;
   }
@@ -1293,7 +1266,7 @@ RESPONSIVE
   .about-content {
     grid-template-columns: 1.2fr 0.8fr;
   }
-
+  
   .about-visual {
     display: block;
   }
@@ -1303,11 +1276,11 @@ RESPONSIVE
   .container {
     padding: 0 var(--spacing-md);
   }
-
+  
   .hero-content {
     padding: var(--spacing-xl) var(--spacing-md);
   }
-
+  
   .section {
     padding: var(--spacing-xl) 0;
   }
@@ -1317,11 +1290,10 @@ RESPONSIVE
 #waitlist {
   scroll-margin-top: 120px;
 }
-
 /* Ajuste visual do select (desktop) */
 select {
-  color: #222; /* texto escuro */
-  background-color: #fff; /* fundo branco */
+  color: #222;              /* texto escuro */
+  background-color: #fff;   /* fundo branco */
 }
 
 /* Garantia para as opções */
@@ -1336,13 +1308,17 @@ select option {
   letter-spacing: 0.3px;
 }
 
+@media (max-width: 768px) {
+  .btn {
+    font-size: 1.05rem;
+  }
+}
 .section-subtitle {
   font-weight: 400;
   opacity: 0.9;
 }
-
 .section-visual-flow {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255,255,255,0.02);
 }
 
 .visual-flow-grid {
@@ -1374,6 +1350,7 @@ select option {
   opacity: 0.85;
 }
 
+
 /* Marca d’água no HERO */
 .hero {
   position: relative;
@@ -1393,12 +1370,151 @@ select option {
   pointer-events: none;
 }
 
+
+.hero .btn {
+  background-color: var(--loomper-orange);
+  color: #111;
+  font-size: 1.05rem;       /* letra maior */
+  font-weight: 600;
+  padding: 14px 22px;       /* mais “corpo” */
+  border-radius: 10px;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(230, 126, 34, 0.25);
+}
+
+.hero .btn:hover {
+  background-color: var(--loomper-orange-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(207, 109, 23, 0.35);
+}
+
+.hero .btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.35);
+}
+
+@media (max-width: 768px) {
+  .hero .btn {
+    font-size: 1.1rem;
+    width: 100%;
+    min-height: 56px;
+  }
+
+.hero-ctas .btn-investor {
+  background-color: var(--loomper-orange) !important;
+  color: #111 !important;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+}
+.profile-actions .btn-outline {
+  background-color: var(--loomper-orange);
+  color: #111;
+  border: none;
+  font-weight: 600;
+  padding: 10px 16px;
+}
+
+.profile-actions .btn-outline:hover {
+  background-color: var(--loomper-orange-dark);
+}
+.profile-actions .btn-ghost {
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.35);
+  opacity: 0.9;
+}
+
+.profile-actions .btn-ghost:hover {
+  opacity: 1;
+  border-color: #fff;
+}
+#waitlist .section-header {
+  border: 1px solid rgba(230, 126, 34, 0.35);
+  padding: 24px;
+  border-radius: 14px;
+  background: rgba(230, 126, 34, 0.05);
+}
+#waitlist .section-title {
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  #waitlist .section-title {
+    font-size: 1.7rem;
+  }
+}
+.field-hint {
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+.terms-group .checkmark {
+  border: 2px solid var(--loomper-orange);
+  background-color: transparent;
+}
+
+.terms-group input:checked + .checkmark {
+  background-color: var(--loomper-orange);
+}
+.form-trust,
+.footer,
+.footer p,
+.footer a {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  .form-trust,
+  .footer p,
+  .footer a {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+/* === CORREÇÃO DEFINITIVA DO BOTÃO INVESTIDOR === */
+
+.btn-investidor,
+a.btn-investidor,
+.investidor .btn,
+.btn[data-role="investidor"] {
+  background-color: #e67e22 !important; /* mesmo laranja dos outros */
+  color: #ffffff !important;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+/* Hover igual aos demais */
+.btn-investidor:hover,
+a.btn-investidor:hover {
+  background-color: #cf6d17 !important;
+  color: #ffffff !important;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./ativos/images/hero-truck.png") center / cover no-repeat;
+  opacity: 0.18;
+  filter: brightness(1.3);
+  z-index: 0;
+}
+
 .hero > * {
   position: relative;
   z-index: 1;
 }
-
 /* === COMO FUNCIONA === */
+
 .como-funciona {
   padding: 70px 20px;
   background: #0f1a22;
@@ -1455,6 +1571,12 @@ select option {
   line-height: 1.5;
 }
 
+/* Mobile refinado */
+@media (max-width: 768px) {
+  .como-funciona {
+    padding: 90px 16px;
+  }
+
   .passo {
     text-align: center;
   }
@@ -1488,9 +1610,10 @@ select option {
   }
 }
 
+
 .hero {
   min-height: 100svh; /* adapta à altura real do celular */
-  padding: 6rem 1.25rem 3.5rem;
+  padding: 6rem 1.25rem 3.5rem; 
   display: flex;
   align-items: flex-start;
 }
@@ -1506,139 +1629,233 @@ select option {
   font-size: 1rem;
   line-height: 1.45;
   text-align: left;
-  color: rgba(255,
-
-/* =====================================================
-   RESPONSIVIDADE — AJUSTES FINAIS (MOBILE & DESKTOP)
-   ===================================================== */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-}
-.section {
-  padding: 96px 0;
-}
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 32px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-  .hero-actions {
-    flex-direction: column;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(
+      rgba(0,0,0,0.75),
+      rgba(0,0,0,0.85)
+    ),
+    url("/ativos/images/hero-truck.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35; /* AQUI está o segredo */
+  z-index: -1;
+}
+
+.hero-ctas {
+  margin-top: 2.5rem;
+}
+
+.hero-ctas .btn {
+  font-size: 1.05rem;
+  padding: 0.9rem 1.25rem;
+}
+
+/* =========================
+   MOBILE: HERO FULL BLEED
+   ========================= */
+@media (max-width: 767px) {
+  .hero .container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
   }
 
-  .hero-actions a {
+  .hero-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero h1,
+  .hero p {
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-content {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* =========================
+   RESET FORÇADO HERO MOBILE
+   ========================= */
+@media (max-width: 767px) {
+
+  html, body {
     width: 100%;
-    text-align: center;
+    overflow-x: hidden;
   }
+
+  body {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  main, section, .page, .wrapper {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .hero,
+  .hero * {
+    box-sizing: border-box;
+  }
+
+  .hero {
+    width: 100vw;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .hero .container,
+  .hero .content,
+  .hero .hero-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.hero {
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.75)
+    ),
+    url("/ativos/images/hero-truck.png");
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 767px) {
+  .hero h1 {
+    font-size: 2.1rem;
+    line-height: 1.15;
+    word-break: normal;
+    hyphens: none;
+    text-align: left;
+  }
+}
+
+.seletor-correspondente {
+    margin-left: 20px; /* ajuste o valor */
+}
+
+.hero-content, 
+.como-funciona .container {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.hero p, .hero h1 {
+  margin-left: 0;
+  margin-right: 0;
+}
+.hero p {
+  margin: 1rem 0 0 0; /* só topo */
+}
+
+.como-funciona .passo {
+  margin-left: auto;
+  margin-right: auto; /* centraliza no grid */
+}
+.hero span, .fluxo span {
+  margin-left: 0;
+  margin-right: 0;
 }
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .container,
+  .hero-content,
+  .como-funciona,
+  .fluxo,
+  .section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+
+
+/* ===========================================
+   AJUSTES PERSONALIZADOS - DEZEMBRO 2025
+   =========================================== */
+
+/* Alinhamento do container do bloco inicial */
+.hero-content {
+  padding: 0 var(--spacing-lg);
+  margin: 0 auto;
+}
+
+/* Ajustes para marca d'água no Hero em Mobile */
+.hero-bg img {
+  object-fit: cover;
+  height: auto;
+  filter: grayscale(80%) brightness(0.4);
+}
+
+@media (max-width: 768px) {
+  .hero-bg img {
+    object-fit: contain;
+    filter: grayscale(75%);
+  }
+}
+
+/* Contraste aprimorado nos botões de ação */
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 100%);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: scale(1.02);
+}
+
+/* Incremento do tamanho da fonte para melhor legibilidade */
+body {
+  font-size: 18px; /* Fonte base maior */
+}
+
+.about-text p,
+.profile-benefits li {
+  font-size: 16px;
+  color: var(--text-primary); /* Melhoria do contraste */
+}
+
 @media (max-width: 768px) {
   body {
-    overflow-x: hidden;
+    font-size: 16px;
   }
 }
-/* =====================================================
-   MOBILE — AJUSTE FINO E ELEGANTE
-   ===================================================== */
+
 @media (max-width: 768px) {
-
-  /* Segurança estrutural */
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+  .hero-bg {
+    justify-content: center;
+    align-items: flex-start;
   }
 
-  /* Container */
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
+  .hero-bg img {
+    max-width: 90%;
+    margin-top: 1rem;
   }
 
-  /* HERO */
   .hero-content {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
-
-  .hero-title {
-    line-height: 1.25;
-  }
-
-  .hero-subtitle {
-    line-height: 1.6;
-  }
-
-  .hero-ctas {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
-  }
-
-  /* SEÇÕES */
-  section {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
-  /* GRIDS → COLUNA */
-  .profile-cards,
-  .pioneer-benefits,
-  .dash-grid,
-  .about-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  /* FORM */
-  .form-row {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
 }
-/* =====================================================
-   FIX DEFINITIVO — HEADER MOBILE
-   ===================================================== */
-@media (max-width: 768px) {
-
-  header,
-  .header,
-  .header-inner {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  /* Garante que o menu desktop não ocupa espaço */
-  .nav-desktop {
-    display: none !important;
-  }
-
-  /* Botão hamburguer seguro */
-  .menu-toggle {
-    margin-left: auto;
-  }
-
-}
-
-
