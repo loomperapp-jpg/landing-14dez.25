@@ -1,4 +1,4 @@
-""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -23,9 +23,6 @@
   <link rel="stylesheet" href="/assets/loomper-v2.css" />
 </head>
 <body>
-  <!-- ============================================
-       HEADER - Fixo com blur ao rolar
-       ============================================ -->
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="#" class="logo">
@@ -46,7 +43,6 @@
       </button>
     </div>
     
-    <!-- Menu Mobile -->
     <nav class="nav-mobile" id="navMobile">
       <a href="#sobre" class="nav-link-mobile">O que é</a>
       <a href="#para-quem" class="nav-link-mobile">Para quem</a>
@@ -55,54 +51,33 @@
     </nav>
   </header>
 
-  <!-- ============================================
-       SEÇÃO 1 - HERO
-       ============================================ -->
   <section class="hero" id="hero">
-    <!-- Background com overlay escurecido -->
     <div class="hero-bg">
-      <img src="/assets/images/hero-truck.png" alt="" aria-hidden="true" />
+      <img src="/assets/images/hero-truck.png" alt="Caminhão" aria-hidden="true" />
       <div class="hero-overlay"></div>
     </div>
     
     <div class="container hero-content">
       <span class="hero-badge">Versão Beta • Acesso Fechado</span>
-      
       <h1 class="hero-title">
         <span class="text-gold">LOOMPER</span>, a evolução da conexão no transporte de veículos.
       </h1>
-      
       <p class="hero-subtitle">
         Conectamos quem precisa chegar ao destino com quem conhece o caminho.<br>
         <span class="text-silver">Agilidade, segurança e respeito</span> para quem vive a coleta e a entrega todos os dias.
       </p>
-      
       <p class="hero-micro">Construído junto com quem está na operação real.</p>
       
-      <!-- CTAs por perfil -->
       <div class="hero-ctas">
-  <a href="#waitlist" class="btn btn-primary" data-profile="motorista" data-action="hero-cta">
-    Sou Motorista
-  </a>
-
-  <a href="#waitlist" class="btn btn-primary" data-profile="chapa" data-action="hero-cta">
-    Sou Chapa / Ajudante
-  </a>
-
-  <a href="#waitlist" class="btn btn-primary" data-profile="transportadora" data-action="hero-cta">
-    Sou Transportadora
-  </a>
-
-  <a href="#waitlist" class="btn btn-primary" data-profile="investor" data-action="hero-cta">
-    Sou Investidor
-  </a>      
-  </div>
+        <a href="#waitlist" class="btn btn-primary" data-profile="motorista" data-action="hero-cta">Sou Motorista</a>
+        <a href="#waitlist" class="btn btn-primary" data-profile="chapa" data-action="hero-cta">Sou Chapa / Ajudante</a>
+        <a href="#waitlist" class="btn btn-primary" data-profile="transportadora" data-action="hero-cta">Sou Transportadora</a>
+        <a href="#waitlist" class="btn btn-primary" data-profile="investor" data-action="hero-cta">Sou Investidor</a>
+      </div>
+    </div>
   </section>
 
   <main>
-    <!-- ============================================
-         SEÇÃO 2 - O QUE É O LOOMPER
-         ============================================ -->
     <section class="section" id="sobre">
       <div class="container">
         <div class="section-header">
@@ -123,7 +98,6 @@
             </p>
           </div>
           
-          <!-- Placeholder para imagem -->
           <div class="about-visual">
             <div class="visual-placeholder">
               <span>Imagem: Motorista e ajudante em colaboração</span>
@@ -133,9 +107,6 @@
       </div>
     </section>
 
-    <!-- ============================================
-         SEÇÃO 3 - PARA QUEM É
-         ============================================ -->
     <section class="section section-dark" id="para-quem">
       <div class="container">
         <div class="section-header">
@@ -154,12 +125,8 @@
               <li>Apoio local para decisões rápidas e seguras</li>
             </ul>
             <div class="profile-actions">
-              <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="motorista" data-action="profile-card">
-                Quero participar
-              </a>
-              <button class="btn btn-ghost btn-sm" data-action="simulate" data-profile="motorista">
-                Ver simulação
-              </button>
+              <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="motorista" data-action="profile-card">Quero participar</a>
+              <button class="btn btn-ghost btn-sm" data-action="simulate" data-profile="motorista">Ver simulação</button>
             </div>
           </div>
           
@@ -173,12 +140,8 @@
               <li>Reputação construída pelo trabalho bem feito</li>
             </ul>
             <div class="profile-actions">
-              <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="chapa" data-action="profile-card">
-                Quero participar
-              </a>
-              <button class="btn btn-ghost btn-sm" data-action="simulate" data-profile="chapa">
-                Ver simulação
-              </button>
+              <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="chapa" data-action="profile-card">Quero participar</a>
+              <button class="btn btn-ghost btn-sm" data-action="simulate" data-profile="chapa">Ver simulação</button>
             </div>
           </div>
           
@@ -192,21 +155,14 @@
               <li>Transparência no apoio local à frota</li>
             </ul>
             <div class="profile-actions">
-              <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="transportadora" data-action="profile-card">
-                Quero participar
-              </a>
-              <button class="btn btn-ghost btn-sm" data-action="simulate" data-profile="transportadora">
-                Ver simulação
-              </button>
+              <a href="#waitlist" class="btn btn-outline btn-sm" data-profile="transportadora" data-action="profile-card">Quero participar</a>
+              <button class="btn btn-ghost btn-sm" data-action="simulate" data-profile="transportadora">Ver simulação</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================================
-         SEÇÃO 4 - SIMULADOR (Modal expandível)
-         ============================================ -->
     <div class="simulator-modal" id="simulatorModal" aria-hidden="true">
       <div class="simulator-overlay"></div>
       <div class="simulator-content">
@@ -217,7 +173,6 @@
           <p class="muted">Veja como funciona na prática</p>
         </div>
         
-        <!-- Simulador Motorista -->
         <div class="sim-panel" id="simMotorista" style="display:none;">
           <form id="simMotoristaForm" class="sim-form">
             <div class="form-group">
@@ -230,27 +185,39 @@
                 <label for="sim-uf">UF</label>
                 <select id="sim-uf" name="uf" required>
                   <option value="">Selecione</option>
-                  <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option>
-                  <option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option>
-                  <option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option>
-                  <option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option>
-                  <option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option>
-                  <option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option>
-                  <option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option>
-                  <option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option>
-                  <option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option>
+                  <!-- Opções de UF -->
+                  <option value="AC">AC</option>
+                  <option value="AL">AL</option>
+                  <option value="AP">AP</option>
+                  <option value="AM">AM</option>
+                  <option value="BA">BA</option>
+                  <option value="CE">CE</option>
+                  <option value="DF">DF</option>
+                  <option value="ES">ES</option>
+                  <option value="GO">GO</option>
+                  <option value="MA">MA</option>
+                  <option value="MT">MT</option>
+                  <option value="MS">MS</option>
+                  <option value="MG">MG</option>
+                  <option value="PA">PA</option>
+                  <option value="PB">PB</option>
+                  <option value="PR">PR</option>
+                  <option value="PE">PE</option>
+                  <option value="PI">PI</option>
+                  <option value="RJ">RJ</option>
+                  <option value="RN">RN</option>
+                  <option value="RS">RS</option>
+                  <option value="RO">RO</option>
+                  <option value="RR">RR</option>
+                  <option value="SC">SC</option>
+                  <option value="SP">SP</option>
+                  <option value="SE">SE</option>
+                  <option value="TO">TO</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="sim-city">Cidade</label>
-                <input
-  type="text"
-  id="waitlist-city"
-  name="cidade"
-  placeholder="Digite sua cidade"
-  autocomplete="off"
-  required
-/>
+                <input type="text" id="waitlist-city" name="cidade" placeholder="Digite sua cidade" autocomplete="off" required />
                 <datalist id="sim-city-list"></datalist>
               </div>
             </div>
@@ -283,17 +250,14 @@
             <button type="submit" class="btn btn-primary btn-block">Criar Vaga (Simulado)</button>
           </form>
           
-          <!-- Resultado oculto até criar vaga -->
           <div id="motoristaResult" class="sim-result" style="display:none;"></div>
         </div>
-        
-        <!-- Simulador Chapa -->
+
         <div class="sim-panel" id="simChapa" style="display:none;">
           <p class="muted">Vagas disponíveis na sua região:</p>
           <div id="chapaVagas" class="vagas-list"></div>
         </div>
-        
-        <!-- Simulador Transportadora -->
+
         <div class="sim-panel" id="simTransportadora" style="display:none;">
           <div class="dash-grid">
             <div class="dash-card">
@@ -319,18 +283,13 @@
             </div>
           </div>
         </div>
-        
+
         <div class="simulator-footer">
-          <a href="#waitlist" class="btn btn-primary" data-action="hero-cta">
-  Quero ser pioneiro
-</a>
+          <a href="#waitlist" class="btn btn-primary" data-action="hero-cta">Quero ser pioneiro</a>
         </div>
       </div>
     </div>
 
-    <!-- ============================================
-         SEÇÃO 5 - PIONEIROS (BETA)
-         ============================================ -->
     <section class="section" id="pioneiros">
       <div class="container">
         <div class="section-header">
@@ -375,9 +334,6 @@
       </div>
     </section>
 
-    <!-- ============================================
-         SEÇÃO 6 - VISÃO
-         ============================================ -->
     <section class="section section-gradient" id="visao">
       <div class="container">
         <div class="vision-content">
@@ -395,9 +351,6 @@
       </div>
     </section>
 
-    <!-- ============================================
-         SEÇÃO 7 - FORMULÁRIO (LISTA DE ESPERA)
-         ============================================ -->
     <section class="section" id="waitlist">
       <div class="container">
         <div class="section-header">
@@ -409,69 +362,35 @@
           </p>
         </div>
         
-        <form 
-          id="waitlistForm" 
-          name="waitlist" 
-          method="POST" 
-          data-netlify="true" 
-          netlify-honeypot="bot-field"
-          class="waitlist-form"
-          novalidate
-        >
+        <form id="waitlistForm" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="waitlist-form" novalidate>
           <input type="hidden" name="form-name" value="waitlist" />
           <input type="hidden" id="referrer_id" name="referrer_id" />
           <input type="hidden" id="id_user" name="id_user" />
           <input type="hidden" id="user_journey" name="user_journey" />
           
-          <!-- Honeypot -->
           <div style="display:none;">
             <label>Não preencha: <input name="bot-field" /></label>
           </div>
           
-          <!-- Nome -->
           <div class="form-group">
             <label for="waitlist-name">Nome completo <span class="required">*</span></label>
-            <input 
-              type="text" 
-              id="waitlist-name" 
-              name="name" 
-              placeholder="Ex: João da Silva" 
-              autocomplete="name"
-              required 
-            />
+            <input type="text" id="waitlist-name" name="name" placeholder="Ex: João da Silva" autocomplete="name" required />
             <span class="field-error" id="name-error"></span>
           </div>
           
-          <!-- WhatsApp -->
           <div class="form-group">
             <label for="waitlist-whatsapp">WhatsApp <span class="required">*</span></label>
-            <input 
-              type="tel" 
-              id="waitlist-whatsapp" 
-              name="whatsapp" 
-              placeholder="11999998888" 
-              autocomplete="tel"
-              required 
-            />
+            <input type="tel" id="waitlist-whatsapp" name="whatsapp" placeholder="11999998888" autocomplete="tel" required />
             <span class="field-hint">Digite DDD + número (apenas números)</span>
             <span class="field-error" id="whatsapp-error"></span>
           </div>
           
-          <!-- Email -->
           <div class="form-group">
             <label for="waitlist-email">E-mail <span class="required">*</span></label>
-            <input 
-              type="email" 
-              id="waitlist-email" 
-              name="email" 
-              placeholder="seu@email.com" 
-              autocomplete="email"
-              required 
-            />
+            <input type="email" id="waitlist-email" name="email" placeholder="seu@email.com" autocomplete="email" required />
             <span class="field-error" id="email-error"></span>
           </div>
           
-          <!-- UF + Cidade -->
           <div class="form-row">
             <div class="form-group">
               <label for="waitlist-uf">Estado <span class="required">*</span></label>
@@ -509,22 +428,13 @@
             </div>
             <div class="form-group">
               <label for="waitlist-city">Cidade <span class="required">*</span></label>
-              <input 
-                type="text" 
-                id="waitlist-city" 
-                name="city" 
-                list="city-list"
-                placeholder="Digite para buscar..."
-                autocomplete="off"
-                required 
-              />
+              <input type="text" id="waitlist-city" name="city" list="city-list" placeholder="Digite para buscar..." autocomplete="off" required />
               <datalist id="city-list"></datalist>
               <span class="field-hint">Selecione o estado primeiro</span>
               <span class="field-error" id="city-error"></span>
             </div>
           </div>
           
-          <!-- Perfil -->
           <div class="form-group">
             <label for="waitlist-profile">Perfil <span class="required">*</span></label>
             <select id="waitlist-profile" name="user_type" required>
@@ -538,19 +448,12 @@
             <span class="field-error" id="profile-error"></span>
           </div>
           
-          <!-- Convidar amigo (telefone ao invés de email) -->
           <div class="form-group">
             <label for="waitlist-invite">Convidar amigo (opcional)</label>
-            <input 
-              type="tel" 
-              id="waitlist-invite" 
-              name="invite_phone" 
-              placeholder="WhatsApp do amigo: 11999998888" 
-            />
+            <input type="tel" id="waitlist-invite" name="invite_phone" placeholder="WhatsApp do amigo: 11999998888" />
             <span class="field-hint">Indique um amigo e ganhe prioridade</span>
           </div>
           
-          <!-- Termos -->
           <div class="form-group terms-group">
             <label class="checkbox-label">
               <input type="checkbox" id="waitlist-terms" name="terms" required />
@@ -576,9 +479,6 @@
       </div>
     </section>
 
-    <!-- ============================================
-         SEÇÃO - APOIE (Simplificada)
-         ============================================ -->
     <section class="section section-support" id="apoie">
       <div class="container">
         <div class="support-content">
@@ -612,9 +512,6 @@
     </section>
   </main>
 
-  <!-- ============================================
-       SEÇÃO 8 - FOOTER
-       ============================================ -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
@@ -640,85 +537,56 @@
     </div>
   </footer>
 
-  <!-- ============================================
-       WHATSAPP FAB (Flutuante)
-       ============================================ -->
-  <a 
-    class="whatsapp-fab" 
-    id="whatsappFab"
-    href="#" 
-    target="_blank" 
-    rel="noopener"
-    aria-label="Falar no WhatsApp"
-    data-action="whatsapp-fab"
-  >
+  <a class="whatsapp-fab" id="whatsappFab" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" data-action="whatsapp-fab">
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
 
-  <!-- ============================================
-       MODAL DE SUCESSO
-       ============================================ -->
   <div class="modal" id="successModal" aria-hidden="true">
     <div class="modal-overlay"></div>
     <div class="modal-content">
       <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
-      
       <div class="modal-icon">✅</div>
       <h3>Bem-vindo ao grupo de pioneiros!</h3>
       <p>Sua inscrição foi recebida com sucesso.</p>
       
       <div class="modal-actions">
-        <button class="btn btn-primary" id="enterWhatsapp">
-          Entrar no grupo WhatsApp
-        </button>
-        <button class="btn btn-outline" id="inviteFriends">
-          Convidar amigos
-        </button>
+        <button class="btn btn-primary" id="enterWhatsapp">Entrar no grupo WhatsApp</button>
+        <button class="btn btn-outline" id="inviteFriends">Convidar amigos</button>
       </div>
       
-      <p class="modal-note">
-        Em breve você receberá mais informações por WhatsApp e e-mail.
-      </p>
+      <p class="modal-note">Em breve você receberá mais informações por WhatsApp e e-mail.</p>
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="/assets/loomper-v2.js"></script>
-<script>
-  document.querySelectorAll('[data-profile]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const profile = btn.dataset.profile;
-      localStorage.setItem('loomper_profile', profile);
+  <script>
+    document.querySelectorAll('[data-profile]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const profile = btn.dataset.profile;
+        localStorage.setItem('loomper_profile', profile);
+      });
     });
-  });
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedProfile = localStorage.getItem('loomper_profile');
-    if (!savedProfile) return;
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedProfile = localStorage.getItem('loomper_profile');
+      if (!savedProfile) return;
 
-    const profileSelect = document.getElementById('waitlist-profile');
-    if (!profileSelect) return;
+      const profileSelect = document.getElementById('waitlist-profile');
+      if (!profileSelect) return;
 
-    const map = {
-      motorista: 'Motorista',
-      chapa: 'Chapa / Ajudante',
-      transportadora: 'Transportadora',
-      investidor: 'Investidor / Parceiro'
-    };
+      const map = {
+        motorista: 'Motorista',
+        chapa: 'Chapa / Ajudante',
+        transportadora: 'Transportadora',
+        investidor: 'Investidor / Parceiro'
+      };
 
-    if (map[savedProfile]) {
-      profileSelect.value = map[savedProfile];
-    }
-  });
-</script>
-
+      if (map[savedProfile]) {
+        profileSelect.value = map[savedProfile];
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
