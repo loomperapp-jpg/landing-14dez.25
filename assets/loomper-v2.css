@@ -1611,4 +1611,34 @@ select option {
   }
 
 }
+/* =====================================================
+   FIX DEFINITIVO — HEADER MOBILE
+   ===================================================== */
+@media (max-width: 768px) {
+
+  header,
+  .header,
+  .header-inner {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Garante que o menu desktop não ocupa espaço */
+  .nav-desktop {
+    display: none !important;
+  }
+
+  /* Botão hamburguer seguro */
+  .menu-toggle {
+    margin-left: auto;
+  }
+
+}
+
 
