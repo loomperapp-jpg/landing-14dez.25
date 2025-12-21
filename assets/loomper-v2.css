@@ -426,20 +426,6 @@ HERO SECTION
   margin-bottom: var(--spacing-lg);
 }
 
-.hero-title {
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: var(--spacing-lg);
-}
-
-.hero-subtitle {
-  font-size: clamp(16px, 2.5vw, 20px);
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: var(--spacing-md);
-}
-
 .hero-micro {
   font-size: 13px;
   color: var(--text-muted);
@@ -1278,13 +1264,6 @@ MODAL
 RESPONSIVE
 
 ---------------------------------------- */
-
-@media (max-width: 768px) {
-  .fluxo {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
   .hero-ctas {
     flex-direction: column;
   }
@@ -1355,12 +1334,6 @@ select option {
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.3px;
-}
-
-@media (max-width: 768px) {
-  .btn {
-    font-size: 1.05rem;
-  }
 }
 
 .section-subtitle {
@@ -1482,12 +1455,6 @@ select option {
   line-height: 1.5;
 }
 
-/* Mobile refinado */
-@media (max-width: 768px) {
-  .como-funciona {
-    padding: 90px 16px;
-  }
-
   .passo {
     text-align: center;
   }
@@ -1550,44 +1517,9 @@ select option {
   margin: 0 auto;
   padding: 0 24px;
 }
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
-}
-.hero-title {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1.15;
-  margin-bottom: 24px;
-}
-
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.2rem;
-    line-height: 1.2;
-  }
-}
-.hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 640px;
-}
-
-@media (max-width: 768px) {
-  .hero-subtitle {
-    font-size: 1rem;
-    line-height: 1.7;
-  }
 }
 .section {
   padding: 96px 0;
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 64px 0;
-  }
 }
 .hero-actions {
   display: flex;
@@ -1616,3 +1548,67 @@ select option {
     overflow-x: hidden;
   }
 }
+/* =====================================================
+   MOBILE — AJUSTE FINO E ELEGANTE
+   ===================================================== */
+@media (max-width: 768px) {
+
+  /* Segurança estrutural */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Container */
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* HERO */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hero-title {
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    line-height: 1.6;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  /* SEÇÕES */
+  section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  /* GRIDS → COLUNA */
+  .profile-cards,
+  .pioneer-benefits,
+  .dash-grid,
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* FORM */
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+}
+
