@@ -124,15 +124,6 @@
               <span class="text-gold">É presença, apoio e organização no momento em que mais importa.</span>
             </p>
           </div>
-          
-          <!-- Placeholder para imagem -->
-          <div class="about-visual">
-            <div class="visual-placeholder">
-              <span>Imagem: Motorista e ajudante em colaboração</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- ============================================
@@ -611,7 +602,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="/assets/images/loomper_logo_semfundo.png.png" alt="LOOMPER" class="footer-logo" />
+        <img src="/assets/images/loomper_logo_semfundo.png" alt="LOOMPER" class="footer-logo" />
         <p class="footer-tagline">Logística • Tecnologia • Pessoas • ESG Social</p>
       </div>
       
@@ -681,4 +672,5 @@
   <script src="/assets/loomper-v2.js"></script>
 </body>
 </html>
+
 
