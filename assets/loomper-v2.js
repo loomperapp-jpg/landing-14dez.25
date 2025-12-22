@@ -11,6 +11,8 @@
 
 (function() {
   'use strict';
+  let validCities = [];
+
 
   // ============================================
   // CONFIGURAÇÕES
@@ -118,7 +120,7 @@
   // API IBGE - Cidades por UF
   // ============================================
   const IBGE = {
-    cache: {},
+  cache: {},
     
     async getCities(uf) {
       if (this.cache[uf]) {
@@ -294,7 +296,9 @@
         }
         
         const cities = await IBGE.getCities(uf);
+        validCities = cities.map(c => c.toLowerCase());
         IBGE.populateDatalist(datalistId, cities);
+
         
         if (cityInput) {
           cityInput.placeholder = 'Digite para buscar...';
@@ -365,13 +369,18 @@
       }
       
       // Validate city
-      const city = document.getElementById('waitlist-city').value;
-      if (!city.trim()) {
-        showError('city', 'Digite a cidade');
-        isValid = false;
-      }
-      
-      // Validate profile
+      const cityInput = document.getElementById('waitlist-city');
+const city = cityInput.value.trim();
+
+if (!city) {
+  showError('city', 'Digite a cidade');
+  isValid = false;
+} } else if (!validCities.includes(city.toLowerCase())) {
+  showError('city', 'Selecione uma cidade válida da lista');
+  isValid = false;
+}
+
+// Validate profile
       const profile = document.getElementById('waitlist-profile').value;
       if (!profile) {
         showError('profile', 'Selecione seu perfil');
@@ -430,9 +439,11 @@
       const inputEl = document.getElementById(`waitlist-${field}`);
       
       if (errorEl) errorEl.textContent = message;
-      if (inputEl) inputEl.classList.add('error');
-    }
-  }
+      if (inputEl) {
+  inputEl.classList.add('error');
+  inputEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+}
 
   // ============================================
   // SUCCESS MODAL
@@ -826,3 +837,4 @@
   }
 
 })();
+
