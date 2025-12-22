@@ -403,6 +403,8 @@ if (!city) {
       document.getElementById('id_user').value = getOrCreateUserId();
       document.getElementById('referrer_id').value = getReferrerFromURL();
       document.getElementById('user_journey').value = JSON.stringify(Tracking.getSummary());
+      document.getElementById('terms_accepted_at').value = new Date().toISOString();
+
       
       // Submit
       const submitBtn = document.getElementById('submitBtn');
@@ -837,4 +839,5 @@ if (!city) {
   }
 
 })();
+
 
