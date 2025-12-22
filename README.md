@@ -122,8 +122,8 @@ Edite em `assets/loomper-app.js`:
 
 ```javascript
 const WA_NUMBER = "5511965858142";              // WhatsApp para contato
-const PIX_KEY = "loomper.app@gmail.com";        // Chave PIX
-const CONTACT_EMAIL = "loomper.app@gmail.com";  // Email de contato
+const PIX_KEY = "contato@loomper.com.br";        // Chave PIX
+const CONTACT_EMAIL = "contato@loomper.com.br";  // Email de contato
 ```
 
 ---
