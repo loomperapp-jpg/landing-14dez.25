@@ -1219,44 +1219,6 @@ ul, ol {
   font-size: 13px;
   color: var(--text-muted);
 }
-
-/* ----------------------------------------
-   RESPONSIVE
-   ---------------------------------------- */
-@media (max-width: 768px) {
-  .nav-desktop {
-    display: none;
-  }
-  
-  .menu-toggle {
-    display: flex;
-  }
-  
-  .hero-ctas {
-    flex-direction: column;
-  }
-  
-  .hero-ctas .btn {
-    width: 100%;
-  }
-  
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .dash-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .profile-cards {
-    grid-template-columns: 1fr;
-  }
-  
-  .about-visual {
-    display: none;
-  }
-}
-
 @media (min-width: 769px) {
   .about-content {
     grid-template-columns: 1.2fr 0.8fr;
@@ -1266,96 +1228,72 @@ ul, ol {
     display: block;
   }
 }
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 var(--spacing-md);
-  }
-  
-  .hero-content {
-    padding: var(--spacing-xl) var(--spacing-md);
-  }
-  
-  .section {
-    padding: var(--spacing-xl) 0;
-  }
-}
-
 /* ============================================
-   UX MOBILE – HERO COMPACTADO (FASE 1)
+   RESPONSIVE MOBILE — CONSOLIDADO (SAFE)
    ============================================ */
 @media (max-width: 768px) {
 
-  /* Hero geral */
+  /* Navegação */
+  .nav-desktop { display: none; }
+  .menu-toggle { display: flex; }
+
+  /* HERO */
   .hero {
-    min-height: auto;              /* remove 100vh no mobile */
-    padding-top: 64px;             /* compensação do header fixo */
-    align-items: flex-start;       /* conteúdo sobe */
+    min-height: auto;
+    padding-top: 64px;
+    align-items: flex-start;
   }
 
-  /* Conteúdo do hero */
   .hero-content {
-    padding-top: var(--spacing-lg);   /* antes: 64px */
-    padding-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-md);
   }
 
-  /* Badge */
   .hero-badge {
-    margin-bottom: var(--spacing-md); /* reduz respiro */
     font-size: 11px;
+    margin-bottom: var(--spacing-md);
   }
 
-  /* Título */
   .hero-title {
-    font-size: 26px;               /* mais compacto no mobile */
+    font-size: 26px;
     line-height: 1.25;
     margin-bottom: var(--spacing-md);
   }
 
-  /* Subtítulo */
   .hero-subtitle {
     font-size: 15px;
     line-height: 1.6;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  /* Microtexto */
-  .hero-micro {
-    margin-bottom: var(--spacing-lg);
-    font-size: 12px;
-  }
-
-}
-@media (max-width: 768px) {
-  .btn-primary {
-    background: linear-gradient(135deg, #f26a3d 0%, #e05a2c 100%);
-    box-shadow: 0 3px 10px rgba(255, 107, 53, 0.25);
-  }
-}
-@media (max-width: 768px) {
-  .hero-badge {
-    margin-bottom: 12px;
-  }
-
-  .hero-title {
-    margin-bottom: 14px;
-  }
-
-  .hero-subtitle {
     margin-bottom: 10px;
   }
-}
-@media (max-width: 768px) {
+
+  .hero-micro {
+    font-size: 12px;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+  }
+
   .hero-ctas .btn-primary {
     opacity: 0.9;
+    background: linear-gradient(135deg, #f26a3d 0%, #e05a2c 100%);
+    box-shadow: 0 3px 10px rgba(255, 107, 53, 0.25);
   }
 
   .hero-ctas .btn-primary:first-child {
     opacity: 1;
     transform: scale(1.02);
   }
-}
-@media (max-width: 768px) {
+
+  /* PERFIS */
+  .profile-cards {
+    grid-template-columns: 1fr;
+  }
+
   .profile-card {
     padding: 20px;
   }
@@ -1363,8 +1301,12 @@ ul, ol {
   .profile-card:first-child {
     border-color: var(--gold);
   }
-}
-@media (max-width: 768px) {
+
+  /* FORM */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
   .form-group {
     margin-bottom: 14px;
   }
@@ -1372,6 +1314,15 @@ ul, ol {
   .form-group label {
     font-size: 13px;
   }
-}
 
+  /* DASH */
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ABOUT */
+  .about-visual {
+    display: none;
+  }
+}
 
