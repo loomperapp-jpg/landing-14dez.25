@@ -1345,4 +1345,33 @@ ul, ol {
     margin-bottom: 10px;
   }
 }
+@media (max-width: 768px) {
+  .hero-ctas .btn-primary {
+    opacity: 0.9;
+  }
+
+  .hero-ctas .btn-primary:first-child {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 20px;
+  }
+
+  .profile-card:first-child {
+    border-color: var(--gold);
+  }
+}
+@media (max-width: 768px) {
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+}
+
 
