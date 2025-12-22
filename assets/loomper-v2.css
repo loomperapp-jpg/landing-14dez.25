@@ -1280,3 +1280,49 @@ ul, ol {
     padding: var(--spacing-xl) 0;
   }
 }
+
+/* ============================================
+   UX MOBILE – HERO COMPACTADO (FASE 1)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Hero geral */
+  .hero {
+    min-height: auto;              /* remove 100vh no mobile */
+    padding-top: 64px;             /* compensação do header fixo */
+    align-items: flex-start;       /* conteúdo sobe */
+  }
+
+  /* Conteúdo do hero */
+  .hero-content {
+    padding-top: var(--spacing-lg);   /* antes: 64px */
+    padding-bottom: var(--spacing-xl);
+  }
+
+  /* Badge */
+  .hero-badge {
+    margin-bottom: var(--spacing-md); /* reduz respiro */
+    font-size: 11px;
+  }
+
+  /* Título */
+  .hero-title {
+    font-size: 26px;               /* mais compacto no mobile */
+    line-height: 1.25;
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Subtítulo */
+  .hero-subtitle {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  /* Microtexto */
+  .hero-micro {
+    margin-bottom: var(--spacing-lg);
+    font-size: 12px;
+  }
+
+}
