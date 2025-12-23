@@ -8,6 +8,20 @@
  * - Razão Social: Ajud.ai Brasil Inova Simples (I.S.)
  * - CNPJ: 59.150.688/0001-39
  */
+/* =========================================================
+   PATCH USER_ID – GARANTIA DE EXECUÇÃO
+   ========================================================= */
+
+(function ensureUserId() {
+  let userId = localStorage.getItem("loomper_user_id");
+
+  if (!userId) {
+    userId = crypto.randomUUID();
+    localStorage.setItem("loomper_user_id", userId);
+  }
+
+  window.LOOMPER_USER_ID = userId;
+})();
 
 (function() {
   'use strict';
@@ -839,5 +853,6 @@ if (!city) {
   }
 
 })();
+
 
 
