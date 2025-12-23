@@ -1,213 +1,180 @@
+<!-- VERSÃO BASE FUNCIONAL — LOOMPER V2
+     Gerada do zero a partir do README + CSS + JS
+     Objetivo: FUNCIONAR, CONFIAR, CONVERTER -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>LOOMPER — A evolução da conexão no transporte de veículos</title>
-  <meta name="description" content="LOOMPER conecta motoristas, chapas e transportadoras no transporte de veículos. Versão Beta com acesso fechado." />
+  <meta name="description" content="Plataforma colaborativa que conecta motoristas, chapas e transportadoras no transporte de veículos. Beta fechado." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="LOOMPER — Conexão no transporte de veículos" />
-  <meta property="og:description" content="Conectamos quem precisa chegar ao destino com quem conhece o caminho." />
+  <meta property="og:description" content="Do pátio ao destino. Pessoas, dados e dignidade." />
   <meta property="og:type" content="website" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/assets/images/icon-l.png" />
+  <link rel="icon" href="/assets/images/icon-l.png" />
 
-  <!-- Fonts -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
+  <!-- CSS -->
   <link rel="stylesheet" href="/assets/loomper-v2.css" />
 </head>
-
 <body>
 
-<!-- =====================================================
-HEADER
-===================================================== -->
+<!-- ================= HEADER ================= -->
 <header class="header" id="header">
   <div class="container header-inner">
-    <a href="#" class="logo">
-      <img src="/assets/images/loomper_logo_semfundo.PNG" alt="LOOMPER" />
+    <a href="#hero" class="logo">
+      <img src="/assets/images/logo-horizontal.jpg" alt="Loomper" />
     </a>
 
     <nav class="nav-desktop">
-      <a href="#sobre">O que é</a>
-      <a href="#para-quem">Para quem</a>
-      <a href="#pioneiros">Pioneiros</a>
-      <a href="#waitlist" class="cta-link">Entrar no Beta</a>
+      <a href="#sobre" class="nav-link">O que é</a>
+      <a href="#como-funciona" class="nav-link">Como funciona</a>
+      <a href="#para-quem" class="nav-link">Para quem</a>
+      <a href="#waitlist" class="nav-link cta-link">Entrar no Beta</a>
     </nav>
 
-    <button class="menu-toggle" id="menuToggle">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"></button>
   </div>
 
   <nav class="nav-mobile" id="navMobile">
     <a href="#sobre">O que é</a>
+    <a href="#como-funciona">Como funciona</a>
     <a href="#para-quem">Para quem</a>
-    <a href="#pioneiros">Pioneiros</a>
     <a href="#waitlist" class="cta-mobile">Entrar no Beta</a>
   </nav>
 </header>
 
-<!-- =====================================================
-HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-    <img src="/assets/images/caminhao-heroi.png" alt="" aria-hidden="true">
+    <img src="/assets/images/hero-truck.png" alt="" />
     <div class="hero-overlay"></div>
   </div>
 
   <div class="container hero-content">
-    <span class="hero-badge">Versão Beta • Acesso Fechado</span>
-
-    <h1 class="hero-title">
-      <span class="text-gold">LOOMPER</span>, a evolução da conexão no transporte de veículos
-    </h1>
-
-    <p class="hero-subtitle">
-      Agilidade, segurança e dignidade para quem vive a operação real todos os dias.
-    </p>
+    <span class="hero-badge">Beta fechado</span>
+    <h1><span class="text-gold">LOOMPER</span>, a evolução da conexão logística</h1>
+    <p class="hero-subtitle">Agilidade, previsibilidade e dignidade para quem vive a estrada.</p>
 
     <div class="hero-ctas">
       <a href="#waitlist" class="btn btn-primary" data-profile="motorista">Sou Motorista</a>
       <a href="#waitlist" class="btn btn-primary" data-profile="chapa">Sou Chapa</a>
       <a href="#waitlist" class="btn btn-primary" data-profile="transportadora">Sou Transportadora</a>
-      <a href="#waitlist" class="btn btn-primary" data-profile="investidor">Sou Investidor</a>
     </div>
   </div>
 </section>
 
-<main>
-
-<!-- =====================================================
-COMO FUNCIONA
-===================================================== -->
-<section class="section section-dark">
+<!-- ================= SOBRE ================= -->
+<section class="section" id="sobre">
   <div class="container">
-    <h2 class="section-title">Como funciona</h2>
-
-    <img src="/ativos/imagens/ciclo.jpg.png" class="img-center" alt="Fluxo Loomper">
-
-    <p class="section-subtitle">
-      Publicar • Conectar • Executar • Avaliar • Evoluir
-    </p>
+    <h2>O Loomper nasce da operação real</h2>
+    <p>Não é teoria. É chão, pátio, carga e descarga. Conectamos pessoas no momento certo.</p>
   </div>
 </section>
 
-<!-- =====================================================
-DADOS VISUAIS
-===================================================== -->
-<section class="section">
-  <div class="container two-columns">
-    <img src="/ativos/imagens/mapa.jpg.png" alt="Mapa Loomper">
-    <img src="/ativos/imagens/motorista-ajudante-logistica-urbana.webp.png" alt="Operação real">
-  </div>
-</section>
-
-<section class="section section-dark">
+<!-- ================= COMO FUNCIONA ================= -->
+<section class="section section-dark" id="como-funciona">
   <div class="container">
-    <h2 class="section-title">Dados para decidir melhor</h2>
-    <img src="/ativos/imagens/dashboard.jpg.png" class="img-center" alt="Dashboard Loomper">
+    <h2>Como funciona</h2>
+    <p>Publicar → Conectar → Executar → Avaliar → Evoluir</p>
+    <img src="/assets/images/fluxo-loomper.png" alt="Fluxo Loomper" />
   </div>
 </section>
 
-<!-- =====================================================
-WAITLIST / FORM NETLIFY
-===================================================== -->
+<!-- ================= PARA QUEM ================= -->
+<section class="section" id="para-quem">
+  <div class="container profile-cards">
+    <div class="profile-card">
+      <h3>🚚 Motoristas</h3>
+      <p>Ajudantes certos, no tempo certo.</p>
+      <button class="btn btn-outline" data-action="simulate" data-profile="motorista">Ver simulação</button>
+    </div>
+
+    <div class="profile-card">
+      <h3>👷 Chapas</h3>
+      <p>Mais oportunidades, menos informalidade.</p>
+      <button class="btn btn-outline" data-action="simulate" data-profile="chapa">Ver simulação</button>
+    </div>
+
+    <div class="profile-card">
+      <h3>🏢 Transportadoras</h3>
+      <p>Gestão, dados e eficiência urbana.</p>
+      <button class="btn btn-outline" data-action="simulate" data-profile="transportadora">Ver simulação</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIMULADOR (CORE) ================= -->
+<div class="simulator-modal" id="simulatorModal" aria-hidden="true">
+  <div class="simulator-overlay"></div>
+  <div class="simulator-content">
+    <button class="simulator-close" id="simulatorClose">×</button>
+    <h3 id="simulatorTitle">Simulador</h3>
+
+    <div class="sim-panel" id="simMotorista"></div>
+    <div class="sim-panel" id="simChapa"></div>
+    <div class="sim-panel" id="simTransportadora"></div>
+  </div>
+</div>
+
+<!-- ================= WAITLIST ================= -->
 <section class="section" id="waitlist">
   <div class="container">
-    <h2 class="section-title">Garanta seu lugar no Beta</h2>
+    <h2>Entrar no Beta</h2>
 
-    <form id="waitlistForm"
-          name="waitlist"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          novalidate>
+    <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="waitlistForm">
+      <input type="hidden" name="form-name" value="waitlist" />
+      <input type="hidden" id="id_user" name="id_user" />
+      <input type="hidden" id="referrer_id" name="referrer_id" />
 
-      <input type="hidden" name="form-name" value="waitlist">
-      <input type="hidden" name="id_user" id="id_user">
-      <input type="hidden" name="referrer_id" id="referrer_id">
-      <input type="hidden" name="user_journey" id="user_journey">
-      <input type="hidden" name="terms_accepted_at" id="terms_accepted_at">
+      <input type="text" name="name" placeholder="Nome completo" required />
+      <input type="tel" name="whatsapp" placeholder="WhatsApp" required />
+      <input type="email" name="email" placeholder="E-mail" required />
 
-      <div style="display:none">
-        <input name="bot-field">
-      </div>
+      <select name="uf" id="waitlist-uf" required></select>
+      <input type="text" name="city" id="waitlist-city" list="city-list" placeholder="Cidade" required />
+      <datalist id="city-list"></datalist>
 
-      <div class="form-group">
-        <label>Nome completo *</label>
-        <input type="text" name="name" id="waitlist-name" required>
-        <span class="field-error" id="name-error"></span>
-      </div>
+      <select name="user_type" id="waitlist-profile" required>
+        <option value="">Perfil</option>
+        <option>Motorista</option>
+        <option>Chapa / Ajudante</option>
+        <option>Transportadora</option>
+      </select>
 
-      <div class="form-group">
-        <label>WhatsApp *</label>
-        <input type="tel" name="whatsapp" id="waitlist-whatsapp" required>
-        <span class="field-error" id="whatsapp-error"></span>
-      </div>
+      <label><input type="checkbox" name="terms" required /> Aceito os termos</label>
 
-      <div class="form-group">
-        <label>E-mail *</label>
-        <input type="email" name="email" id="waitlist-email" required>
-        <span class="field-error" id="email-error"></span>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Estado *</label>
-          <select name="uf" id="waitlist-uf" required></select>
-          <span class="field-error" id="uf-error"></span>
-        </div>
-
-        <div class="form-group">
-          <label>Cidade *</label>
-          <input type="text" name="city" id="waitlist-city" list="city-list" required>
-          <datalist id="city-list"></datalist>
-          <span class="field-error" id="city-error"></span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Perfil *</label>
-        <select name="user_type" id="waitlist-profile" required>
-          <option value="">Selecione</option>
-          <option>Motorista</option>
-          <option>Chapa / Ajudante</option>
-          <option>Transportadora</option>
-          <option>Investidor</option>
-        </select>
-        <span class="field-error" id="profile-error"></span>
-      </div>
-
-      <div class="form-group terms-group">
-        <label>
-          <input type="checkbox" id="waitlist-terms" required>
-          Aceito os Termos e Política de Privacidade
-        </label>
-        <span class="field-error" id="terms-error"></span>
-      </div>
-
-      <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-        Entrar no Beta Loomper
-      </button>
+      <button class="btn btn-primary btn-block">Entrar no Beta</button>
     </form>
   </div>
 </section>
 
-</main>
-
-<footer class="footer">
-  <p>© 2025 LOOMPER — Logística • Tecnologia • Pessoas</p>
+<!-- ================= FOOTER ================= -->
+<footer class="section section-dark">
+  <div class="container">
+    <p><strong>LOOMPER</strong> — Ajud.ai Brasil Inova Simples (IS)</p>
+    <p>CNPJ: 59.150.688/0001-39</p>
+    <p>São Bernardo do Campo • SP • Brasil</p>
+    <p>
+      <a href="/terms.html">Termos</a> | 
+      <a href="/privacy.html">Privacidade</a>
+    </p>
+  </div>
 </footer>
 
+<!-- ================= WHATSAPP FAB ================= -->
+<a href="https://wa.me/5511965858142" class="whatsapp-fab" target="_blank">💬</a>
+
+<!-- JS -->
 <script src="/assets/loomper-v2.js"></script>
 </body>
 </html>
