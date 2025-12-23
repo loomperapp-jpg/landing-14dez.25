@@ -1,26 +1,31 @@
 /**
- * LOOMPER V2 - JavaScript (FINAL LIMPO)
- * Tracking, simulador e Netlify Forms
+ * LOOMPER V2 — JavaScript BLINDADO (PRODUÇÃO)
+ * Tracking • Simulador • Netlify Forms • WhatsApp
  */
 
 (function () {
   'use strict';
 
   /* ===============================
+     HELPERS
+     =============================== */
+  const $ = (id) => document.getElementById(id);
+  const $$ = (sel) => document.querySelectorAll(sel);
+
+  /* ===============================
      USER ID — GARANTIA ABSOLUTA
      =============================== */
+  function generateUserId() {
+    if (window.crypto && crypto.randomUUID) {
+      return 'LMP-' + crypto.randomUUID().split('-')[0].toUpperCase();
+    }
+    return 'LMP-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+  }
+
   function getOrCreateUserId() {
     let id = localStorage.getItem('loomper_user_id');
     if (!id) {
-     function generateId() {
-  if (window.crypto && crypto.randomUUID) {
-    return crypto.randomUUID().split('-')[0].toUpperCase();
-  }
-  return Math.random().toString(36).substring(2, 10).toUpperCase();
-}
-
-id = 'LMP-' + generateId();
-
+      id = generateUserId();
       localStorage.setItem('loomper_user_id', id);
     }
     return id;
@@ -32,14 +37,28 @@ id = 'LMP-' + generateId();
      REFERRER
      =============================== */
   function getReferrer() {
-    return new URLSearchParams(window.location.search).get('ref') || 'direct';
+    try {
+      return new URLSearchParams(window.location.search).get('ref') || 'direct';
+    } catch {
+      return 'direct';
+    }
   }
 
   /* ===============================
-     TRACKING SIMPLES E CONFIÁVEL
+     TRACKING
      =============================== */
   const Tracking = {
     journey: [],
+
+    load() {
+      try {
+        const saved = localStorage.getItem('loomper_journey');
+        if (saved) this.journey = JSON.parse(saved);
+      } catch {
+        this.journey = [];
+      }
+    },
+
     track(action, data = {}) {
       this.journey.push({
         action,
@@ -47,10 +66,9 @@ id = 'LMP-' + generateId();
         at: new Date().toISOString()
       });
       localStorage.setItem('loomper_journey', JSON.stringify(this.journey));
-    },load() {
-  const saved = localStorage.getItem('loomper_journey');
-  if (saved) this.journey = JSON.parse(saved);
-}    summary() {
+    },
+
+    summary() {
       const profiles = this.journey.map(j => j.data.profile).filter(Boolean);
       return {
         profile: profiles.at(-1) || 'não identificado',
@@ -64,16 +82,17 @@ id = 'LMP-' + generateId();
      HEADER / MENU MOBILE
      =============================== */
   function initHeader() {
-    const header = document.getElementById('header');
+    const header = $('header');
     if (!header) return;
+
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 40);
     });
   }
 
   function initMobileMenu() {
-    const toggle = document.getElementById('menuToggle');
-    const nav = document.getElementById('navMobile');
+    const toggle = $('menuToggle');
+    const nav = $('navMobile');
     if (!toggle || !nav) return;
 
     toggle.addEventListener('click', () => {
@@ -86,16 +105,18 @@ id = 'LMP-' + generateId();
      PERFIL SELECIONADO
      =============================== */
   function initProfileSelection() {
-    document.querySelectorAll('[data-profile]').forEach(btn => {
+    $$('[data-profile]').forEach(btn => {
       btn.addEventListener('click', () => {
-        localStorage.setItem('loomper_profile', btn.dataset.profile);
-        Tracking.track('profile-selected', { profile: btn.dataset.profile });
+        const profile = btn.dataset.profile;
+        if (!profile) return;
+        localStorage.setItem('loomper_profile', profile);
+        Tracking.track('profile-selected', { profile });
       });
     });
   }
 
   function applyProfileToForm() {
-    const select = document.getElementById('waitlist-profile');
+    const select = $('waitlist-profile');
     if (!select) return;
 
     const map = {
@@ -113,16 +134,19 @@ id = 'LMP-' + generateId();
      FORM NETLIFY
      =============================== */
   function initForm() {
-    const form = document.getElementById('waitlistForm');
+    const form = $('waitlistForm');
     if (!form) return;
 
     form.addEventListener('submit', () => {
-      document.getElementById('id_user').value = USER_ID;
-      document.getElementById('referrer_id').value = getReferrer();
-      document.getElementById('user_journey').value =
-        JSON.stringify(Tracking.summary());
-      document.getElementById('terms_accepted_at').value =
-        new Date().toISOString();
+      const idUser = $('id_user');
+      const ref = $('referrer_id');
+      const journey = $('user_journey');
+      const termsAt = $('terms_accepted_at');
+
+      if (idUser) idUser.value = USER_ID;
+      if (ref) ref.value = getReferrer();
+      if (journey) journey.value = JSON.stringify(Tracking.summary());
+      if (termsAt) termsAt.value = new Date().toISOString();
 
       Tracking.track('form-submit');
     });
@@ -132,34 +156,35 @@ id = 'LMP-' + generateId();
      SIMULADOR
      =============================== */
   function initSimulator() {
-    const modal = document.getElementById('simulatorModal');
+    const modal = $('simulatorModal');
     if (!modal) return;
 
-    const open = profile => {
-      modal.setAttribute('aria-hidden', 'false');
-      document
-        .querySelectorAll('.sim-panel')
-        .forEach(p => (p.style.display = 'none'));
+    const title = $('simulatorTitle');
+    const closeBtn = $('simulatorClose');
 
-      document.getElementById(`sim${profile}`)?.style.setProperty('display', 'block');
-      document.getElementById('simulatorTitle').innerText =
-        `Simulador — ${profile}`
-        const simMap = {
-  motorista: 'simMotorista',
-  chapa: 'simChapa',
-  transportadora: 'simTransportadora'
-};
-
-document.getElementById(simMap[profile])?.style.setProperty('display', 'block');
-
-      Tracking.track('simulator-open', { profile });
+    const panels = {
+      motorista: $('simMotorista'),
+      chapa: $('simChapa'),
+      transportadora: $('simTransportadora')
     };
 
-    document.querySelectorAll('[data-action="simulate"]').forEach(btn => {
+    function open(profile) {
+      if (!panels[profile]) return;
+
+      modal.setAttribute('aria-hidden', 'false');
+      Object.values(panels).forEach(p => p && (p.style.display = 'none'));
+      panels[profile].style.display = 'block';
+
+      if (title) title.textContent = `Simulador — ${profile}`;
+
+      Tracking.track('simulator-open', { profile });
+    }
+
+    $$('[data-action="simulate"]').forEach(btn => {
       btn.addEventListener('click', () => open(btn.dataset.profile));
     });
 
-    document.getElementById('simulatorClose')?.addEventListener('click', () => {
+    closeBtn?.addEventListener('click', () => {
       modal.setAttribute('aria-hidden', 'true');
     });
   }
@@ -168,13 +193,15 @@ document.getElementById(simMap[profile])?.style.setProperty('display', 'block');
      WHATSAPP FAB
      =============================== */
   function initWhatsApp() {
-    const btn = document.getElementById('whatsappFab');
+    const btn = $('whatsappFab');
     if (!btn) return;
 
     btn.addEventListener('click', e => {
       e.preventDefault();
       const summary = Tracking.summary();
-      const msg = `Olá! Sou ${summary.profile} e me cadastrei no Beta LOOMPER. Meu ID é ${USER_ID}`;
+      const msg =
+        `Olá! Sou ${summary.profile} e me cadastrei no Beta LOOMPER.` +
+        ` Meu ID é ${USER_ID}.`;
       window.open(
         `https://wa.me/5511965858142?text=${encodeURIComponent(msg)}`,
         '_blank'
@@ -186,6 +213,7 @@ document.getElementById(simMap[profile])?.style.setProperty('display', 'block');
      INIT
      =============================== */
   document.addEventListener('DOMContentLoaded', () => {
+    Tracking.load();
     initHeader();
     initMobileMenu();
     initProfileSelection();
@@ -193,10 +221,8 @@ document.getElementById(simMap[profile])?.style.setProperty('display', 'block');
     initForm();
     initSimulator();
     initWhatsApp();
-    Tracking.load();
 
-    console.log('%cLOOMPER pronto.', 'color:#d4a847;font-weight:bold');
+    console.log('%cLOOMPER JS carregado com sucesso.', 'color:#d4a847;font-weight:bold');
   });
+
 })();
-
-
