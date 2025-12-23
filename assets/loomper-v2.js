@@ -143,7 +143,14 @@ id = 'LMP-' + generateId();
 
       document.getElementById(`sim${profile}`)?.style.setProperty('display', 'block');
       document.getElementById('simulatorTitle').innerText =
-        `Simulador — ${profile}`;
+        `Simulador — ${profile}`
+        const simMap = {
+  motorista: 'simMotorista',
+  chapa: 'simChapa',
+  transportadora: 'simTransportadora'
+};
+
+document.getElementById(simMap[profile])?.style.setProperty('display', 'block');
 
       Tracking.track('simulator-open', { profile });
     };
@@ -191,4 +198,5 @@ id = 'LMP-' + generateId();
     console.log('%cLOOMPER pronto.', 'color:#d4a847;font-weight:bold');
   });
 })();
+
 
