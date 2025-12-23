@@ -12,7 +12,15 @@
   function getOrCreateUserId() {
     let id = localStorage.getItem('loomper_user_id');
     if (!id) {
-      id = 'LMP-' + crypto.randomUUID().split('-')[0].toUpperCase();
+     function generateId() {
+  if (window.crypto && crypto.randomUUID) {
+    return crypto.randomUUID().split('-')[0].toUpperCase();
+  }
+  return Math.random().toString(36).substring(2, 10).toUpperCase();
+}
+
+id = 'LMP-' + generateId();
+
       localStorage.setItem('loomper_user_id', id);
     }
     return id;
@@ -39,8 +47,10 @@
         at: new Date().toISOString()
       });
       localStorage.setItem('loomper_journey', JSON.stringify(this.journey));
-    },
-    summary() {
+    },load() {
+  const saved = localStorage.getItem('loomper_journey');
+  if (saved) this.journey = JSON.parse(saved);
+}    summary() {
       const profiles = this.journey.map(j => j.data.profile).filter(Boolean);
       return {
         profile: profiles.at(-1) || 'não identificado',
@@ -176,7 +186,9 @@
     initForm();
     initSimulator();
     initWhatsApp();
+    Tracking.load();
 
     console.log('%cLOOMPER pronto.', 'color:#d4a847;font-weight:bold');
   });
 })();
+
